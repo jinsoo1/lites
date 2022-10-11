@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="colorPrimary">#1367A7</color>
+    <color name="colorSecondary">#53A9E9</color>
+    <color name="colorSecondaryGhost">#D9EFFF</color>
+    <color name="colorDisabled">#587A95</color>
+    <color name="colorPrimaryDark">#C0C0C0</color>
+    <color name="colorAccent">#5982F6</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="redPrimary">#EB5757</color>
+    <color name="blackPrimary">#1F2F3A</color>
+    <color name="greenPrimary">#8CC29F</color>
+    <color name="primaryGhost">#7B9CB5</color>
+    <color name="text">#8CC29F</color>
+
+
+    <color name="blue100">#D2D4FF</color>
+    <color name="blue200">#B7BAFF</color>
+    <color name="blue300">#8289FF</color>
+    <color name="blue400">#636BFF</color>
+    <color name="blue500">#4E57F9</color>
+    <color name="blue600">#313AD7</color>
+    <color name="blue700">#252DC9</color>
+    <color name="blue800">#1921B8</color>
+    <color name="blue900">#0E169F</color>
+
+    <color name="navy100">#C1CADF</color>
+    <color name="navy200">#808DAC</color>
+    <color name="navy300">#4F5B78</color>
+    <color name="navy400">#37425C</color>
+    <color name="navy500">#273149</color>
+    <color name="navy600">#1D2538</color>
+    <color name="navy700">#151C2C</color>
+    <color name="navy800">#0A0F19</color>
+    <color name="navy900">#050913</color>
+
+    <color name="monotone200">#eeeeee</color>
+    <color name="textPlaceHolder">#8e8e8e</color>
+    <color name="bottomTab">#a1a1a1</color>
+    <color name="color_facebook">#1877F2</color>
+    <color name="color_kakao">#ffdd00</color>
+
+    //new
+    <color name="black">#000000</color>
+    <color name="primary">#5982F6</color>
+    <color name="primary_second">#A0DDFF</color>
+    <color name="hotplace_txt">#191919</color>
+    <color name="my_chat_txt_color">#666666</color>
+    <color name="grey_999">#999999</color>
+    <color name="grey_666">#666666</color>
+    <color name="grey_888">#888888</color>
+    <color name="grey_bbb">#BBBBBB</color>
+    <color name="grey_ededed">#EDEDED</color>
+    <color name="grey_bbb_40">#4DBBBBBB</color>
+    <color name="grey_light">#EAEAEA</color>
+    <color name="comment_bck">#E7F6FF</color>
+    <color name="menu_default_bck">#BBBBBB</color>
+    <color name="grey_F6">#F6F6F6</color>
+    <color name="black_2929">#292929</color>
+    <color name="black_1919">#191919</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_09">#090909</color>
+    <color name="grey_7d">#7D7D7D</color>
+    <color name="push_color">#F2FAFF</color>
+    <color name="grey_c4">#C4C4C4</color>
+    <color name="second_primary">#CCD2E3</color>
+</resources>
