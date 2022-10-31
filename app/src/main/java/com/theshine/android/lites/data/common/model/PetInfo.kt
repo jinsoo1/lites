@@ -12,5 +12,4 @@ data class PetInfo(
     val waist: String,
     val bcs: Int
 
-
 )
