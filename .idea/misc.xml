@@ -7,11 +7,82 @@
         <entry key="..\:/Users/i5-4690/AndroidStudioProjects/MyApplication/app/src/main/res/drawable-v24/ic_gallery_post.xml" value="0.2145" />
         <entry key="..\:/Users/i5-4690/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/Users/i5-4690/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_vv.xml" value="0.1875" />
+        <entry key="..\:/lites/app/src/main/res/drawable/bg_rounded_f9f8_radius_50dp.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/bg_scale_yellow_f9f8.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/bg_yellow_fefb_radius_10dp.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/bg_yellow_fefb_radius_6dp.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/bottom_sheet_radius_4dp.xml" value="0.31" />
+        <entry key="..\:/lites/app/src/main/res/drawable/btn_green_40c5_radius_50dp.xml" value="0.297" />
+        <entry key="..\:/lites/app/src/main/res/drawable/btn_green_dcf5_radius_10dp.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/btn_scale_connected_yellow.xml" value="0.301" />
+        <entry key="..\:/lites/app/src/main/res/drawable/circle_indicator_grey.xml" value="0.367" />
+        <entry key="..\:/lites/app/src/main/res/drawable/circle_indicator_primary.xml" value="0.367" />
+        <entry key="..\:/lites/app/src/main/res/drawable/edit_box.xml" value="0.3135" />
+        <entry key="..\:/lites/app/src/main/res/drawable/edit_box_radius_6dp_yellow_grey.xml" value="0.2605" />
+        <entry key="..\:/lites/app/src/main/res/drawable/editbox_radius_6dp.xml" value="0.366" />
+        <entry key="..\:/lites/app/src/main/res/drawable/gradient.xml" value="0.2985" />
+        <entry key="..\:/lites/app/src/main/res/drawable/grey_d9_oval.xml" value="0.3135" />
+        <entry key="..\:/lites/app/src/main/res/drawable/grey_d9_radius_100dp.xml" value="0.3135" />
+        <entry key="..\:/lites/app/src/main/res/drawable/grey_d9_radius_10dp.xml" value="0.3135" />
+        <entry key="..\:/lites/app/src/main/res/drawable/grey_d9_stroke_box.xml" value="0.3135" />
+        <entry key="..\:/lites/app/src/main/res/drawable/main_green_rounded_btn.xml" value="0.31" />
+        <entry key="..\:/lites/app/src/main/res/drawable/shape_switch_button_off.xml" value="0.3335" />
+        <entry key="..\:/lites/app/src/main/res/drawable/shape_switch_button_on.xml" value="0.3335" />
+        <entry key="..\:/lites/app/src/main/res/drawable/shape_switch_track_off.xml" value="0.3335" />
+        <entry key="..\:/lites/app/src/main/res/drawable/switch_selector.xml" value="0.3335" />
+        <entry key="..\:/lites/app/src/main/res/drawable/yellow_rounded_btn.xml" value="0.31" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_chatter.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_feed.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_info.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_post_write.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_shared_info.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/activity_splash.xml" value="0.3609375" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_chatter_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community_chatter_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community_chatter_room.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community_feed.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community_feed_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_community_share_info.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_feed_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_graph.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_home.xml" value="0.3609375" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_home_main.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_bcs.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_name.xml" value="0.25" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_physical.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_scale.xml" value="0.274609375" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_select.xml" value="0.29957264957264956" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_info_variety.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage.xml" value="0.3609375" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_event.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_info.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_inquiry.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_management.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_nav.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_notice.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_mypage_setting.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_search.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_shared_info_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/fragment_weight_info.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_comment_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_community_chatter_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_community_sharedinfo_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_event_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_inquiry_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_local_image.xml" value="0.36614583333333334" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_notice_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_setting_list.xml" value="0.3651041666666667" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_share_info_list.xml" value="0.33" />
+        <entry key="..\:/lites/app/src/main/res/layout/item_vv.xml" value="0.3619791666666667" />
+        <entry key="..\:/lites/app/src/main/res/menu/menu_main.xml" value="0.3619791666666667" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

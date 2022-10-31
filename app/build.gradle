@@ -16,6 +16,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -38,6 +39,20 @@ android {
         dataBinding = true
         viewBinding = true
     }
+
+    flavorDimensions "server"
+    productFlavors {
+        dev {
+            dimension = "server"
+            applicationIdSuffix ".dev"
+            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+        }
+        prod {
+            dimension = "server"
+            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+        }
+    }
+
 }
 
 dependencies {
@@ -76,6 +91,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.firebase:firebase-dynamic-links-ktx:21.0.0'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
     kapt "com.github.bumptech.glide:compiler:$glide"
 
     //androidx
@@ -114,5 +130,7 @@ dependencies {
     //구글 로그인
     implementation 'com.shobhitpuri.custombuttons:google-signin:1.1.0'
     //카카오 로그인
-    implementation 'com.kakao.sdk:v2-user:2.0.5'
+    implementation 'com.kakao.sdk:v2-user:2.11.2'
+    implementation "com.kakao.sdk:v2-user-rx:2.11.2"
+
 }

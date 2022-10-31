@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/menuHome"
+        android:title="@string/HOME" />
+
+    <item
+        android:id="@+id/menuCommunity"
+        android:title="@string/COMMUNITY" />
+
+    <item
+        android:id="@+id/menuSearch"
+        android:title="@string/SEARCH" />
+
+
+    <item
+        android:id="@+id/menuMypage"
+        android:title="@string/MY_PAGE" />
+
+</menu>

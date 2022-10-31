@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.theshine.android.lites.data.common.model.User" />
+
+    </data>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="'"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="'의 체중정보를 확인하세요"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BCS단계"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:textSize="14dp"
+            android:textColor="@color/black"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="60dp"
+           android:orientation="horizontal"
+           android:layout_marginLeft="15dp"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="10dp"
+           android:background="@drawable/bg_green_dcf5_radius_10dp"
+           android:layout_gravity="center"
+           android:gravity="center">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="'"
+               android:textSize="15dp"
+               android:textColor="@color/black"
+               />
+
+           <TextView
+               android:id="@+id/textView2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="닉네임"
+               android:textSize="15dp"
+               android:textColor="@color/black"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="'의 BCS단계는 "
+               android:textSize="15dp"
+               android:textColor="@color/black"/>
+
+           <TextView
+               android:id="@+id/tvBcsStage"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="1단계"
+               android:textSize="15dp"
+               android:textColor="@color/green_009C"/>
+           <TextView
+               android:id="@+id/textView3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="입니다."
+               android:textSize="15dp"
+               android:textColor="@color/black"/>
+
+       </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/yellow_F9F8"
+            android:layout_marginTop="25dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체중정보"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:textSize="14dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_009C"
+                android:text="적정체중"
+                android:textSize="15dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvProperWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="20dp"
+                android:layout_marginRight="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="kg"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow_F9F8"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_009C"
+                android:text="기초대사량"
+                android:textSize="15dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvBasalMetabolicRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="20dp"
+                android:layout_marginRight="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="kcal"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow_F9F8"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_009C"
+                android:text="권장 사료량"
+                android:textSize="15dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvFeedAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="20dp"
+                android:layout_marginRight="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="g"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow_F9F8"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_009C"
+                android:text="권장 활동량"
+                android:textSize="15dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="10"
+                android:textSize="20dp"
+                android:layout_marginRight="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="시간"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/yellow_F9F8"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="심박수"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:textSize="14dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_square_fefb_radius_6dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="심박수 기록하기"
+                android:layout_marginLeft="15dp"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tvHeartRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="00"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="회"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="심장에 손을 대고 1분동안 심박수를 측정해주세요"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:background="@drawable/bg_rounded_f9f8_radius_50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"/>
+
+
+    </LinearLayout>
+
+</layout>

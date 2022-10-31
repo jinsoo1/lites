@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.info.namebirth.NameViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/page1"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_gravity="end"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title2"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/bg_oval_d9d9"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:text="@string/img_select"
+                    android:textColor="@color/black"
+                    android:textSize="24dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="122dp"
+                android:layout_height="29dp"
+                android:background="@drawable/bg_rounded_d9d9_radius_100dp"
+                android:text="@string/do_it_next"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="122dp"
+                android:layout_height="29dp"
+                android:text="@string/name_input"
+                android:layout_gravity="start"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:hint="이름을 입력해주세요"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:background="@drawable/bg_square_f9f8_radius_6dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="122dp"
+                android:layout_height="29dp"
+                android:text="@string/birth_input"
+                android:layout_gravity="start"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/etBirth"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_square_f9f8_radius_6dp"
+                android:inputType="date"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:hint="생년월일 8자리(공백없이)"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"/>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:onClick="@{() -> vm.next()}"
+            android:background="@color/green_DCF5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:textSize="20dp"
+                android:textColor="@color/green_009C"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

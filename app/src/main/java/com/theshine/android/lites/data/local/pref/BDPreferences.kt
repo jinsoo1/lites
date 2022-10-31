@@ -13,6 +13,7 @@ interface BDPreferences {
         var bio: String
 
 
+
         var noticeCreated : String
 
         fun clearPref()

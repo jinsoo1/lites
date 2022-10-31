@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.info.select.SelectViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title1"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sub_title1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:textSize="14dp"
+            android:textColor="@color/grey_8082"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="15dp"
+                    android:onClick="@{() -> vm.clickDog()}">
+
+                    <ImageView
+                        android:id="@+id/ivDog"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:background="@drawable/bg_oval_d9d9"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_add_24"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dog"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:onClick="@{() -> vm.clickCat()}">
+
+                    <ImageView
+                        android:id="@+id/ivCat"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:background="@drawable/bg_oval_d9d9"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="24dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_add_24"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cat"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:onClick="@{() -> vm.next()}"
+            android:background="@color/green_DCF5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:textSize="20dp"
+                android:textColor="@color/green_009C"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

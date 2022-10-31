@@ -4,8 +4,10 @@ import android.util.Log
 import androidx.databinding.ktx.BuildConfig
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
+import com.theshine.android.lites.BuildConfig.BASE_URL
 import com.theshine.android.lites.data.common.interceptor.ErrorInterceptor
 import com.theshine.android.lites.data.common.interceptor.HeaderInterceptor
+import com.theshine.android.lites.data.remote.api.AuthApi
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +17,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 val networkModule = module {
-
 
     single {
         HttpLoggingInterceptor(LoggerInterceptor()).apply {
@@ -43,6 +44,7 @@ val networkModule = module {
             .addInterceptor(get<HttpLoggingInterceptor>())
             .addInterceptor(get<HeaderInterceptor>())
             .addInterceptor(get<ErrorInterceptor>())
+            .build()
     }
 
     single { RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()) }
@@ -51,18 +53,17 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://ec2-43-200-215-225.ap-northeast-2.compute.amazonaws.com:5500")
             .client(get<OkHttpClient>())
             .addCallAdapterFactory(get<RxJava2CallAdapterFactory>())
             .addConverterFactory(get<GsonConverterFactory>())
             .build()
     }
 
-
-
+    //Api추가시에 한줄씩 추가
+    single<AuthApi> { get<Retrofit>().create(AuthApi::class.java) }
 
 }
-
 
 class LoggerInterceptor : HttpLoggingInterceptor.Logger{
     companion object {
@@ -86,5 +87,4 @@ class LoggerInterceptor : HttpLoggingInterceptor.Logger{
             Log.e("Network Response", message, null)
         }
     }
-
 }

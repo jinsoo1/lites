@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="android.net.Uri" />
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.community.post.PostWriteViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/btn_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_gravity="end"
+            android:elevation="4dp"/>
+        <!-- android:visibility="@{vm.imageUri.size() &lt;= 1 ? View.GONE : View.VISIBLE}"-->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bindImage="@{item.toString()}"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

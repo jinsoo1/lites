@@ -6,6 +6,8 @@ import android.net.ConnectivityManager
 import androidx.annotation.StringRes
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ProcessLifecycleOwner
+import com.kakao.sdk.common.KakaoSdk
+import com.theshine.android.lites.R
 import com.theshine.android.lites.data.common.networkModule
 import com.theshine.android.lites.data.local.localDataSourceModule
 import com.theshine.android.lites.data.remote.remoteDataSourceModule
@@ -20,6 +22,9 @@ class App : Application(), LifecycleObserver {
         appContext = this
         setKoin()
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+
+        KakaoSdk.init(this, getString(R.string.native_app_key))
+
     }
 
 

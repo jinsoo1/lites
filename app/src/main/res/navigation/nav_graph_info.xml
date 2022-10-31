@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_info"
+    app:startDestination="@id/fragment_select">
+
+
+    <fragment
+        android:id="@+id/fragment_select"
+        android:name="com.theshine.android.lites.ui.view.info.select.SelectFragment"
+        android:label="fragment_1"
+        tools:layout="@layout/fragment_info_select">
+
+        <action
+            android:id="@+id/action_selectFragment_to_nameFragment"
+            app:destination="@+id/fragment_name"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_name"
+        android:name="com.theshine.android.lites.ui.view.info.namebirth.NameFragment"
+        android:label="fragment_2"
+        tools:layout="@layout/fragment_info_name">
+
+        <action
+            android:id="@+id/action_nameFragment_to_varietyFragment"
+            app:destination="@+id/fragment_variety"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_variety"
+        android:name="com.theshine.android.lites.ui.view.info.variety.VarietyFragment"
+        android:label="fragment_3"
+        tools:layout="@layout/fragment_info_variety">
+
+        <action
+            android:id="@+id/action_varietyFragment_to_physicalFragment"
+            app:destination="@+id/fragment_physical"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_physical"
+        android:name="com.theshine.android.lites.ui.view.info.physical.PhysicalFragment"
+        android:label="fragment_4"
+        tools:layout="@layout/fragment_info_physical">
+
+        <action
+            android:id="@+id/action_physicalFragment_to_bcsFragment"
+            app:destination="@+id/fragment_bcs"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_bcs"
+        android:name="com.theshine.android.lites.ui.view.info.bcs.BcsFragment"
+        android:label="fragment_5"
+        tools:layout="@layout/fragment_info_bcs">
+
+        <action
+            android:id="@+id/action_bcsFragment_to_scaleFragment"
+            app:destination="@+id/fragment_scale"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_scale"
+        android:name="com.theshine.android.lites.ui.view.info.scale.ScaleFragment"
+        android:label="fragment_6"
+        tools:layout="@layout/fragment_info_scale"/>
+
+
+</navigation>

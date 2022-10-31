@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.info.variety.VarietyViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+   
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/page2"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_gravity="end"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title3"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/variety"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_square_f9f8_radius_6dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvVariety"
+                    android:text="선택하기"
+                    android:layout_gravity="center"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="12dp"
+                    android:text="@string/female"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp"
+                    android:onClick="@{() -> vm.clickFemale()}"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/male"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp"
+                    android:onClick="@{() -> vm.clickMale()}"
+                    />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/neutralization"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="35dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="12dp"
+                    android:text="O 했어요"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp"
+                    android:onClick="@{() -> vm.clickO()}"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="X 안했어요"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp"
+                    android:onClick="@{() -> vm.clickX()}"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
+
+            <LinearLayout
+                android:id="@+id/sheetVariety"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="품종"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVariety"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:overScrollMode="never"/>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="@{() -> vm.next()}"
+                android:background="@color/green_DCF5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"
+                    android:textSize="20dp"
+                    android:textColor="@color/green_009C"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,3 +1,100 @@
 <resources>
     <string name="app_name">Lites</string>
+    <string name="HOME">HOME</string>
+    <string name="COMMUNITY">COMMUNITY</string>
+    <string name="SEARCH">SEARCH</string>
+    <string name="MY_PAGE">MY PAGE</string>
+
+    <string name="native_app_key">25fe676103f31afc621f1ba5ec1d0b12</string>
+
+    <!-- 내정보 페이지 -->
+    <string name="my_page">내정보</string>
+    <string name="my_notice">공지사항</string>
+    <string name="my_event">이벤트</string>
+    <string name="my_inquiry">문의</string>
+    <string name="my_inquiry_one">1:1 문의</string>
+    <string name="my_inquiry_two">문의사항</string>
+    <string name="my_setting">알림설정</string>
+    <string name="my_management">계정관리</string>
+    <string name="my_info">서비스 정보</string>
+    <string name="my_act">내활동</string>
+
+    <!-- 알림 페이지 -->
+    <string name="basic_notice">일반 알림</string>
+    <string name="marketing_notice">마케팅 알림</string>
+
+    <!-- 로그인 페이지 -->
+    <string name="emain_join">이메일 회원가입</string>
+    <string name="emain_login">이메일 로그인</string>
+
+    <!-- 반려견 정보입력 페이지 -->
+    <string name="title1">반려동물에 대한 정보를 입력해주세요</string>
+    <string name="sub_title1">지금부터 단계적으로 반려동물에 대한 정보를 입력하고\n유익한 정보 얻어가세요!</string>
+    <string name="title2">이름과 생일을 입력해 주세요</string>
+    <string name="title3">품종과 성별, 중성화 여부를\n선택해주세요</string>
+    <string name="title4"></string>
+    <string name="title5">BCS단계를 선택해주세요</string>
+    <string name="title6">체중계를 연동하고\n우리아이 건강관리 시작해볼까요?</string>
+
+    <string name="page1">1/5</string>
+    <string name="page2">2/5</string>
+    <string name="page3">3/5</string>
+    <string name="page4">4/5</string>
+    <string name="page5">5/5</string>
+
+    <string name="dog">강아지</string>
+    <string name="cat">고양이</string>
+    <string name="do_it_next">다음에 하기</string>
+    <string name="name_input">이름 입력</string>
+    <string name="birth_input">생일</string>
+    <string name="variety">품종</string>
+    <string name="gender">성별</string>
+    <string name="female">여아</string>
+    <string name="male">남아</string>
+    <string name="neutralization">중성화</string>
+    <string name="selected">선택완료</string>
+    <string name="next">다음</string>
+    <string name="scale_interlock">체중계 연동하러 가기</string>
+    <string name="complete">완료</string>
+    <string name="img_select">이미지선택</string>
+
+    <string name="everything_area">전체지역</string>
+    <string name="setting_area">지역 설정</string>
+
+    <string name="go_to_community">커뮤니티로 이동</string>
+    <string name="go_to_store">스토어로 이동</string>
+
+    <string name="cm">cm</string>
+    <string name="height_announce">신장은 이렇게 측정하면 돼요!</string>
+    <string name="waist_announce">허리둘레는 이렇게 측정하면 돼요!</string>
+    <string name="tab1">정보공유</string>
+    <string name="tab2">수다방</string>
+    <string name="tab3">피드</string>
+    <string name="write_posting">게시글 작성</string>
+
+    <string name="like">좋아요</string>
+    <string name="comment">댓글</string>
+    <string name="comment_input">댓글달기</string>
+
+    <string name="posting_1">지역 설정해주세요</string>
+    <string name="posting_2">게시물을 작성해주세요</string>
+    <string name="posting_3">이미지를 선택해주세요</string>
+    <string name="posting_hint_1">지역설정</string>
+    <string name="posting_hint_2">제목작성</string>
+    <string name="posting_hint_3">본문작성</string>
+
+    <!--메인 탭 -->
+    <string name="search_hospital">병원찾기</string>
+    <string name="info_hospital">병원정보</string>
+
+
+    <!-- test-->
+    <string name="test_long">본문 내용을 보여줍니다.본문 내용을 보여줍니다.본문 내용을 보여 줍니다.본문 내용을 보여줍니다본문 내용을 보여줍니다.본문 내용을 보여줍니다.본문 내용을 보여 줍니다.본문 내용을 보여줍니다</string>
+
+
+
+
+
+
+
 </resources>

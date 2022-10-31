@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuHome">
+
+    <keep_state_fragment
+        android:id="@+id/menuHome"
+        android:name="com.theshine.android.lites.ui.view.main.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/menuCommunity"
+        android:name="com.theshine.android.lites.ui.view.main.community.CommunityFragment"
+        android:label="CommunityFragment"
+        tools:layout="@layout/fragment_community"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/menuSearch"
+        android:name="com.theshine.android.lites.ui.view.main.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"
+        >
+
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/menuMypage"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_mypage"
+        >
+
+    </keep_state_fragment>
+
+    <action android:id="@+id/action_global_home_fragment"
+        app:destination="@+id/menuHome"
+        />
+
+
+</navigation>

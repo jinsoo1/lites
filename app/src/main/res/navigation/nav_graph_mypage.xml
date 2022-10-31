@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_mypage_graph"
+    app:startDestination="@id/myPageNavFragment">
+
+    <fragment
+        android:id="@+id/myPageNavFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.MyPageNavFragment"
+        android:label="MyPageNavFragment" >
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_noticeFragment"
+            app:destination="@id/noticeFragment" />
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_inquiryFragment"
+            app:destination="@id/inquiryFragment" />
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_managementFragment"
+            app:destination="@id/managementFragment" />
+
+        <action
+            android:id="@+id/action_myPageNavFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/noticeFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.notice.NoticeFragment"
+        android:label="NoticeFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.event.EventFragment"
+        android:label="EventFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/inquiryFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryFragment"
+        android:label="InquiryFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.setting.SettingFragment"
+        android:label="SettingFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/managementFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.management.ManagementFragment"
+        android:label="ManagementFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.info.InfoFragment"
+        android:label="InfoFragment" >
+    </fragment>
+
+
+</navigation>
