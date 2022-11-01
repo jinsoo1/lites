@@ -193,6 +193,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
     private fun resultGoogleLogin(){
 
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            Log.d("googleAccount", result.resultCode.toString())
             if(result.resultCode == RESULT_OK){
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 try{
