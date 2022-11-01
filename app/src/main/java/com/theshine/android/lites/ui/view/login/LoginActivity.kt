@@ -2,7 +2,6 @@ package com.theshine.android.lites.ui.view.login
 
 import android.content.Intent
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -29,7 +28,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.ext.android.inject
-import org.koin.java.KoinJavaComponent.inject
 
 class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
     R.layout.activity_login,
@@ -41,18 +39,20 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
     private lateinit var resultLauncher : ActivityResultLauncher<Intent>
 
-
     //구글로그인 초기설정
-    private val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestEmail()
-        .build()
-
+    private lateinit var gso : GoogleSignInOptions
     private lateinit var googleSignInIntent : GoogleSignInClient
 
     private val authDataSource: AuthDataSource by inject()
     private val userLoginLocalDataSource: UserLoginLocalDataSource by inject()
 
     override fun initActivity() {
+
+
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("408063195293-84uhokupbenf7au3v1dd0qajn8hv85pj.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
 
         googleSignInIntent = GoogleSignIn.getClient(this@LoginActivity, gso)
         signOut()
@@ -83,7 +83,6 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
                 LoginViewModel.LoginActions.LOGIN ->{
                     //로그인성공
-
 
                 }
             }
@@ -120,7 +119,6 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     })
                     .addTo(viewModel.compositeDisposable)
             }, { error ->
-                scopesKakao()
                 Log.d("kakaoE", error.toString())
                 error.printStackTrace()
             })
@@ -190,26 +188,21 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
         resultLauncher.launch(signInIntent)
 
-        Log.d("GoogleAccount", "구글 로그인")
-
     }
 
     private fun resultGoogleLogin(){
 
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
-            Log.d("GoogleAccount-g", result.resultCode.toString())
             if(result.resultCode == RESULT_OK){
-                Log.d("GoogleAccount", "resultGoogleLogin")
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 try{
                     val account = task.getResult(ApiException::class.java)
+
                     authDataSource
                         .loginByGoogle(account.id ?: "", account.email ?: "")
                         .subscribe({
-                            Log.d("GoogleAccount", it.toString())
                             onLoginSuccess(it)
                         },{
-                            Log.d("GoogleAccount", it.toString())
                             it.printStackTrace()
                         })
                         .addTo(viewModel.compositeDisposable)

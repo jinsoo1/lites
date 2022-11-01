@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:408063195293:android:fa746c4fd6efdf9475bc74",
         "android_client_info": {
-          "package_name": "com.theshine.android.lites.dev"
+          "package_name": "com.theshine.android.lites"
         }
       },
       "oauth_client": [
@@ -19,6 +19,14 @@
           "android_info": {
             "package_name": "com.theshine.android.lites",
             "certificate_hash": "72d2a11a134de69c3563caac2a825851a809d265"
+          }
+        },
+        {
+          "client_id": "408063195293-r7otnj7hrn8682g9b4oaoo78hupntof2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theshine.android.lites",
+            "certificate_hash": "9648db23df0dbbbc89a841384463d75d4011bdd2"
           }
         },
         {

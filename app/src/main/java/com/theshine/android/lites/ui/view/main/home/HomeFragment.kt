@@ -6,9 +6,11 @@ import com.google.android.material.tabs.TabLayout
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeBinding
+import com.theshine.android.lites.ui.view.login.LoginActivity
 import com.theshine.android.lites.ui.view.main.home.graph.GraphFramgnet
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
 import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoFramgnet
+import org.jetbrains.anko.support.v4.intentFor
 
 class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
     R.layout.fragment_home,
@@ -25,7 +27,7 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
         tab1 = HomeMainFragment()
         tab2 = WeightInfoFramgnet()
         tab3 = GraphFramgnet()
-
+        showTab1()
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when(tab?.position) {
@@ -54,6 +56,10 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
+
+        startActivity(
+            intentFor<LoginActivity>()
+        )
 
     }
 

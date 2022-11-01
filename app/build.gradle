@@ -21,11 +21,32 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            keyAlias 'lites'
+            keyPassword 'lites12'
+            storeFile rootProject.file("key/lites.jks")
+            storePassword 'lites12'
+        }
+
+        debug {
+            keyAlias 'lites'
+            keyPassword 'lites12'
+            storeFile rootProject.file("key/lites.jks")
+            storePassword 'lites12'
+        }
+    }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -106,6 +127,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-dynamic-links-ktx:21.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.1' // 파이어베이스 코어
+    implementation 'com.google.firebase:firebase-auth:19.1.0' // 파이어베이스 인증
+    implementation 'com.firebaseui:firebase-ui-auth:4.2.1' // 파이어베이스 인증2
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
     kapt "com.github.bumptech.glide:compiler:$glide"
