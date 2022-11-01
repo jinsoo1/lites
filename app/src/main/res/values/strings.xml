@@ -7,6 +7,8 @@
 
     <string name="native_app_key">25fe676103f31afc621f1ba5ec1d0b12</string>
 
+    <string name="firebase_web_client_id">408063195293-ani9hp2dlfdk3onojd198m6l64k4nmq8.apps.googleusercontent.com</string>
+
     <!-- 내정보 페이지 -->
     <string name="my_page">내정보</string>
     <string name="my_notice">공지사항</string>

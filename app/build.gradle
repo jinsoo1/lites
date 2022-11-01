@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,13 +46,25 @@ android {
         dev {
             dimension = "server"
             applicationIdSuffix ".dev"
-            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.lites.co.kr"'
         }
         prod {
             dimension = "server"
-            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.lites.co.kr"'
         }
     }
+
+//    productFlavors {
+//        dev {
+//            dimension = "server"
+//            applicationIdSuffix ".dev"
+//            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+//        }
+//        prod {
+//            dimension = "server"
+//            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
+//        }
+//    }
 
 }
 
@@ -89,6 +102,9 @@ dependencies {
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide"
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+//    implementation 'com.google.firebase:firebase-auth'
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-dynamic-links-ktx:21.0.0'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.android.gms:play-services-auth:20.3.0'

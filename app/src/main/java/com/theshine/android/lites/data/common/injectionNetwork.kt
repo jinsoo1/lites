@@ -53,7 +53,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("https://ec2-43-200-215-225.ap-northeast-2.compute.amazonaws.com:5500")
+            .baseUrl(BASE_URL)
             .client(get<OkHttpClient>())
             .addCallAdapterFactory(get<RxJava2CallAdapterFactory>())
             .addConverterFactory(get<GsonConverterFactory>())

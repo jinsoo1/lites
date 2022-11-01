@@ -25,14 +25,72 @@
             android:layout_gravity="end"
             android:layout_margin="15dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title5"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="테스트 네임"
+                android:layout_marginLeft="15dp"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="의 모습과 유사한"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_medium"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BCS 단계"
+                android:layout_marginLeft="15dp"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="를"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_medium"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="선택"
+                android:layout_marginLeft="7dp"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="해 주세요"
+                android:textSize="22dp"
+                android:fontFamily="@font/font_medium"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

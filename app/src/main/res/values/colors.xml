@@ -11,8 +11,7 @@
     <color name="greenPrimary">#8CC29F</color>
     <color name="primaryGhost">#7B9CB5</color>
 
-    <color name="color_facebook">#1877F2</color>
-    <color name="color_kakao">#ffdd00</color>
+    <color name="color_kakao">#FEE500</color>
 
     <!-- black&white -->
     <color name="white">#FFFFFF</color>
@@ -40,6 +39,7 @@
     <color name="green_DCF5">#DCF5E7</color>
     <color name="green_B5E9">#B5E9CB</color>
     <color name="green_00B6">#00B653</color>
+    <color name="green_2189">#218958</color>
 
     <!-- yellow-->
     <color name="yellow_F9F8">#F9F8F4</color>

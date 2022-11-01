@@ -19,11 +19,40 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:layout_marginLeft="20dp"
-            android:text="반려동물 체중 관리\n이젠 라잇츠로 시작하세요!"/>
+            android:text="똑똑한\n펫 헬스케어의"
+            android:fontFamily="@font/font_bold"
+            android:textColor="@color/green_2189"
+            android:textSize="34dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="시작"
+                android:fontFamily="@font/font_bold"
+                android:textColor="@color/green_2189"
+                android:textSize="34dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="라잇츠"
+                android:fontFamily="@font/font_regular"
+                android:textColor="@color/green_2189"
+                android:textSize="34dp"/>
+
+
+        </LinearLayout>
 
         <ImageView
             android:layout_width="312dp"
-            android:layout_height="312dp"
+            android:layout_height="250dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"/>
 
@@ -32,41 +61,53 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="SNS계정으로 간편하게 시작해보세요"/>
+            android:text="SNS계정으로 간편하게 시작해보세요"
+            android:fontFamily="@font/font_regular"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
 
         <LinearLayout
             android:id="@+id/btnKaKaoLoin"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/btn_kakao"
+            android:gravity="center"
             android:onClick="@{() -> vm.kakaoLogin()}">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="카카오톡 1초 간편로그인"
-                android:layout_gravity="center"/>
+                android:fontFamily="@font/font_regular"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+               />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btnGoogleLogin"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:background="@drawable/bg_white_stroke_e6e8_radius_6dp"
             android:onClick="@{() -> vm.googleLogin()}">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="구글로 로그인"
-                android:layout_gravity="center"/>
+                android:fontFamily="@font/font_regular"
+                android:textSize="16dp"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -75,13 +116,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/emain_join"
+                android:fontFamily="@font/font_regular"
+                android:textSize="14dp"
+                android:textColor="@color/grey_8082"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:gravity="center"/>
@@ -91,6 +135,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/emain_login"
                 android:layout_weight="1"
+                android:fontFamily="@font/font_regular"
+                android:textSize="14dp"
+                android:textColor="@color/grey_8082"
                 android:layout_gravity="center"
                 android:gravity="center"/>
 
