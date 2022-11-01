@@ -40,15 +40,19 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
     private lateinit var resultLauncher : ActivityResultLauncher<Intent>
 
     //구글로그인 초기설정
-    private val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestEmail()
-        .build()
+    private lateinit var gso : GoogleSignInOptions
     private lateinit var googleSignInIntent : GoogleSignInClient
 
     private val authDataSource: AuthDataSource by inject()
     private val userLoginLocalDataSource: UserLoginLocalDataSource by inject()
 
     override fun initActivity() {
+
+
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("408063195293-84uhokupbenf7au3v1dd0qajn8hv85pj.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
 
         googleSignInIntent = GoogleSignIn.getClient(this@LoginActivity, gso)
         signOut()
@@ -189,11 +193,14 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
     private fun resultGoogleLogin(){
 
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            Log.d("account 1",result.resultCode.toString())
+            Log.d("account 1",result.data.toString())
+
             if(result.resultCode == RESULT_OK){
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 try{
                     val account = task.getResult(ApiException::class.java)
-
+                    Log.d("account",result.resultCode.toString())
                     authDataSource
                         .loginByGoogle(account.id ?: "", account.email ?: "")
                         .subscribe({

@@ -65,32 +65,34 @@
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="160dp"
                 android:layout_marginLeft="10dp"
-                app:tabIndicatorColor="@color/green_00B6"
-                app:tabTextColor="@color/black"
-                app:tabSelectedTextColor="@color/green_00B6"
+                android:layout_marginRight="160dp"
                 android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:tabIndicatorColor="@color/green_00B6"
+                app:tabSelectedTextColor="@color/green_00B6"
+                app:tabTextColor="@color/black">
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabSharedInfo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="메인" />
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabChatter"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="체중정보" />
+                    android:text="체중조절" />
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabFeed"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="그래프" />
 
