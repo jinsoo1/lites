@@ -32,6 +32,11 @@ class PhysicalFragment : BaseVmFragment<FragmentInfoPhysicalBinding>(
             when(it){
                 PhysicalViewModel.PhysicalActions.NEXT -> {
 
+                    activityViewModel.height.value = binding.etHeight.text.toString()
+                    activityViewModel.waist.value = binding.etWaist.text.toString()
+                    Log.d("정보입력테스트", "신장 : "+binding.etHeight.text.toString())
+                    Log.d("정보입력테스트", "허리둘레 : "+binding.etWaist.text.toString())
+
                     val action = PhysicalFragmentDirections.actionPhysicalFragmentToBcsFragment()
                     findNavController().navigate(action)
 
