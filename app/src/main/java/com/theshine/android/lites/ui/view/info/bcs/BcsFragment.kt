@@ -83,16 +83,3 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
         })
     }
 }
-
-class BcsAdapter(vm: BcsViewModel) : BaseRecyclerAdapter<Bcs, ItemBcsListBinding>(
-    R.layout.item_bcs_list, vm
-){
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        super.onBindViewHolder(holder, position)
-
-        (holder.binding as ItemBcsListBinding).apply {
-
-
-        }
-    }
-}
