@@ -1,9 +1,10 @@
 package com.theshine.android.lites.data.common.model
 
 data class User (
+    val userType: String,
     val userToken: String,
-    val userName: String,
-    val createAt: String,
-    val profileImg: String?
+    val name: String,
+    val email: String,
+    val agree : Int
 
-        )
+)

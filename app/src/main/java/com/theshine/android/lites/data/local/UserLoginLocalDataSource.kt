@@ -10,10 +10,11 @@ class UserLoginLocalDataSource {
         user: User
     ) {
         userInfoPref.apply {
+            userType = user.userType
             userToken = user.userToken
-            nickname = user.userName
-            profileImg = user.profileImg ?: ""
-
+            nickname = user.name
+            email = user.email
+            agree = user.agree == 1
         }
     }
 

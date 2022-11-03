@@ -9,4 +9,5 @@ val localDataSourceModule = module {
     single<BDPreferences.UserInfo> { UserInfoPreferences(get()) }
     single<BDPreferences.Permanent> { PermanentPreferences(get()) }
 
+    single<UserLoginLocalDataSource> { UserLoginLocalDataSource() }
 }

@@ -22,6 +22,7 @@ import com.theshine.android.lites.data.local.UserLoginLocalDataSource
 import com.theshine.android.lites.data.remote.model.response.UserResponse
 import com.theshine.android.lites.data.remote.source.AuthDataSource
 import com.theshine.android.lites.databinding.ActivityLoginBinding
+import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.ext.onUI
@@ -85,10 +86,16 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     loginGoogle()
                 }
 
-                LoginViewModel.LoginActions.LOGIN ->{
+                LoginViewModel.LoginActions.MAIN ->{
                     //로그인성공
                     startActivity(
                         intentFor<MainActivity>()
+                    )
+                    finish()
+                }
+                LoginViewModel.LoginActions.PET ->{
+                    startActivity(
+                        intentFor<InfoActivity>()
                     )
                     finish()
                 }
@@ -101,7 +108,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
         Single.just(UserApiClient.instance.isKakaoTalkLoginAvailable(this))
             .flatMap { available ->
                 if (available) UserApiClient.rx.loginWithKakaoTalk(this)
-                else UserApiClient.rx.loginWithKakaoAccount(this, prompts = listOf(Prompt.LOGIN))
+                else UserApiClient.rx.loginWithKakaoAccount(this)
             }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ token ->
@@ -126,7 +133,6 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     })
                     .addTo(viewModel.compositeDisposable)
             }, { error ->
-                scopesKakao()
                 Log.d("kakaoE", error.toString())
                 error.printStackTrace()
             })
@@ -221,10 +227,8 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     authDataSource
                         .loginByGoogle(account.id ?: "", account.email ?: "")
                         .subscribe({
-                            Log.d("googleAccount", it.toString())
                             onLoginSuccess(it)
                         },{
-                            Log.d("googleAccount", it.toString())
                             it.printStackTrace()
                         })
                         .addTo(viewModel.compositeDisposable)

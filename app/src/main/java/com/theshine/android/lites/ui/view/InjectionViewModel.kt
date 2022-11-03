@@ -18,6 +18,7 @@ import com.theshine.android.lites.ui.view.main.community.post.PostWriteViewModel
 import com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoListViewModel
 import com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoViewModel
 import com.theshine.android.lites.ui.view.main.home.HomeViewModel
+import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.ui.view.main.home.graph.GraphViewModel
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainViewModel
 import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoViewModel
@@ -36,7 +37,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-    viewModel { MainViewModel() }
+    viewModel { MainViewModel(get()) }
     viewModel { HomeViewModel() }
     viewModel { CommunityViewModel() }
     viewModel { SearchViewModel() }
@@ -50,7 +51,7 @@ val viewModelModule = module {
     viewModel { ManagementViewModel() }
     viewModel { NoticeViewModel() }
     viewModel { SettingViewModel() }
-    viewModel { LoginViewModel() }
+    viewModel { LoginViewModel(get()) }
     viewModel { NameViewModel() }
     viewModel { PhysicalViewModel() }
     viewModel { ScaleViewModel() }
@@ -66,9 +67,15 @@ val viewModelModule = module {
     viewModel { PostWriteViewModel() }
 
     viewModel { GraphViewModel() }
-    viewModel { HomeMainViewModel() }
+    viewModel { HomeMainViewModel(get()) }
     viewModel { WeightInfoViewModel() }
 
-    viewModel { SplashViewModel(get()) }
+    viewModel { SplashViewModel(get(), get()) }
 
+}
+
+val repositoryModule = module{
+    single{
+        BleRepository()
+    }
 }

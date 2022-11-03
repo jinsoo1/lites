@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -92,6 +93,7 @@
                 android:layout_marginTop="30dp"/>
 
             <LinearLayout
+                android:id="@+id/btn_variety"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
@@ -99,9 +101,9 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
+                    android:id="@+id/tvVariety"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvVariety"
                     android:text="선택하기"
                     android:layout_gravity="center"
                     android:paddingLeft="12dp"
@@ -126,7 +128,9 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp">
 
+
                 <TextView
+                    android:id="@+id/tv_female"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginRight="12dp"
@@ -140,6 +144,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_male"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"
@@ -173,6 +178,7 @@
                 android:layout_marginTop="15dp">
 
                 <TextView
+                    android:id="@+id/tv_o"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginRight="12dp"
@@ -186,6 +192,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_x"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"
@@ -204,20 +211,40 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/layout_next"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:onClick="@{() -> vm.next()}"
+            android:background="@{vm.nextState ? @color/green_DCF5 : @color/grey_eaea}">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:textSize="20dp"
+                android:textColor="@color/green_009C"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sheetVariety"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:orientation="vertical"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            app:behavior_hideable="true"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            >
 
             <LinearLayout
-                android:id="@+id/sheetVariety"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:background="@color/white">
 
@@ -235,31 +262,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    bindVarietyList="@{vm.dogVariety}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:overScrollMode="never"/>
 
 
 
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:onClick="@{() -> vm.next()}"
-                android:background="@color/green_DCF5">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/next"
-                    android:textSize="20dp"
-                    android:textColor="@color/green_009C"
-                    />
-
-            </LinearLayout>
-
 
         </LinearLayout>
         

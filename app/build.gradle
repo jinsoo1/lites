@@ -67,11 +67,11 @@ android {
         dev {
             dimension = "server"
             applicationIdSuffix ".dev"
-            buildConfigField 'String', 'BASE_URL', '"https://api.lites.co.kr"'
+            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
         }
         prod {
             dimension = "server"
-            buildConfigField 'String', 'BASE_URL', '"https://api.lites.co.kr"'
+            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
         }
     }
 
