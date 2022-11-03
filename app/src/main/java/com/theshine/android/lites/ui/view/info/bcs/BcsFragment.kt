@@ -3,9 +3,12 @@ package com.theshine.android.lites.ui.view.info.bcs
 import android.util.Log
 import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
+import com.theshine.android.lites.base.BaseRecyclerAdapter
 import com.theshine.android.lites.base.BaseVmFragment
+import com.theshine.android.lites.data.common.model.Bcs
 import com.theshine.android.lites.databinding.FragmentInfoBcsBinding
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
+import com.theshine.android.lites.databinding.ItemBcsListBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.info.namebirth.NameViewModel
 import com.theshine.android.lites.ui.view.info.variety.VarietyFragmentDirections
@@ -23,8 +26,6 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
 
     override fun initFragment() {
 
-        Log.d("정보입력테스트", activityViewModel.selected.toString()+activityViewModel.name.toString()+activityViewModel.birth.toString()+
-                activityViewModel.height.toString()+activityViewModel.waist.toString())
 
         viewModel.setObserves()
 
@@ -41,5 +42,18 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
                 }
             }
         })
+    }
+}
+
+class BcsAdapter(vm: BcsViewModel) : BaseRecyclerAdapter<Bcs, ItemBcsListBinding>(
+    R.layout.item_bcs_list, vm
+){
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+
+        (holder.binding as ItemBcsListBinding).apply {
+
+
+        }
     }
 }

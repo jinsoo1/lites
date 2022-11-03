@@ -10,6 +10,6 @@ class InfoViewModel : BaseViewModel() {
     val neutralization: MutableLiveData<Boolean> = MutableLiveData(false) //중성화 안함(false), 중성화 함(true)
     val name: MutableLiveData<String> = MutableLiveData()
     val birth: MutableLiveData<String> = MutableLiveData()
-    val height: MutableLiveData<String> = MutableLiveData()
-    val waist: MutableLiveData<String> = MutableLiveData()
+
+
 }

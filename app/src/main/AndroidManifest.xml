@@ -50,10 +50,7 @@
         </activity>
 
         <activity
-            android:name=".ui.view.splash.SplashActivity"
-            >
-
-
+            android:name=".ui.view.splash.SplashActivity">
 
         </activity>
 

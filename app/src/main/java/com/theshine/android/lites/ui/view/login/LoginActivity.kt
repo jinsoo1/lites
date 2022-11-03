@@ -9,6 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
+import com.kakao.sdk.auth.model.Prompt
 import com.kakao.sdk.auth.network.RxAuthOperations
 import com.kakao.sdk.common.model.ApiError
 import com.kakao.sdk.common.util.Utility
@@ -21,12 +22,14 @@ import com.theshine.android.lites.data.local.UserLoginLocalDataSource
 import com.theshine.android.lites.data.remote.model.response.UserResponse
 import com.theshine.android.lites.data.remote.source.AuthDataSource
 import com.theshine.android.lites.databinding.ActivityLoginBinding
+import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.ext.onUI
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 
 class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
@@ -56,6 +59,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
         googleSignInIntent = GoogleSignIn.getClient(this@LoginActivity, gso)
         signOut()
+        logoutKaKao()
 
         resultGoogleLogin()
 
@@ -83,7 +87,10 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
                 LoginViewModel.LoginActions.LOGIN ->{
                     //로그인성공
-
+                    startActivity(
+                        intentFor<MainActivity>()
+                    )
+                    finish()
                 }
             }
         })
@@ -94,7 +101,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
         Single.just(UserApiClient.instance.isKakaoTalkLoginAvailable(this))
             .flatMap { available ->
                 if (available) UserApiClient.rx.loginWithKakaoTalk(this)
-                else UserApiClient.rx.loginWithKakaoAccount(this)
+                else UserApiClient.rx.loginWithKakaoAccount(this, prompts = listOf(Prompt.LOGIN))
             }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ token ->
@@ -119,6 +126,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     })
                     .addTo(viewModel.compositeDisposable)
             }, { error ->
+                scopesKakao()
                 Log.d("kakaoE", error.toString())
                 error.printStackTrace()
             })
@@ -183,6 +191,17 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
             .addTo(viewModel.compositeDisposable)
     }
 
+    private fun logoutKaKao(){
+        UserApiClient.rx.logout()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                Log.i("TAG", "로그아웃 성공. SDK에서 토큰 삭제 됨")
+            }, { error ->
+                Log.e("TAG", "로그아웃 실패. SDK에서 토큰 삭제 됨", error)
+            }).addTo(viewModel.compositeDisposable)
+    }
+
     private fun loginGoogle(){
         val signInIntent = googleSignInIntent.signInIntent
 
@@ -202,8 +221,10 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     authDataSource
                         .loginByGoogle(account.id ?: "", account.email ?: "")
                         .subscribe({
+                            Log.d("googleAccount", it.toString())
                             onLoginSuccess(it)
                         },{
+                            Log.d("googleAccount", it.toString())
                             it.printStackTrace()
                         })
                         .addTo(viewModel.compositeDisposable)

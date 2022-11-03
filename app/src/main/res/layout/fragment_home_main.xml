@@ -28,7 +28,34 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="40dp"
+                android:background="@color/green_DCF5"
                 android:paddingLeft="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="테스트 이름"
+                        android:textSize="24dp"
+                        android:textColor="@color/yellow_FDF5"
+                        android:fontFamily="@font/font_bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="의"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_regular"/>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -38,41 +65,55 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="'"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:text="오늘 건강"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"
                         />
 
                     <TextView
-                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="닉네임"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"/>
+                        android:text="을"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_regular"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="'은"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"/>
+                        android:text="체크"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_bold"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="해볼까요?"
+                        android:textSize="24dp"
+                        android:layout_marginLeft="7dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font_regular"/>
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="오늘 몇키로일까요?"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"/>
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_yellow_fdf5_radius_50dp"
-                    android:text="체중계 연결 가이드보기 >"
-                    android:textColor="@color/black"
+                    android:background="@drawable/bg_white_radius_50dp"
+                    android:text="체중계 연결 가이드"
+                    android:textColor="@color/green_51C2"
                     android:textSize="14dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
@@ -93,91 +134,106 @@
 
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="6dp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="490dp"
+            android:orientation="vertical"
+            android:background="@drawable/top_sheet_radius_30dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="영점"
-                android:textColor="@color/grey_8082"
-                android:gravity="center"
-                android:layout_gravity="center"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="343dp"
-            android:layout_height="320dp"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="6dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="6dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center">
 
                 <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:text="2022-09-05"
+                    android:text="영점"
+                    android:textColor="@color/grey_8082"
                     android:gravity="center"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="343dp"
+                android:layout_height="320dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="6dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
 
                 <LinearLayout
-                    android:layout_width="218dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bg_square_f9f8_radius_6dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvDate"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="15.5"
-                        android:textSize="30dp"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
+                        android:textColor="@color/green_61C9"
+                        android:textSize="14dp"
+                        android:text="2022.9.5"
                         android:gravity="center"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
+                        android:layout_marginTop="15dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="kg"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
-                        android:layout_marginRight="15dp"/>
+                    <LinearLayout
+                        android:layout_width="218dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_square_f9f8_radius_6dp"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15.5"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="kg"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:layout_marginRight="15dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_green_40c5_radius_50dp"
+                android:textColor="@color/white"
+                android:text="체중계 연결"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="30dp"/>
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:background="@drawable/bg_green_40c5_radius_50dp"
-            android:textColor="@color/white"
-            android:text="체중계 연결"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="30dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 
