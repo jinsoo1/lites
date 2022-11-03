@@ -9,8 +9,8 @@ interface BDPreferences {
         var userToken: String
         var nickname: String
         var email: String
-        var profileImg: String
-        var bio: String
+        var profileImg : String?
+        var agree : Boolean
 
 
 

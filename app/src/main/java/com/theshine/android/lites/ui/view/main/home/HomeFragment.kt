@@ -57,10 +57,6 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
             }
         })
 
-        startActivity(
-            intentFor<LoginActivity>()
-        )
-
     }
 
     fun showTab1(){

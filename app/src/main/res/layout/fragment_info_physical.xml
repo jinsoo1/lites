@@ -57,7 +57,9 @@
                     android:id="@+id/etHeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="@={vm.height}"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,7 +98,9 @@
                     android:id="@+id/etWaist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="@={vm.waist}"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,12 +126,13 @@
 
 
         <LinearLayout
+            android:id="@+id/layout_next"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:gravity="center"
             android:onClick="@{() -> vm.next()}"
-            android:background="@color/green_DCF5">
+            android:background="@{vm.selected ? @color/green_DCF5 : @color/grey_eaea}">
 
             <TextView
                 android:layout_width="wrap_content"

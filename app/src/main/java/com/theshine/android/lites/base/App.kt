@@ -11,6 +11,7 @@ import com.theshine.android.lites.R
 import com.theshine.android.lites.data.common.networkModule
 import com.theshine.android.lites.data.local.localDataSourceModule
 import com.theshine.android.lites.data.remote.remoteDataSourceModule
+import com.theshine.android.lites.ui.view.repositoryModule
 import com.theshine.android.lites.ui.view.viewModelModule
 import com.theshine.android.lites.util.ext.setupKoin
 import org.jetbrains.anko.toast
@@ -34,7 +35,8 @@ class App : Application(), LifecycleObserver {
             networkModule,
             remoteDataSourceModule,
             localDataSourceModule,
-            viewModelModule
+            viewModelModule,
+            repositoryModule
         )
     }
 

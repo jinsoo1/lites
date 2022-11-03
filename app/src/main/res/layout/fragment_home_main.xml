@@ -9,6 +9,10 @@
             name="item"
             type="com.theshine.android.lites.data.common.model.User" />
 
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.home.main.HomeMainViewModel" />
+
     </data>
 
     <LinearLayout
@@ -119,7 +123,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -132,21 +136,31 @@
                     android:textSize="14dp"
                     android:text="2022-09-05"
                     android:gravity="center"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
 
                 <LinearLayout
+                    android:id="@+id/layout_weight"
                     android:layout_width="218dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
+                    android:onClick="@{() -> vm.onClickWrite()}"
                     android:background="@drawable/bg_square_f9f8_radius_6dp"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15.5"
+                        android:text="@{vm.weigh}"
                         android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
@@ -164,7 +178,18 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:src="@{vm.isConnect ? @drawable/bg_oval_green : @drawable/bg_oval_d9d9}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_weight"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -173,8 +198,9 @@
             android:layout_height="60dp"
             android:background="@drawable/bg_green_40c5_radius_50dp"
             android:textColor="@color/white"
-            android:text="체중계 연결"
+            android:text="@{vm.isConnect ? `체중계 연결 끊기` : `체중계 연결`}"
             android:textSize="20dp"
+            android:onClick="@{() -> vm.isConnect ? vm.onClickDisconnect() : vm.onClickScan()}"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="30dp"/>

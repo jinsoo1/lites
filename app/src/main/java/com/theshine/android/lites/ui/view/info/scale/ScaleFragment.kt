@@ -33,7 +33,7 @@ class ScaleFragment : BaseVmFragment<FragmentInfoScaleBinding>(
                 ScaleViewModel.scaleActions.NEXT -> {
                     val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
-
+                    requireActivity().finish()
                 }
             }
         })

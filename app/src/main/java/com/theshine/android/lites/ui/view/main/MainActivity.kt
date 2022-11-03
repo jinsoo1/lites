@@ -10,7 +10,9 @@ import com.kakao.sdk.common.util.Utility
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityMainBinding
+import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.util.KeepStateNavigator
+import org.jetbrains.anko.intentFor
 import java.security.MessageDigest
 
 class MainActivity : BaseVmActivity<ActivityMainBinding>(
@@ -38,7 +40,6 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
         navController.setGraph(R.navigation.nav_graph)
 
         binding.navBottom.setupWithNavController(navController)
-
     }
 
     override fun initActivity() {

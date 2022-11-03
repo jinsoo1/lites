@@ -1,6 +1,7 @@
 package com.theshine.android.lites.ui.view.info.physical
 
 import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
@@ -41,6 +42,26 @@ class PhysicalFragment : BaseVmFragment<FragmentInfoPhysicalBinding>(
 
                 }
             }
+        })
+
+        height.observe(this@PhysicalFragment, Observer {
+            if(binding.etHeight.text.isNotEmpty() && binding.etWaist.text.isNotEmpty()){
+                selectedNext()
+            }else{
+                unSelectedNext()
+            }
+        })
+
+        waist.observe(this@PhysicalFragment, Observer {
+            if(binding.etHeight.text.isNotEmpty() && binding.etWaist.text.isNotEmpty()){
+                selectedNext()
+            }else{
+                unSelectedNext()
+            }
+        })
+
+        selected.observe(this@PhysicalFragment, Observer {
+            binding.layoutNext.isEnabled = it
         })
 
     }

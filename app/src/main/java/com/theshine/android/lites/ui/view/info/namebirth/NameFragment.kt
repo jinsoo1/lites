@@ -1,6 +1,8 @@
 package com.theshine.android.lites.ui.view.info.namebirth
 
+import android.app.DatePickerDialog
 import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
@@ -40,6 +42,52 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
                     findNavController().navigate(action)
 
                 }
+
+                NameViewModel.NameActions.BIRTH ->{
+                    val myDatePicker =
+                        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                            val monthOfYear = month+1
+                            val monthDay : String = if(monthOfYear < 10){
+                                "0$monthOfYear"
+                            }else{
+                                monthOfYear.toString()
+                            }
+                            val days : String = if(dayOfMonth < 10){
+                                "0$dayOfMonth"
+                            }else{
+                                dayOfMonth.toString()
+                            }
+                            binding.etBirth.text = "$year-$monthDay-$days"
+                        }
+
+                    val dialog = DatePickerDialog(
+                        requireContext(),
+                        myDatePicker,
+                        2000,
+                        7,
+                        25
+                    ).show()
+                }
+            }
+        })
+
+        selected.observe(this@NameFragment, Observer {
+            binding.layoutNext.isEnabled = it
+        })
+
+        name.observe(this@NameFragment, Observer {
+            if(binding.etName.text.isNotEmpty() && birth.value !=  null){
+                trueSelected()
+            }else{
+                falseSelected()
+            }
+        })
+
+        birth.observe(this@NameFragment, Observer {
+            if(binding.etName.text.isNotEmpty() && birth.value !=  null){
+                trueSelected()
+            }else{
+                falseSelected()
             }
         })
 

@@ -21,12 +21,15 @@ import com.theshine.android.lites.data.local.UserLoginLocalDataSource
 import com.theshine.android.lites.data.remote.model.response.UserResponse
 import com.theshine.android.lites.data.remote.source.AuthDataSource
 import com.theshine.android.lites.databinding.ActivityLoginBinding
+import com.theshine.android.lites.ui.view.info.InfoActivity
+import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.ext.onUI
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 
 class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
@@ -50,7 +53,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
 
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("408063195293-84uhokupbenf7au3v1dd0qajn8hv85pj.apps.googleusercontent.com")
+            .requestIdToken(getString(com.firebase.ui.auth.R.string.default_web_client_id))
             .requestEmail()
             .build()
 
@@ -81,9 +84,18 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
                     loginGoogle()
                 }
 
-                LoginViewModel.LoginActions.LOGIN ->{
+                LoginViewModel.LoginActions.MAIN ->{
                     //로그인성공
-
+                    startActivity(
+                        intentFor<MainActivity>()
+                    )
+                    finish()
+                }
+                LoginViewModel.LoginActions.PET ->{
+                    startActivity(
+                        intentFor<InfoActivity>()
+                    )
+                    finish()
                 }
             }
         })
@@ -178,7 +190,7 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
 
                 } ?: toast("카카오 로그인 실패")
             }, { error ->
-                Log.e("scopes", "사용자 정보 요청 실패", error)
+                Log.e("kakao", "사용자 정보 요청 실패", error)
             })
             .addTo(viewModel.compositeDisposable)
     }

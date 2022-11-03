@@ -34,17 +34,27 @@ class SelectFragment : BaseVmFragment<FragmentInfoSelectBinding>(
 
                 }
                 SelectViewModel.SelectActions.DOG -> {
-                    activityViewModel.selected.value = "강아지"
+                    activityViewModel.type.value = "강아지"
                     binding.ivDog.setImageResource(R.drawable.bg_green_40c5_radius_50dp)
                     binding.ivCat.setImageResource(R.drawable.bg_oval_d9d9)
                 }
 
                 SelectViewModel.SelectActions.CAT -> {
-                    activityViewModel.selected.value = "고양이"
+                    activityViewModel.type.value = "고양이"
                     binding.ivCat.setImageResource(R.drawable.bg_green_40c5_radius_50dp)
                     binding.ivDog.setImageResource(R.drawable.bg_oval_d9d9)
                 }
             }
         })
+
+        selected.observe(this@SelectFragment, Observer {
+            binding.layoutNext.isEnabled = it
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.resume()
     }
 }

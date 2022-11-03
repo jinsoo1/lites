@@ -29,12 +29,12 @@ class UserInfoPreferences(
     override var email: String
         get() = userInfoPref.getString(KEY_EMAIL, null) ?: ""
         set(value) { userInfoPref.edit { putString(KEY_EMAIL, value) } }
-    override var profileImg: String
+    override var profileImg: String?
         get() = userInfoPref.getString(KEY_PROFILEIMG, null) ?: ""
         set(value) { userInfoPref.edit { putString(KEY_PROFILEIMG, value) } }
-    override var bio: String
-        get() = userInfoPref.getString(KEY_BIO, null) ?: ""
-        set(value) { userInfoPref.edit { putString(KEY_BIO, value) } }
+    override var agree: Boolean
+        get() = userInfoPref.getBoolean(KEY_AGREE, false) ?: false
+        set(value) { userInfoPref.edit { putBoolean(KEY_AGREE, value) } }
 
     override var noticeCreated: String
         get() = userInfoPref.getString(KEY_NOTICE_CREATED, null) ?: ""
@@ -54,8 +54,8 @@ class UserInfoPreferences(
         private const val KEY_USER_TOKEN = "user_token"
         private const val KEY_NICKNAME = "nickname"
         private const val KEY_EMAIL = "email"
-        private const val KEY_PROFILEIMG = "profile_img"
-        private const val KEY_BIO = "bio"
+        private const val KEY_PROFILEIMG = "profileImg"
+        private const val KEY_AGREE = "agree"
         private const val KEY_NOTICE_CREATED = "notice_created"
     }
 }
