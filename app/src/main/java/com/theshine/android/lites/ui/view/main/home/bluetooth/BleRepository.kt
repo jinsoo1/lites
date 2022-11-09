@@ -18,6 +18,7 @@ import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.ui.view.main.home.bluetooth.util.BluetoothUtils
 import com.theshine.android.lites.util.Event
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.util.*
@@ -50,6 +51,9 @@ class BleRepository {
     var isDevice : Boolean = false
     fun fetchReadText() = flow {
         while (true) {
+            coroutineScope {
+                kotlinx.coroutines.delay(300)
+            }
             if (isTxtRead) {
                 emit(txtRead)
                 isTxtRead = false
@@ -68,6 +72,9 @@ class BleRepository {
 
     fun fetchDevice() = flow {
         while (true) {
+            coroutineScope {
+                kotlinx.coroutines.delay(300)
+            }
             if (isDevice) {
                 emit(scanDevice)
                 isDevice = false
@@ -123,8 +130,8 @@ class BleRepository {
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-        //bleAdapter?.bluetoothLeScanner?.startScan(filters, settings, BLEScanCallback)
-        bleAdapter?.bluetoothLeScanner?.startScan(BLEScanCallback)
+        bleAdapter?.bluetoothLeScanner?.startScan(filters, settings, BLEScanCallback)
+        //bleAdapter?.bluetoothLeScanner?.startScan(BLEScanCallback)
 
 //        statusTxt = "Scanning...."
 //        isStatusChange = true
@@ -179,14 +186,14 @@ class BleRepository {
 //                 for ActivityCompat#requestPermissions for more details.
                     return
                 }
+                Log.d(TAG, "Remote device name: " + result.device.name)
                 if(result.device.name == "LITES"){
                     //connectDevice(result.device)
-                    stopScan()
                     scanDevice = result.device
                     isDevice = true
                 }
+                stopScan()
 
-                Log.d(TAG, "Remote device name: " + result.device.name)
                 addScanResult(result)
             }
 

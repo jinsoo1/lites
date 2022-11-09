@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.kakao.sdk.common.util.Utility
@@ -11,6 +12,9 @@ import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityMainBinding
 import com.theshine.android.lites.ui.view.info.InfoActivity
+import com.theshine.android.lites.ui.view.main.home.HomeFragment
+import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
+import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.KeepStateNavigator
 import org.jetbrains.anko.intentFor
 import java.security.MessageDigest
@@ -23,13 +27,7 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
     override val viewModel by lazy { vm as MainViewModel }
     override val toolbarId = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-//        val keyHash = Utility.getKeyHash(this)//onCreate 안에 입력해주자
-//        Log.e("해쉬", keyHash)
-
-        getAppKeyHash()
+    override fun initActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(binding.navHost.id) as NavHostFragment
         val navController = navHostFragment.navController
@@ -40,15 +38,14 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
         navController.setGraph(R.navigation.nav_graph)
 
         binding.navBottom.setupWithNavController(navController)
+
+        Log.d("onCreate()", "activity")
+        viewModel.setObserves()
     }
 
-    override fun initActivity() {
-
-        getAppKeyHash()
-
+    private fun MainViewModel.setObserves(){
 
     }
-
     private fun getAppKeyHash() {
         try {
             val info =

@@ -1,13 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.home.graph.GraphViewModel" />
+
+        <import type="android.view.View"/>
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_graph_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:text="@{@string/graph_date(vm.myPetName)}"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:text="그래프로 한 눈에 확인 하세요!"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green_3699"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="체중및 비만도 데이터 통계"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/green_B5E9"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/layout_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:gravity="center"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginTop="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주"
+                            android:textSize="20dp"
+                            android:onClick="@{() -> vm.onClickWeek()}"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="월"
+                            android:textSize="20dp"
+                            android:onClick="@{() -> vm.onClickMonth()}"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="년"
+                            android:textSize="20dp"
+                            android:onClick="@{() -> vm.onClickYear()}"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/layout_chart"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_rounded_white_radius_10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/line_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/transparent"
+                            />
+
+                        <com.github.mikephil.charting.charts.BarChart
+                            android:id="@+id/bar_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/transparent"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(kg)"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@+id/layout_chart"
+                        app:layout_constraintTop_toTopOf="@+id/layout_chart"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

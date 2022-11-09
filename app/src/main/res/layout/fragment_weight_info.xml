@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -7,351 +8,537 @@
             name="item"
             type="com.theshine.android.lites.data.common.model.User" />
 
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoViewModel" />
+
+        <import type="com.theshine.android.lites.util.ext.StringExt"/>
+
     </data>
-    
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="'"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="닉네임"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="'의 체중정보를 확인하세요"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BCS단계"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
-            android:textSize="14dp"
-            android:textColor="@color/black"/>
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="60dp"
-           android:orientation="horizontal"
-           android:layout_marginLeft="15dp"
-           android:layout_marginRight="15dp"
-           android:layout_marginTop="10dp"
-           android:background="@drawable/bg_green_dcf5_radius_10dp"
-           android:layout_gravity="center"
-           android:gravity="center">
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="'"
-               android:textSize="15dp"
-               android:textColor="@color/black"
-               />
-
-           <TextView
-               android:id="@+id/textView2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="닉네임"
-               android:textSize="15dp"
-               android:textColor="@color/black"/>
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="'의 BCS단계는 "
-               android:textSize="15dp"
-               android:textColor="@color/black"/>
-
-           <TextView
-               android:id="@+id/tvBcsStage"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="1단계"
-               android:textSize="15dp"
-               android:textColor="@color/green_009C"/>
-           <TextView
-               android:id="@+id/textView3"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="입니다."
-               android:textSize="15dp"
-               android:textColor="@color/black"/>
-
-       </LinearLayout>
-
-        <View
+        >
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/yellow_F9F8"
-            android:layout_marginTop="25dp"
-            />
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="체중정보"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
-            android:textSize="14dp"
-            android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@{@string/mypet_bcs(vm.myPetWeight.name)}"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_009C"
-                android:text="적정체중"
-                android:textSize="15dp"
-                android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/tv_bcs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BCS"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="25dp"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/green_50C3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <TextView
+                        android:id="@+id/tv_bcs2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@{@string/bcs_num(vm.myPetWeight.bcs)}"
+                        android:textSize="48dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_bcs"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
 
-            <TextView
-                android:id="@+id/tvProperWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="10"
-                android:textSize="20dp"
-                android:layout_marginRight="4dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="kg"
-                android:textSize="15dp" />
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_bcs2"
+                        />
 
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/yellow_F9F8"
-            android:layout_marginTop="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_009C"
-                android:text="기초대사량"
-                android:textSize="15dp"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/tvBasalMetabolicRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="10"
-                android:textSize="20dp"
-                android:layout_marginRight="4dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="kcal"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/yellow_F9F8"
-            android:layout_marginTop="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_009C"
-                android:text="권장 사료량"
-                android:textSize="15dp"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/tvFeedAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="10"
-                android:textSize="20dp"
-                android:layout_marginRight="4dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="g"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/yellow_F9F8"
-            android:layout_marginTop="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green_009C"
-                android:text="권장 활동량"
-                android:textSize="15dp"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/tvActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="10"
-                android:textSize="20dp"
-                android:layout_marginRight="4dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="시간"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/yellow_F9F8"
-            android:layout_marginTop="30dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="심박수"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
-            android:textSize="14dp"
-            android:textColor="@color/black"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_square_fefb_radius_6dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="심박수 기록하기"
-                android:layout_marginLeft="15dp"
-                android:textSize="14dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/tvHeartRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="00"
-                android:textSize="20dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="4dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="회"
-                android:textSize="20dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="4dp"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:text="심장에 손을 대고 1분동안 심박수를 측정해주세요"
-            android:textColor="@color/black"
-            android:textSize="12dp"
-            android:gravity="center"
-            android:background="@drawable/bg_rounded_f9f8_radius_50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingLeft="15dp"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_bcs2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
 
 
-    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:text="@{vm.myPetWeight.name}"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:text="은(는) "
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:text="@{@string/bcs_num2(vm.myPetWeight.bcs)}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/black"
+                    android:text="@string/bcs_long" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17.5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:text="@string/bcs_skinny" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@color/yellow_F9F8"
+                    android:layout_marginTop="25dp"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_green_dcf5_radius_10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_now_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="현재 몸무게"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="@{@string/bcs_data(StringExt.INSTANCE.showDateAsShort(vm.myPetWeight.createdAt))}"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_now_weight"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_pet_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@{Double.toString(vm.myPetWeight.weight)}"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/tv_kg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="kg"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_pet_kg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_green_dcf5_radius_10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_propre_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="적정 몸무게"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="현재 몸무게 대비"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_propre_weight"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_propre_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@{Double.toString(vm.propreWeight)}"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/tv_kg2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_kg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="kg"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_propre_kg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="몸무게 기록보기"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:elevation="5dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_rounded_d9d9_radius_100dp"
+                    android:layout_gravity="center"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@color/yellow_F9F8"
+                    android:layout_marginTop="25dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/bcs_food(vm.myPetWeight.name)}"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_rounded_fdf5_radius_10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_basal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="적정 몸무게"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:text="현재 몸무게 대비"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_basal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_kcal_my"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="00"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/tv_kcal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_kcal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="kcal"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_kcal_my"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_rounded_fdf5_radius_10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="권장 사료량"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:text="종이컵기준(1컵당 100g) : 0.00컵"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_amount"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_g_my"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="000"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/tv_g"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_g"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="g"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_g_my"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/bcs_food_explanation"
+                    android:textSize="12.5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_g"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/yellow_F9F8"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/bcs_activity(vm.myPetWeight.name)}"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_rounded_ffed_radius_10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="권장 활동량"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:text="현재 몸무게 대비"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_activity"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_minute_my"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="00"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@id/tv_minute"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="분"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_minute_my"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/bcs_activity_explanation"
+                    android:textSize="12.5dp"
+                    android:layout_margin="15dp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_g"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

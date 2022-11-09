@@ -173,4 +173,6 @@ dependencies {
     implementation 'com.kakao.sdk:v2-user:2.11.2'
     implementation "com.kakao.sdk:v2-user-rx:2.11.2"
 
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }

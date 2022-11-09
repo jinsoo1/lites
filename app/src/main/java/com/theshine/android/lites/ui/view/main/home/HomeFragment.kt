@@ -1,16 +1,17 @@
 package com.theshine.android.lites.ui.view.main.home
 
 import android.util.Log
-import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.tabs.TabLayout
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeBinding
-import com.theshine.android.lites.ui.view.login.LoginActivity
-import com.theshine.android.lites.ui.view.main.home.graph.GraphFramgnet
+import com.theshine.android.lites.ui.view.info.InfoViewModel
+import com.theshine.android.lites.ui.view.main.MainViewModel
+import com.theshine.android.lites.ui.view.main.home.graph.GraphFragment
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
-import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoFramgnet
-import org.jetbrains.anko.support.v4.intentFor
+import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoFragment
+import com.theshine.android.lites.util.FragmentUtils
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
     R.layout.fragment_home,
@@ -18,65 +19,49 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
 ) {
     override val viewModel by lazy { vm as HomeViewModel }
 
-    lateinit var tab1: HomeMainFragment
-    lateinit var tab2: WeightInfoFramgnet
-    lateinit var tab3: GraphFramgnet
+    private val homeFragment : HomeMainFragment by lazy { HomeMainFragment() }
+    private val weightInfoFragment : WeightInfoFragment by lazy { WeightInfoFragment() }
+    private val graphFragment : GraphFragment by lazy { GraphFragment() }
+
+    lateinit var fragments : FragmentUtils
 
     override fun initFragment() {
-
-        tab1 = HomeMainFragment()
-        tab2 = WeightInfoFramgnet()
-        tab3 = GraphFramgnet()
-        showTab1()
+        Log.d("onCreate()", "fragment")
+        fragments = FragmentUtils(
+            R.id.frameLayout_home,
+            childFragmentManager,
+            arrayOf(
+                homeFragment,
+                weightInfoFragment,
+                graphFragment
+            )
+        )
+        switchPage(0)
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when(tab?.position) {
-                    0 -> {
-                        //Tab1
-                        Log.d("탭테스트", "탭1")
-                        showTab1()
-
-                    }
-                    1 -> {
-                        //Tab2
-                        Log.d("탭테스트", "탭2")
-                        showTab2()
-
-                    }
-                    2 -> {
-                        Log.d("탭테스트", "탭3")
-                        showTab3()
-
-                    }
+                when(tab!!.position){
+                    0 -> switchPage(0)
+                    1 -> switchPage(1)
+                    2 -> switchPage(2)
                 }
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
+
             }
+
             override fun onTabReselected(tab: TabLayout.Tab?) {
+
             }
+
         })
 
     }
 
-    fun showTab1(){
-        fragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_home, tab1)
-            ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            ?.commit()
+    fun switchPage(position: Int) {
+        Log.d("onCreate()", "switchPage(")
+        fragments.let{fragments.setCurrentFragmentByPosition(position)}
+
     }
 
-    fun showTab2(){
-        fragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_home, tab2)
-            ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            ?.commit()
-    }
-
-    fun showTab3(){
-        fragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_home, tab3)
-            ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            ?.commit()
-    }
 }

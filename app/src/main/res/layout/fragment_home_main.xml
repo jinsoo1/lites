@@ -205,7 +205,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{vm.weigh}"
+                            android:text="@{vm.weight}"
                             android:textSize="30dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"
@@ -222,23 +222,24 @@
                             android:layout_marginRight="15dp"/>
 
                     </LinearLayout>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_green_40c5_radius_50dp"
+                        android:textColor="@color/white"
+                        android:text="@{vm.isConnect ? @string/scale_off : @string/scale_on}"
+                        android:textSize="20dp"
+                        android:onClick="@{() -> vm.isConnect ? vm.onClickDisconnect() : vm.onClickScan()}"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="30dp"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:background="@drawable/bg_green_40c5_radius_50dp"
-                android:textColor="@color/white"
-                android:text="@{vm.isConnect ? `체중계 연결 끊기` : `체중계 연결`}"
-                android:textSize="20dp"
-                android:onClick="@{() -> vm.isConnect ? vm.onClickDisconnect() : vm.onClickScan()}"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginTop="30dp"/>
+
         </LinearLayout>
     </LinearLayout>
 

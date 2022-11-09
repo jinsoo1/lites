@@ -40,10 +40,12 @@ class FragmentUtils(
             val tag = getFragmentTagByPosition(position)
             var fragment: Fragment? = fm.findFragmentByTag(tag)
             if (fragment == null) {
+                Log.e("asdf", "null")
                 if (args == null) args = Bundle()
                 fragment = getFragmentByPosition(position, args)
                 ft.add(containerId, fragment, tag)
             } else {
+                Log.e("asdf", "notnull")
                 if (currentFragment !== fragment) {
                     ft.show(fragment)
                 }
@@ -51,6 +53,7 @@ class FragmentUtils(
             postUpdateFragment(fm, ft, fragment, position)
             currentFragment = fragment
         } catch (e: Exception) {
+            Log.e("asdf", e.toString())
             // Current Fragment Not initialized
             e.printStackTrace()
         }
@@ -61,6 +64,7 @@ class FragmentUtils(
         ft: FragmentTransaction, fragment: Fragment,
         position: Int
     ) {
+        Log.e("asdf", "postUpdateFragment")
         hideFragmentExcept(fm, ft, position)
         fragment.setMenuVisibility(true)
         fragment.userVisibleHint = true

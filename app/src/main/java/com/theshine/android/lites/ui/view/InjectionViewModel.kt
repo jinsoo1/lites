@@ -37,7 +37,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel() }
     viewModel { HomeViewModel() }
     viewModel { CommunityViewModel() }
     viewModel { SearchViewModel() }
@@ -66,9 +66,9 @@ val viewModelModule = module {
     viewModel { SharedInfoListViewModel() }
     viewModel { PostWriteViewModel() }
 
-    viewModel { GraphViewModel() }
-    viewModel { HomeMainViewModel(get()) }
-    viewModel { WeightInfoViewModel() }
+    viewModel { GraphViewModel(get()) }
+    viewModel { HomeMainViewModel(get(), get()) }
+    viewModel { WeightInfoViewModel(get()) }
 
     viewModel { SplashViewModel(get(), get()) }
 

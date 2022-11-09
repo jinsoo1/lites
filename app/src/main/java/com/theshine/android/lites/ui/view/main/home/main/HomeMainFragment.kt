@@ -34,10 +34,9 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
 
     override fun initFragment() {
 
-        viewModel.setObserves()
+        Log.d("Fragment1", "Fragment")
         startLocationPermissionRequest()
 
-        Log.d("getMyPet1", activityViewModel.dd.value.toString())
     }
 
 
@@ -70,6 +69,7 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
                 }
                 .setPositiveButton("허용") { dialog, _ ->
                     connectDevice(it)
+
                 }
                 .show()
         })
@@ -77,6 +77,10 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
         readTxt.observe(this@HomeMainFragment, Observer {
             Log.d("Central T", it)
             setBLEData(it)
+        })
+
+        myPet.observe(this@HomeMainFragment, Observer {
+            activityViewModel.myPetSetting(it)
         })
 
 
@@ -124,6 +128,8 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
     override fun onResume() {
         super.onResume()
         // finish app if the BLE is not supported
+        viewModel.setObserves()
+        Log.d("FragmentResume1", "Fragment")
         if (!requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
             requireActivity().finish()
         }

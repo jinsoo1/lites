@@ -6,6 +6,7 @@
     <string name="MY_PAGE">MY PAGE</string>
 
     <string name="native_app_key">25fe676103f31afc621f1ba5ec1d0b12</string>
+    <string name="rest_app_key">41a32f97c949ead1e3f01c785642be08</string>
 
     <string name="firebase_web_client_id">408063195293-ani9hp2dlfdk3onojd198m6l64k4nmq8.apps.googleusercontent.com</string>
 
@@ -85,9 +86,28 @@
     <string name="posting_hint_2">제목작성</string>
     <string name="posting_hint_3">본문작성</string>
 
+    <string name="mypet_bcs">%s 만을 위한\n 맞춤 케어 정보를 확인 하세요.</string>
+    <string name="bcs_num">%d단계</string>
+    <string name="bcs_num2">BCS %d단계</string>
+    <string name="bcs_long">BCS(Body Condition Score)는 반려동물의 비만도를 구분하는 지표로 눈으로 살펴본 몸의 형태와 손으로 만져지는 지방의 정보를 기준으로 측정해요.</string>
+    <string name="bcs_skinny">적정 체중을 목표로 증량 해주시고 컨디션 변화에 신경 써주세요.</string>
+    <string name="bcs_data">%s 기준</string>
+    <string name="bcs_food">%s의 기초대사량과 권장 사료량 이에요!</string>
+    <string name="bcs_food_explanation">제공된 사료량은 미국 사료협회의 국제적으로 통용되고 있는 산식이며 사료의 부피나 무게에 따라 오차가 있을수 있습니다. 건강상태, 활동량 환경에 따라 실제 아이가 필요로 하는 식사량은 달라질수 있으니 참고용으로만 활용 해주세요.</string>
+    <string name="bcs_activity">%s의 권장 활동량이에요!</string>
+    <string name="bcs_activity_explanation">장시간과 고강도의 운동 및 산택은 관절에 무리를 줄 수 있습니다. 운동 시간은 반려동물에 따라 달라질수 있으니 무리를 줄수 있는 산책은 자제하며 운동시간을 조절해주세요.</string>
+
+    <string name="graph_date">%s의 주간별 변화를</string>
+    <string name="graph_month">%s의 월간별 변화를</string>
+    <string name="graph_year">%s의 월간별 변화를</string>
+    <string name="scale_on">체중계 연결</string>
+    <string name="scale_off">체중계연결 끊기</string>
+
     <!--메인 탭 -->
     <string name="search_hospital">병원찾기</string>
     <string name="info_hospital">병원정보</string>
+    <string name="search_address">병원주소 : %s</string>
+    <string name="search_tell">전화번호 : %s</string>
 
 
     <!-- test-->

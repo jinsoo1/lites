@@ -42,12 +42,17 @@
     <color name="green_2189">#218958</color>
     <color name="green_51C2">#51C2BA</color>
     <color name="green_61C9">#61C9B3</color>
+    <color name="green_50C3">#50C3BF</color>
+    <color name="green_3699">#369990</color>
 
     <!-- yellow-->
     <color name="yellow_F9F8">#F9F8F4</color>
     <color name="yellow_FFFD">#FFFDF3</color>
     <color name="yellow_FDF5">#FDF5C0</color>
     <color name="yellow_FEFB">#FEFBE5</color>
+    <color name="yellow_FFF0">#FFF0CB</color>
+
+    <color name="pink_FFED">#FFEDF0</color>
     <color name="background_home">#FFFDF3</color>
 
 </resources>

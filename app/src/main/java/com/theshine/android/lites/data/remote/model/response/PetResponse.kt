@@ -2,7 +2,7 @@ package com.theshine.android.lites.data.remote.model.response
 
 data class PetResponse(
     val petToken: String,
-    val petType : String,
+    val type : String,
     val name: String,
     val birth: String,
     val variety: String,
