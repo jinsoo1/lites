@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="프로필 수정"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginLeft="35dp"
+                android:fontFamily="@font/font_bold"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_x_line_black"
+                android:layout_gravity="center"
+               android:layout_marginRight="15dp"/>
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="변경된 정보를 입력해주세요."
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/font_medium"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_profile_image_circle_big"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이미지 설정"
+            android:fontFamily="@font/font_medium"
+            android:textColor="@color/green_009C"
+            android:textSize="14dp"
+            android:background="@drawable/bg_green_dcf5_radius_100dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
+
+
+        <TextView
+            android:layout_width="122dp"
+            android:layout_height="29dp"
+            android:text="@string/name_input"
+            android:fontFamily="@font/font_medium"
+            android:layout_gravity="start"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:hint="이름을 입력해주세요"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"/>
+
+
+        <TextView
+            android:layout_width="122dp"
+            android:layout_height="29dp"
+            android:text="@string/name_input"
+            android:fontFamily="@font/font_medium"
+            android:layout_gravity="start"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etBirth"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:hint="이름을 입력해주세요"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"/>
+
+
+        <TextView
+            android:layout_width="122dp"
+            android:layout_height="29dp"
+            android:text="@string/name_input"
+            android:fontFamily="@font/font_medium"
+            android:layout_gravity="start"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etVariety"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:hint="이름을 입력해주세요"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp">
+
+
+        <LinearLayout
+            android:id="@+id/tv_female"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:onClick="@{() -> vm.clickFemale()}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_female"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="@string/female"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginRight="5dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_male"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:onClick="@{() -> vm.clickMale()}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_male"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="@string/male"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginRight="5dp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/neutralization"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/tv_o"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:onClick="@{() -> vm.clickO()}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_o_line_black"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="했어요"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_x"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
+            android:onClick="@{() -> vm.clickX()}"
+            android:layout_marginLeft="12dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_x_line_black"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="안했어요"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+
+</layout>
