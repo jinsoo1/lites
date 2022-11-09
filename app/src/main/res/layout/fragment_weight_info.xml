@@ -13,6 +13,7 @@
             type="com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoViewModel" />
 
         <import type="com.theshine.android.lites.util.ext.StringExt"/>
+        <import type="android.view.View"/>
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,15 +29,26 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="25dp"
-                        android:text="@{@string/mypet_bcs(vm.myPetWeight.name)}"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
+                    android:text="@{@string/mypet_bcs(vm.myPetWeight.name)}"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:visibility="@{vm.myPetWeight == null ? View.VISIBLE : View.GONE}"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -105,6 +117,7 @@
                         android:layout_marginStart="15dp"
                         android:textStyle="bold"
                         android:textSize="18dp"
+                        android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                         android:textColor="@color/black"
                         android:text="@{vm.myPetWeight.name}"
                         />
@@ -114,6 +127,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textColor="@color/black"
+                        android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                         android:text="은(는) "
                         />
 
@@ -122,6 +136,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textColor="@color/black"
+                        android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                         android:text="@{@string/bcs_num2(vm.myPetWeight.bcs)}"
                         />
 
@@ -303,6 +318,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{@string/bcs_food(vm.myPetWeight.name)}"
+                    android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="25dp"
                     android:textSize="20dp"
@@ -460,6 +476,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{@string/bcs_activity(vm.myPetWeight.name)}"
+                    android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="25dp"
                     android:textSize="20dp"

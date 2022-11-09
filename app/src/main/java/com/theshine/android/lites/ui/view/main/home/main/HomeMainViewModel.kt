@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.theshine.android.lites.base.BaseViewModel
-import com.theshine.android.lites.data.common.model.PetInfo
+import com.theshine.android.lites.data.common.model.PetData
 import com.theshine.android.lites.data.remote.source.PetDataSource
 import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.util.Event
@@ -55,13 +55,13 @@ class HomeMainViewModel(
     val humidity : LiveData<String> get() = _humidity
 
 
-    private val _myPet : MutableLiveData<PetInfo> = MutableLiveData()
-    val myPet : LiveData<PetInfo> get() = _myPet
+    private val _myPet : MutableLiveData<PetData> = MutableLiveData()
+    val myPet : LiveData<PetData> get() = _myPet
 
     init {
         petDataSource.getMyPet()
             .subscribe({
-                _myPet.value = PetInfo(
+                _myPet.value = PetData(
                     it.petToken,
                     it.type,
                     it.name,
@@ -69,10 +69,13 @@ class HomeMainViewModel(
                     it.variety,
                     it.gender,
                     it.neutering,
-                    it.height,
-                    it.waist,
                     it.bcs,
-                    it.profileImg
+                    it.profileImg,
+                    it.moisture,
+                    it.protein,
+                    it.fat,
+                    it.fiber,
+                    it.ash
                 )
             },{
                 Log.d("getMyPet E ", it.toString())

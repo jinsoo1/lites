@@ -2,6 +2,7 @@ package com.theshine.android.lites.ui.view.info
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.data.remote.model.response.PetResponse
 import com.theshine.android.lites.data.remote.source.PetDataSource
@@ -31,37 +32,67 @@ class InfoViewModel(
     val finishAction: MutableLiveData<Event<String>> = MutableLiveData()
 
     fun insertPetData(){
-        petDataSource.insertPet(
-            type = type.value!!,
-            name = name.value!!,
-            birth = birth.value!!,
-            variety = variety.value!!,
-            gender = gender.value!!,
-            neutralization = neutralization.value!!,
-            bcs = bcs.value!!,
-            moisture = moisture.value!!,
-            protein = protein.value!!,
-            fat = fat.value!!,
-            fiber = fiber.value!!,
-            ash = ash.value!!
-        )
-            .doOnSubscribe {
-                isLoading.value = true
-                Log.d("테스트중1", "111")
-            }
-            .doOnError {
-                isLoading.value = false
-                Log.d("테스트중1", "222")
-            }
-            .subscribe({
-                isLoading.value = false
-                finishAction.value = Event("finish")
-                Log.d("테스트중1", "token : "+it.toString())
+        if(moisture.value == null){
+            petDataSource.insertMiniPet(
+                type = type.value!!,
+                name = name.value!!,
+                birth = birth.value!!,
+                variety = variety.value!!,
+                gender = gender.value!!,
+                neutralization = neutralization.value!!,
+                bcs = bcs.value!!
+            )
+                .doOnSubscribe {
+                    isLoading.value = true
+                    Log.d("테스트중1", "111")
+                }
+                .doOnError {
+                    isLoading.value = false
+                    Log.d("테스트중1", "222")
+                }
+                .subscribe({
+                    isLoading.value = false
+                    finishAction.value = Event("finish")
+                    Log.d("테스트중1", "token : "+it.toString())
 
-            },{
-                Log.d("테스트중1", "에러")
-            })
-            .addTo(compositeDisposable)
+                },{
+                    Log.d("테스트중1", "에러")
+                })
+                .addTo(compositeDisposable)
+        }else{
+            petDataSource.insertPet(
+                type = type.value!!,
+                name = name.value!!,
+                birth = birth.value!!,
+                variety = variety.value!!,
+                gender = gender.value!!,
+                neutralization = neutralization.value!!,
+                bcs = bcs.value!!,
+                moisture = moisture.value!!,
+                protein = protein.value!!,
+                fat = fat.value!!,
+                fiber = fiber.value!!,
+                ash = ash.value!!
+            )
+                .doOnSubscribe {
+                    isLoading.value = true
+                    Log.d("테스트중1", "111")
+                }
+                .doOnError {
+                    isLoading.value = false
+                    Log.d("테스트중1", "222")
+                }
+                .subscribe({
+                    isLoading.value = false
+                    finishAction.value = Event("finish")
+                    Log.d("테스트중1", "token : "+it.toString())
+
+                },{
+                    Log.d("테스트중1", "에러")
+                })
+                .addTo(compositeDisposable)
+        }
+
     }
 
 }

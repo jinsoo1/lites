@@ -41,20 +41,9 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-    viewModel { MainViewModel() }
-    viewModel { HomeViewModel() }
-    viewModel { CommunityViewModel() }
-    viewModel { SearchViewModel() }
-    viewModel { MyPageViewModel() }
-    viewModel { MyPageNavViewModel() }
-    viewModel { EventViewModel() }
-    viewModel { MyPageInfoViewModel() }
 
-    viewModel { InfoViewModel() }
-    viewModel { InquiryViewModel() }
-    viewModel { ManagementViewModel() }
-    viewModel { NoticeViewModel() }
-    viewModel { SettingViewModel() }
+
+
     //로그인 페이지 및 초기화면페이지
     viewModel { SplashViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
@@ -73,7 +62,7 @@ val viewModelModule = module {
      * 메인페이지
      */
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel() }
 
     //커뮤니티
     viewModel { CommunityViewModel() }
@@ -83,19 +72,15 @@ val viewModelModule = module {
     viewModel { FeedViewModel() }
     viewModel { PostWriteViewModel() }
     viewModel { SharedInfoViewModel() }
-    viewModel { ChatterListViewModel() }
-    viewModel { FeedListViewModel() }
     viewModel { SharedInfoListViewModel() }
-    viewModel { PostWriteViewModel() }
 
+    //홈
+    viewModel { HomeViewModel() }
     viewModel { GraphViewModel(get()) }
     viewModel { HomeMainViewModel(get(), get()) }
     viewModel { WeightInfoViewModel(get()) }
-    //홈
-    viewModel { HomeViewModel() }
-    viewModel { GraphViewModel() }
-    viewModel { HomeMainViewModel(get()) }
-    viewModel { WeightInfoViewModel() }
+
+    viewModel { SearchViewModel() }
 
     //마이페이지
     viewModel { EventViewModel(get()) }
@@ -110,9 +95,6 @@ val viewModelModule = module {
     viewModel { ActivityChatViewModel() }
     viewModel { ActivitySharedInfoViewModel() }
 
-
-
-    viewModel { SearchViewModel() }
 
 
 

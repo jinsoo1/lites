@@ -101,22 +101,31 @@ class IngredientFragment : BaseVmFragment<FragmentInfoIngredientBinding>(
         })
 
         moisture.observe(this@IngredientFragment, Observer {
-            viewModel.selectedNext()
+            if(binding.etMoisture.text.isNotEmpty()&&binding.etProtein.text.isNotEmpty()&&binding.etFat.text.isNotEmpty()&&binding.etFiber.text.isNotEmpty()&&binding.etAsh.text.isNotEmpty()){
+                viewModel.selectedNext()
+            }
+
             Log.d("테스트123",it.toString())
         })
 
         protein.observe(this@IngredientFragment, Observer {
-            viewModel.selectedNext()
+            if(binding.etMoisture.text.isNotEmpty()&&binding.etProtein.text.isNotEmpty()&&binding.etFat.text.isNotEmpty()&&binding.etFiber.text.isNotEmpty()&&binding.etAsh.text.isNotEmpty()){
+                viewModel.selectedNext()
+            }
             Log.d("테스트123","protein"+it.toString())
         })
 
         fat.observe(this@IngredientFragment, Observer {
-            viewModel.selectedNext()
+            if(binding.etMoisture.text.isNotEmpty()&&binding.etProtein.text.isNotEmpty()&&binding.etFat.text.isNotEmpty()&&binding.etFiber.text.isNotEmpty()&&binding.etAsh.text.isNotEmpty()){
+                viewModel.selectedNext()
+            }
             Log.d("테스트123","fat"+it.toString())
         })
 
         fiber.observe(this@IngredientFragment, Observer {
-            viewModel.selectedNext()
+            if(binding.etMoisture.text.isNotEmpty()&&binding.etProtein.text.isNotEmpty()&&binding.etFat.text.isNotEmpty()&&binding.etFiber.text.isNotEmpty()&&binding.etAsh.text.isNotEmpty()){
+                viewModel.selectedNext()
+            }
             Log.d("테스트123","fiber"+it.toString())
         })
 

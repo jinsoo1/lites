@@ -52,7 +52,7 @@ class MyPageNavViewModel(
                 it.map{
                     PetData(
                         it.petToken,
-                        it.petType,
+                        it.type,
                         it.name,
                         it.birth,
                         it.variety,

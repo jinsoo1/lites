@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseViewModel
-import com.theshine.android.lites.data.common.model.PetInfo
+import com.theshine.android.lites.data.common.model.PetData
 import com.theshine.android.lites.data.common.model.PetWeight
 import com.theshine.android.lites.data.remote.source.PetDataSource
 import io.reactivex.rxkotlin.addTo
@@ -44,13 +44,14 @@ class WeightInfoViewModel(
                 )
             },{
                 Log.d("getMyPetWeight E", it.toString())
+                toast("반려동물의 저장된 정보가 없습니다.")
             })
             .addTo(compositeDisposable)
 
     }
 
 
-    fun setMyPetToken(petInfo : PetInfo?){
+    fun setMyPetToken(petInfo : PetData?){
         _petToken.value = petInfo?.petToken
         _bcs.value = petInfo?.bcs
     }

@@ -18,8 +18,6 @@ class ScaleFragment : BaseVmFragment<FragmentInfoScaleBinding>(
     override val viewModel by lazy { vm as ScaleViewModel }
     val activityViewModel by sharedViewModel<InfoViewModel>()
 
-    private val petDataSource: PetDataSource by inject()
-
     override fun initFragment() {
 
         viewModel.setObserves()

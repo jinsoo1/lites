@@ -2,7 +2,10 @@ package com.theshine.android.lites.data.remote.source
 
 import com.theshine.android.lites.data.remote.api.PetApi
 import com.theshine.android.lites.data.remote.model.VoidResponse
+import com.theshine.android.lites.data.remote.model.response.PetGraphDataResponse
 import com.theshine.android.lites.data.remote.model.response.PetResponse
+import com.theshine.android.lites.data.remote.model.response.PetWeightResponse
+import com.theshine.android.lites.data.remote.model.response.PetYearDataResponse
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -34,6 +37,21 @@ class PetDataSource(
 
     ) : Single<VoidResponse>{
         return petApi.insertPet(type, name, birth, variety, gender, neutralization, bcs, moisture, protein, fat, fiber, ash)
+            .subscribeOn(Schedulers.io())
+            .map { it }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun insertMiniPet(
+        type : String,
+        name : String,
+        birth : String,
+        variety : String,
+        gender : Boolean,
+        neutralization : Boolean,
+        bcs : Int
+    ) : Single<VoidResponse>{
+        return petApi.insertMiniPet(type, name, birth, variety, gender, neutralization, bcs)
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())
