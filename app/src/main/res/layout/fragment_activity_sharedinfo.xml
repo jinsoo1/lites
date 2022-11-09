@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.activity.ActivitySharedInfoViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/btnMyPosting"
+                android:layout_width="84dp"
+                android:layout_height="33dp"
+                android:text="내 게시물"
+                android:gravity="center"
+                android:background="@drawable/bg_yellow_fdf5_radius_50dp"
+                android:fontFamily="@font/font_medium"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="6dp"/>
+
+            <TextView
+                android:id="@+id/btnMyComments"
+                android:layout_width="84dp"
+                android:layout_height="33dp"
+                android:text="댓글"
+                android:gravity="center"
+                android:background="@drawable/bg_e6e6_stroke_white_radius_50dp"
+                android:fontFamily="@font/font_medium"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="6dp"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSharedInfoList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</layout>

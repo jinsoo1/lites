@@ -40,21 +40,26 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.main.MainActivity">
-
-        </activity>
-
-        <activity
-            android:name=".ui.view.splash.SplashActivity"
+            android:name=".ui.view.main.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
+        <activity
+            android:name=".ui.view.splash.SplashActivity"
+            >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
 
         <activity
             android:name=".ui.view.login.LoginActivity">
@@ -75,14 +80,15 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".ui.view.main.community.post.PostWriteActivity">
 
         </activity>
 
         <activity
-            android:name=".ui.view.info.InfoActivity">
+            android:name=".ui.view.info.InfoActivity"
+            >
+
 
         </activity>
     </application>

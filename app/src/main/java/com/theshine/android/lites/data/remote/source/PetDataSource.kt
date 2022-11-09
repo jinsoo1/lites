@@ -1,5 +1,6 @@
 package com.theshine.android.lites.data.remote.source
 
+import com.google.common.math.IntMath
 import com.theshine.android.lites.data.remote.api.PetApi
 import com.theshine.android.lites.data.remote.model.VoidResponse
 import com.theshine.android.lites.data.remote.model.response.PetResponse
@@ -25,11 +26,15 @@ class PetDataSource(
         variety : String,
         gender : Boolean,
         neutralization : Boolean,
-        height : String,
-        waist : String,
-        bcs : Int
+        bcs : Int,
+        moisture : String,
+        protein : String,
+        fat : String,
+        fiber : String,
+        ash : String
+
     ) : Single<VoidResponse>{
-        return petApi.insertPet(type, name, birth, variety, gender, neutralization, height, waist, bcs)
+        return petApi.insertPet(type, name, birth, variety, gender, neutralization, bcs, moisture, protein, fat, fiber, ash)
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())
@@ -42,6 +47,13 @@ class PetDataSource(
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-
+    fun getMyPetList(
+        petToken: String
+    ) : Single<List<PetResponse>> {
+        return petApi.getMyPetList(petToken)
+            .subscribeOn(Schedulers.io())
+            .map { it.data }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 
 }

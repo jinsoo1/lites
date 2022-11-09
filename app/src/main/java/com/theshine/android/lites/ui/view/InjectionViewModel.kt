@@ -3,7 +3,7 @@ package com.theshine.android.lites.ui.view
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.info.bcs.BcsViewModel
 import com.theshine.android.lites.ui.view.info.namebirth.NameViewModel
-import com.theshine.android.lites.ui.view.info.physical.PhysicalViewModel
+import com.theshine.android.lites.ui.view.info.ingredient.IngredientViewModel
 import com.theshine.android.lites.ui.view.info.scale.ScaleViewModel
 import com.theshine.android.lites.ui.view.info.select.SelectViewModel
 import com.theshine.android.lites.ui.view.info.variety.VarietyViewModel
@@ -24,7 +24,11 @@ import com.theshine.android.lites.ui.view.main.home.main.HomeMainViewModel
 import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageNavViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageViewModel
+import com.theshine.android.lites.ui.view.main.myPage.activity.ActivityChatViewModel
+import com.theshine.android.lites.ui.view.main.myPage.activity.ActivitySharedInfoViewModel
+import com.theshine.android.lites.ui.view.main.myPage.activity.ActivityViewModel
 import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModel
+import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModels
 import com.theshine.android.lites.ui.view.main.myPage.info.MyPageInfoViewModel
 import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryViewModel
 import com.theshine.android.lites.ui.view.main.myPage.management.ManagementViewModel
@@ -37,40 +41,62 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-    viewModel { MainViewModel(get()) }
-    viewModel { HomeViewModel() }
-    viewModel { CommunityViewModel() }
-    viewModel { SearchViewModel() }
-    viewModel { MyPageViewModel() }
-    viewModel { MyPageNavViewModel() }
-    viewModel { EventViewModel() }
-    viewModel { MyPageInfoViewModel() }
-
-    viewModel { InfoViewModel() }
-    viewModel { InquiryViewModel() }
-    viewModel { ManagementViewModel() }
-    viewModel { NoticeViewModel() }
-    viewModel { SettingViewModel() }
+    //로그인 페이지 및 초기화면페이지
+    viewModel { SplashViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
+
+
+    //펫 정보 페이지
     viewModel { NameViewModel() }
-    viewModel { PhysicalViewModel() }
-    viewModel { ScaleViewModel() }
+    viewModel { IngredientViewModel() }
+    viewModel { ScaleViewModel(get()) }
     viewModel { SelectViewModel() }
     viewModel { VarietyViewModel() }
     viewModel { BcsViewModel() }
-    viewModel { ChatterViewModel() }
-    viewModel { FeedViewModel() }
-    viewModel { SharedInfoViewModel() }
-    viewModel { ChatterListViewModel() }
-    viewModel { FeedListViewModel() }
-    viewModel { SharedInfoListViewModel() }
-    viewModel { PostWriteViewModel() }
+    viewModel { InfoViewModel(get()) }
 
+    /**
+     * 메인페이지
+     */
+
+    viewModel { MainViewModel(get()) }
+
+    //커뮤니티
+    viewModel { CommunityViewModel() }
+    viewModel { ChatterListViewModel() }
+    viewModel { ChatterViewModel() }
+    viewModel { FeedListViewModel() }
+    viewModel { FeedViewModel() }
+    viewModel { PostWriteViewModel() }
+    viewModel { SharedInfoViewModel() }
+    viewModel { SharedInfoListViewModel() }
+
+    //홈
+    viewModel { HomeViewModel() }
     viewModel { GraphViewModel() }
     viewModel { HomeMainViewModel(get()) }
     viewModel { WeightInfoViewModel() }
 
-    viewModel { SplashViewModel(get(), get()) }
+    //마이페이지
+    viewModel { EventViewModel(get()) }
+    viewModel { MyPageInfoViewModel() }
+    viewModel { InquiryViewModel() }
+    viewModel { ManagementViewModel() }
+    viewModel { NoticeViewModel() }
+    viewModel { SettingViewModel() }
+    viewModel { MyPageViewModel() }
+    viewModel { MyPageNavViewModel(get()) }
+    viewModel { ActivityViewModel() }
+    viewModel { ActivityChatViewModel() }
+    viewModel { ActivitySharedInfoViewModel() }
+
+
+
+    viewModel { SearchViewModel() }
+
+
+
+    viewModel { EventViewModels() }
 
 }
 

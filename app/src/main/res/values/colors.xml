@@ -16,6 +16,7 @@
     <!-- black&white -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="black_50">#80000000</color>
     <color name="black_2929">#292929</color>
     <color name="black_1919">#191919</color>
     <color name="black_0909">#090909</color>
@@ -48,6 +49,7 @@
     <color name="yellow_FFFD">#FFFDF3</color>
     <color name="yellow_FDF5">#FDF5C0</color>
     <color name="yellow_FEFB">#FEFBE5</color>
+    <color name="yellow_FFFB">#FFFBD7</color>
     <color name="background_home">#FFFDF3</color>
 
 </resources>

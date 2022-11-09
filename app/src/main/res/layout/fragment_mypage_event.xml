@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.event.EventViewModel" />
+        <import type="android.view.View" />
 
     </data>
 
@@ -30,15 +35,21 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:layout_marginRight="35dp"/>
+                android:layout_marginRight="35dp"
+                android:fontFamily="@font/font_bold"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEventList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            android:visibility="@{vm.isLoading ? View.GONE : View.VISIBLE}"
+            bind:bindEventList="@{vm.eventList}">
 
         </androidx.recyclerview.widget.RecyclerView>
 

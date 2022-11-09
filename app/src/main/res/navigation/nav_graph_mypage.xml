@@ -33,6 +33,9 @@
             android:id="@+id/action_myPageNavFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
 
+        <action
+            android:id="@+id/action_myPageNavFragment_to_activityFragment"
+            app:destination="@id/activityFragment" />
 
 
     </fragment>
@@ -41,6 +44,12 @@
         android:id="@+id/noticeFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.notice.NoticeFragment"
         android:label="NoticeFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.theshine.android.lites.ui.view.main.myPage.activity.ActivityFragment"
+        android:label="ActivityFragment" >
     </fragment>
 
     <fragment

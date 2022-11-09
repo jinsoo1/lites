@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="vm"
             type="com.theshine.android.lites.ui.view.info.bcs.BcsViewModel" />
+
+        <variable
+            name="vmm"
+            type="com.theshine.android.lites.ui.view.info.InfoViewModel" />
+
 
         <import type="android.view.View" />
 
@@ -16,21 +22,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/page4"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:layout_gravity="end"
-            android:layout_margin="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic__back__appbar"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/page3"
+                android:layout_weight="1"
+                android:textColor="@color/grey_8082"
+                android:textSize="16dp"
+                android:fontFamily="@font/font_bold"
+                android:gravity="center"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="테스트 네임"
@@ -106,159 +129,427 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    >
-                    <androidx.appcompat.widget.AppCompatTextView
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(1)}">
+
+                    <LinearLayout
+                        android:id="@+id/bcs1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="1"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(1)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step1"
+                            android:layout_marginBottom="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/step1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/font_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_1" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(2)}"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/bcs2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step2"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_2" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(3)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <LinearLayout
+                        android:id="@+id/bcs3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="2"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(2)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step3"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_3" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(4)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="3"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(3)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step4"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_4" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(5)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="4"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(4)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step5"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_5" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(6)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="5"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(5)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step6"
+                            android:layout_marginBottom="10dp"
+                            />
+                        <ImageView
+                            android:id="@+id/step6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_6" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(7)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="6"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(6)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step7"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_7" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(8)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="7"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(7)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step8"
+                            android:layout_marginBottom="10dp"/>
+                        <ImageView
+                            android:id="@+id/step8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_8" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="190dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="6dp"
+                    android:onClick="@{() -> vm.onClickItem(9)}"
                     >
-                    <androidx.appcompat.widget.AppCompatTextView
+
+                    <LinearLayout
+                        android:id="@+id/bcs9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="8"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(8)}"
-                        />
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@color/yellow_FFFD">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_badge_step9"
+                            android:layout_marginBottom="10dp"
+                           />
+                        <ImageView
+                            android:id="@+id/step9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="12.5dp"
+                            android:textColor="@color/black"
+                            android:text="@string/bcs_9"
+                            />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    >
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="9"
-                        android:gravity="center"
-                        android:onClick="@{() -> vm.onClickItem(9)}"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -273,14 +564,15 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:onClick="@{() -> vm.next()}"
-            android:background="@{vm.selected ? @color/green_DCF5 : @color/grey_eaea}">
+            android:background="@{vm.selected ? @drawable/btn_next : @drawable/btn_next}">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/next"
                 android:textSize="20dp"
-                android:textColor="@color/green_009C"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font_medium"
                 />
 
         </LinearLayout>

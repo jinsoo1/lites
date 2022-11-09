@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.theshine.android.lites.data.common.model.ChatMyFeed"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/font_regular"
+            android:textColor="@color/grey_8082"
+            android:textSize="12dp"
+            android:text="@{item.createdAt}"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:fontFamily="@font/font_medium"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="@{item.title}"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:id="@+id/tvContents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:fontFamily="@font/font_regular"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:text="@{item.contents}"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋아요"
+                android:textSize="11dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"/>
+
+            <TextView
+                android:id="@+id/tvLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="11dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="댓글"
+                android:textSize="11dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"/>
+            <TextView
+                android:id="@+id/tvCommentCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textSize="11dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조회수"
+                android:textSize="11dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"/>
+            <TextView
+                android:id="@+id/tvViewCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textSize="11dp"
+                android:textColor="@color/grey_8082"
+                android:fontFamily="@font/font_medium"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>
