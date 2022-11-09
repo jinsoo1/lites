@@ -8,8 +8,11 @@ data class PetResponse(
     val variety: String,
     val gender: Int,
     val neutering: Int,
-    val height: String,
-    val waist: String,
+    val moisture: String,
+    val protein: String,
+    val fat: String,
+    val fiber: String,
+    val ash: String,
     val bcs: Int,
     val profileImg: String
 )

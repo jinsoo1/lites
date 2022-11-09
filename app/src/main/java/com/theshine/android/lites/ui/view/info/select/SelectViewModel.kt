@@ -12,7 +12,6 @@ class SelectViewModel : BaseViewModel() {
     private val _selected : MutableLiveData<Boolean> = MutableLiveData(false)
     val selected : LiveData<Boolean> get() = _selected
 
-
     fun next(){
         action.value = Event(SelectActions.NEXT)
     }

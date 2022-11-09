@@ -132,6 +132,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:4.2.1' // 파이어베이스 인증2
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
     kapt "com.github.bumptech.glide:compiler:$glide"
 
     //androidx

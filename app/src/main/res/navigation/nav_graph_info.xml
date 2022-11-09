@@ -38,19 +38,7 @@
         tools:layout="@layout/fragment_info_variety">
 
         <action
-            android:id="@+id/action_varietyFragment_to_physicalFragment"
-            app:destination="@+id/fragment_physical"/>
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragment_physical"
-        android:name="com.theshine.android.lites.ui.view.info.physical.PhysicalFragment"
-        android:label="fragment_4"
-        tools:layout="@layout/fragment_info_physical">
-
-        <action
-            android:id="@+id/action_physicalFragment_to_bcsFragment"
+            android:id="@+id/action_varietyFragment_to_bcsFragment"
             app:destination="@+id/fragment_bcs"/>
 
     </fragment>
@@ -58,11 +46,23 @@
     <fragment
         android:id="@+id/fragment_bcs"
         android:name="com.theshine.android.lites.ui.view.info.bcs.BcsFragment"
-        android:label="fragment_5"
+        android:label="fragment_4"
         tools:layout="@layout/fragment_info_bcs">
 
         <action
-            android:id="@+id/action_bcsFragment_to_scaleFragment"
+            android:id="@+id/action_bcsFragment_to_ingredientFragment"
+            app:destination="@+id/fragment_ingredient"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_ingredient"
+        android:name="com.theshine.android.lites.ui.view.info.ingredient.IngredientFragment"
+        android:label="fragment_5"
+        tools:layout="@layout/fragment_info_ingredient">
+
+        <action
+            android:id="@+id/action_ingredientFragment_to_scaleFragment"
             app:destination="@+id/fragment_scale"/>
 
     </fragment>

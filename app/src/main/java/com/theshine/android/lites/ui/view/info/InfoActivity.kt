@@ -11,6 +11,7 @@ import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityInfoBinding
 import com.theshine.android.lites.databinding.ActivityLoginBinding
 import com.theshine.android.lites.ui.view.login.LoginViewModel
+import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.KeepStateNavigator
 
 class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
@@ -20,7 +21,6 @@ class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
 
     override val viewModel by lazy { vm as InfoViewModel }
     override val toolbarId = 0
-
 
     override fun initActivity() {
 
@@ -32,6 +32,13 @@ class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
 
         navController.setGraph(R.navigation.nav_graph_info)
 
+    }
+
+    fun InfoViewModel.setObserves(){
+        finishAction.observe(lifecycleOwner, EventObserver{
+
+
+        })
     }
 
 }

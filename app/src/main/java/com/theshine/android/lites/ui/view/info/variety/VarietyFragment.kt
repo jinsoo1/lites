@@ -39,7 +39,7 @@ R.layout.fragment_info_variety,
             when(it){
                 VarietyViewModel.VarietyActions.NEXT -> {
                     activityViewModel.variety.value = binding.tvVariety.text.toString()
-                    val action = VarietyFragmentDirections.actionVarietyFragmentToPhysicalFragment()
+                    val action = VarietyFragmentDirections.actionVarietyFragmentToBcsFragment()
                     findNavController().navigate(action)
 
                 }
@@ -49,7 +49,7 @@ R.layout.fragment_info_variety,
                     if(varietySelect.value != null && genderSelect.value == true && neutralizationSelect.value == true){
                         nextState.value = true
                     }
-                    binding.tvFemale.setBackgroundResource(R.drawable.bg_square_dcf5_radius_6dp)
+                    binding.tvFemale.setBackgroundResource(R.drawable.bg_red_stroke_1dp_radius_6dp)
                     binding.tvMale.setBackgroundResource(R.drawable.bg_square_f9f8_radius_6dp)
                 }
                 VarietyViewModel.VarietyActions.MALE -> {
@@ -59,7 +59,7 @@ R.layout.fragment_info_variety,
                         nextState.value = true
                     }
                     binding.tvFemale.setBackgroundResource(R.drawable.bg_square_f9f8_radius_6dp)
-                    binding.tvMale.setBackgroundResource(R.drawable.bg_square_dcf5_radius_6dp)
+                    binding.tvMale.setBackgroundResource(R.drawable.bg_red_stroke_1dp_radius_6dp)
                 }
                 VarietyViewModel.VarietyActions.O -> {
                     activityViewModel.neutralization.value = true
@@ -67,7 +67,7 @@ R.layout.fragment_info_variety,
                     if(varietySelect.value != null && genderSelect.value == true && neutralizationSelect.value == true){
                         nextState.value = true
                     }
-                    binding.tvO.setBackgroundResource(R.drawable.bg_square_dcf5_radius_6dp)
+                    binding.tvO.setBackgroundResource(R.drawable.bg_green_stroke_1dp_radius_6dp)
                     binding.tvX.setBackgroundResource(R.drawable.bg_square_f9f8_radius_6dp)
                 }
                 VarietyViewModel.VarietyActions.X -> {
@@ -77,7 +77,7 @@ R.layout.fragment_info_variety,
                         nextState.value = true
                     }
                     binding.tvO.setBackgroundResource(R.drawable.bg_square_f9f8_radius_6dp)
-                    binding.tvX.setBackgroundResource(R.drawable.bg_square_dcf5_radius_6dp)
+                    binding.tvX.setBackgroundResource(R.drawable.bg_green_stroke_1dp_radius_6dp)
                 }
             }
         })
@@ -94,7 +94,6 @@ R.layout.fragment_info_variety,
         nextState.observe(this@VarietyFragment, Observer {
             binding.layoutNext.isEnabled = it
         })
-
 
         }
 

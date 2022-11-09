@@ -2,12 +2,12 @@ package com.theshine.android.lites.data.remote.api
 
 import com.theshine.android.lites.data.remote.model.DataResponse
 import com.theshine.android.lites.data.remote.model.VoidResponse
-import com.theshine.android.lites.data.remote.model.response.PetGraphDataResponse
 import com.theshine.android.lites.data.remote.model.response.PetResponse
-import com.theshine.android.lites.data.remote.model.response.PetWeightResponse
-import com.theshine.android.lites.data.remote.model.response.PetYearDataResponse
 import io.reactivex.Single
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface PetApi {
 
@@ -24,9 +24,13 @@ interface PetApi {
         @Field("variety") variety : String,
         @Field("gender") gender : Boolean,
         @Field("neutralization") neutralization : Boolean,
-        @Field("height") height : String,
-        @Field("waist") waist : String,
-        @Field("bcs") bcs : Int
+        @Field("bcs") bcs : Int,
+        @Field("moisture") moisture : String,
+        @Field("protein") protein : String,
+        @Field("fat") fat : String,
+        @Field("fiber") fiber : String,
+        @Field("ash") ash : String
+
     ): Single<VoidResponse>
 
     @GET("/pet/myPet")
@@ -54,4 +58,9 @@ interface PetApi {
     @GET("/pet/yearPetdata")
     fun getYearPetData() : Single<DataResponse<List<PetYearDataResponse>>>
 
+
+    @GET("/pet/{petToken}")
+    fun getMyPetList(
+        @Path("petToken") petToken : String
+    ): Single<DataResponse<List<PetResponse>>>
 }

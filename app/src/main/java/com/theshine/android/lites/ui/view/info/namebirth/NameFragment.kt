@@ -7,11 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
-import com.theshine.android.lites.databinding.FragmentInfoPhysicalBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
-import com.theshine.android.lites.ui.view.info.physical.PhysicalViewModel
-import com.theshine.android.lites.ui.view.info.select.SelectFragmentDirections
-import com.theshine.android.lites.ui.view.info.select.SelectViewModel
 import com.theshine.android.lites.util.EventObserver
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
