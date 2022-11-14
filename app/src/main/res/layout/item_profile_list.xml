@@ -21,7 +21,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="160dp"
-            android:layout_height="116dp"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="6dp"
             android:elevation="10dp"
             app:cardUseCompatPadding="true">
@@ -54,10 +54,10 @@
                         android:id="@+id/ivProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_profile_image_circle"/>
+                        android:background="@drawable/ic_profile_image_circle" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -70,7 +70,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="성별    | "
+                                android:text="성별   | "
                                 android:fontFamily="@font/font_regular"
                                 android:textSize="11dp"
                                 android:textColor="@color/black"/>
@@ -95,7 +95,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="나이    | "
+                                android:text="나이   | "
                                 android:fontFamily="@font/font_regular"
                                 android:textSize="11dp"
                                 android:textColor="@color/black"/>
@@ -106,6 +106,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/font_regular"
                                 android:textSize="11dp"
+                                android:text="@{item.birth2}"
                                 android:layout_marginLeft="5dp"
                                 android:textColor="@color/black"/>
 
@@ -129,7 +130,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="몸무게 | "
+                                android:text="몸무게| "
                                 android:fontFamily="@font/font_regular"
                                 android:textSize="11dp"
                                 android:textColor="@color/black"/>
@@ -148,7 +149,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/font_regular"
                                 android:textSize="11dp"
-                                android:text="kg"
+                                android:text="@{item.weight}"
                                 android:textColor="@color/black"/>
 
                         </LinearLayout>
@@ -156,6 +157,22 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="프로필 수정"
+                    android:textSize="11dp"
+                    android:fontFamily="@font/font_medium"
+                    android:textColor="@color/black"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/bg_square_dcf5_radius_6dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.profileEdit(item)}"/>
 
             </LinearLayout>
 

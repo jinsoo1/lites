@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic__back__appbar"
+                android:src="@drawable/ic_arrow_back"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"/>
 
@@ -264,7 +264,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_x_line_black"
+                        android:src="@drawable/ic_x"
                         android:layout_gravity="center"
                         android:layout_marginRight="4dp"/>
 
@@ -338,10 +338,6 @@
                     bindVarietyList="@{vm.dogVariety}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:overScrollMode="never"/>
-
-
-
-
             </LinearLayout>
 
         </LinearLayout>

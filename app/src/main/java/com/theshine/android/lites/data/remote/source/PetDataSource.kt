@@ -2,10 +2,7 @@ package com.theshine.android.lites.data.remote.source
 
 import com.theshine.android.lites.data.remote.api.PetApi
 import com.theshine.android.lites.data.remote.model.VoidResponse
-import com.theshine.android.lites.data.remote.model.response.PetGraphDataResponse
-import com.theshine.android.lites.data.remote.model.response.PetResponse
-import com.theshine.android.lites.data.remote.model.response.PetWeightResponse
-import com.theshine.android.lites.data.remote.model.response.PetYearDataResponse
+import com.theshine.android.lites.data.remote.model.response.*
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -64,6 +61,16 @@ class PetDataSource(
             .observeOn(AndroidSchedulers.mainThread())
     }
 
+    fun getMyPetProfile(
+//        petToken : String
+    ) : Single<ProfileListResponse>{
+        return petApi.getMyPetProfile()
+            .subscribeOn(Schedulers.io())
+            .map { it.data }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+    //petToken
+
     fun savePetWeight(
         petToken : String,
         weight : Double
@@ -106,11 +113,26 @@ class PetDataSource(
     }
 
     fun getMyPetList(
-        petToken: String
-    ) : Single<List<PetResponse>> {
-        return petApi.getMyPetList(petToken)
+    ) : Single<List<ProfileListResponse>> {
+        return petApi.getMyPetList()
             .subscribeOn(Schedulers.io())
             .map { it.data }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun updatePetProfile(
+        petToken: String,
+        name: String,
+        birth: String,
+        variety: String,
+        profileImage: String?,
+        gender: Int,
+        neutralization: Int,
+        bcs: Int
+    ) : Single<VoidResponse>{
+        return petApi.updatePetProfile(petToken, name, birth, variety, profileImage, gender, neutralization, bcs)
+            .subscribeOn(Schedulers.io())
+            .map { it }
             .observeOn(AndroidSchedulers.mainThread())
     }
 

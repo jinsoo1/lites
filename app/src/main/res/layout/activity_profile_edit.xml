@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
+        <variable
+            name="item"
+            type="com.theshine.android.lites.data.common.model.Profile" />
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewModel" />
+
     </data>
 
-
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:orientation="horizontal">
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +43,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_x_line_black"
+                android:src="@drawable/ic_icon_x"
                 android:layout_gravity="center"
                android:layout_marginRight="15dp"/>
 
@@ -41,15 +51,13 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,6 +71,7 @@
             android:layout_marginTop="10dp"/>
 
         <ImageView
+            android:id="@+id/ivProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_profile_image_circle_big"
@@ -84,7 +93,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"/>
 
-
         <TextView
             android:layout_width="122dp"
             android:layout_height="29dp"
@@ -100,20 +108,20 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="10dp"
+            android:padding="12dp"
             android:hint="이름을 입력해주세요"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:text="@={vm.name}"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"/>
 
-
         <TextView
             android:layout_width="122dp"
             android:layout_height="29dp"
-            android:text="@string/name_input"
+            android:text="생일"
             android:fontFamily="@font/font_medium"
             android:layout_gravity="start"
             android:layout_marginLeft="15dp"
@@ -121,24 +129,25 @@
             android:textSize="15dp"
             android:layout_marginTop="10dp"/>
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/etBirth"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="10dp"
-            android:hint="이름을 입력해주세요"
+            android:padding="12dp"
+            android:hint="생년월일"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:text="@={vm.birth}"
+            android:onClick="@{() -> vm.setBirthDay()}"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"/>
 
-
         <TextView
             android:layout_width="122dp"
             android:layout_height="29dp"
-            android:text="@string/name_input"
+            android:text="품종"
             android:fontFamily="@font/font_medium"
             android:layout_gravity="start"
             android:layout_marginLeft="15dp"
@@ -146,18 +155,47 @@
             android:textSize="15dp"
             android:layout_marginTop="10dp"/>
 
-        <EditText
-            android:id="@+id/etVariety"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:hint="이름을 입력해주세요"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"/>
+                <LinearLayout
+                    android:id="@+id/btnVariety"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp">
+
+                    <TextView
+                        android:id="@+id/tvVariety"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_weight="1"
+                        android:text="@={vm.variety}"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_down_fill_green"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="15dp"/>
+
+                </LinearLayout>
+
+<!--        <EditText-->
+<!--           -->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:hint="이름을 입력해주세요"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15dp"-->
+<!--           -->
+<!--            android:background="@drawable/bg_square_f9f8_radius_6dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:layout_marginTop="5dp"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -185,8 +223,8 @@
             android:layout_marginRight="12dp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickFemale()}">
+            android:onClick="@{() -> vm.clickFemale()}"
+            android:background="@drawable/bg_square_f9f8_radius_6dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -202,8 +240,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="15dp"
-                android:layout_marginRight="5dp"
-                />
+                android:layout_marginRight="5dp" />
 
         </LinearLayout>
 
@@ -215,8 +252,8 @@
             android:gravity="center"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickMale()}">
+            android:onClick="@{() -> vm.clickMale()}"
+            android:background="@drawable/bg_square_f9f8_radius_6dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -236,7 +273,6 @@
                 />
 
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -259,14 +295,15 @@
         android:layout_marginTop="15dp">
 
         <LinearLayout
-            android:id="@+id/tv_o"
+            android:id="@+id/btn_o"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginRight="12dp"
             android:gravity="center"
             android:layout_weight="1"
+            android:onClick="@{() -> vm.clickO()}"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickO()}">
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -286,19 +323,19 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/tv_x"
+            android:id="@+id/btn_x"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/bg_square_f9f8_radius_6dp"
             android:onClick="@{() -> vm.clickX()}"
+            android:background="@drawable/bg_square_f9f8_radius_6dp"
             android:layout_marginLeft="12dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_x_line_black"
+                android:src="@drawable/ic_x"
                 android:layout_gravity="center"
                 android:layout_marginRight="4dp"/>
 
@@ -314,6 +351,67 @@
 
     </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bcs단계 선택"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"/>
+
+                <LinearLayout
+                    android:id="@+id/btn_bcs"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/bg_square_f9f8_radius_6dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvBcs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@={vm.bcsString}"
+                        android:fontFamily="@font/font_medium"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_down_fill_green"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="15dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnEditComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_btn_long_round"
+                    android:textColor="@color/white"
+                    android:text="수정완료"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/font_medium"
+                    android:textSize="20dp"
+                    android:onClick="@{() -> vm.editComplete()}"
+                   />
+                <!--  -->
+
+
             </LinearLayout>
 
 
@@ -321,6 +419,74 @@
 
     </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/sheetVariety"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            app:behavior_hideable="true"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="품종"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVariety"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    bindVarietyLists="@{vm.dogVariety}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:overScrollMode="never"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sheetBcs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+            app:behavior_hideable="true"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BCS"
+                android:textColor="@color/black"
+                android:fontFamily="@font/font_medium"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBcs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never"
+                bindBcsList="@{vm.bcsStep}"/>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

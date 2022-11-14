@@ -1,6 +1,6 @@
 package com.theshine.android.lites.data.remote.model.response
 
-data class PetResponse(
+data class  PetResponse(
     val petToken: String,
     val type : String,
     val name: String,

@@ -185,7 +185,6 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
             }else{
                 unSelectedNext()
             }
-
         })
 
         selected.observe(this@BcsFragment, Observer {

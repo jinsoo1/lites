@@ -9,7 +9,10 @@ import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.util.EventObserver
+import kotlinx.android.synthetic.main.activity_profile_edit.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
     R.layout.fragment_info_name,
@@ -23,6 +26,8 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
         viewModel.setObserves()
 
     }
+
+
 
     fun NameViewModel.setObserves(){
         action.observe(viewLifecycleOwner, EventObserver{
@@ -54,12 +59,16 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
                                 dayOfMonth.toString()
                             }
                             binding.etBirth.text = "$year-$monthDay-$days"
+
+
+
+
                         }
 
                     val dialog = DatePickerDialog(
                         requireContext(),
                         myDatePicker,
-                        2000,
+                        2010,
                         7,
                         25
                     ).show()

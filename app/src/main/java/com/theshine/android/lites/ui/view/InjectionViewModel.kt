@@ -33,6 +33,7 @@ import com.theshine.android.lites.ui.view.main.myPage.info.MyPageInfoViewModel
 import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryViewModel
 import com.theshine.android.lites.ui.view.main.myPage.management.ManagementViewModel
 import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeViewModel
+import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewModel
 import com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel
 import com.theshine.android.lites.ui.view.main.search.SearchViewModel
 import com.theshine.android.lites.ui.view.splash.SplashViewModel
@@ -94,6 +95,7 @@ val viewModelModule = module {
     viewModel { ActivityViewModel() }
     viewModel { ActivityChatViewModel() }
     viewModel { ActivitySharedInfoViewModel() }
+    viewModel { ProfileEditViewModel(get()) }
 
 
 

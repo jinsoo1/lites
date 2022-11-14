@@ -11,4 +11,5 @@ object StringExt {
     fun showDateAsShort(origin: String?): String {
         return shortDateFormat.format(origin?.let { longDateFormat.parse(it) } ?: return "")
     }
+
 }
