@@ -8,6 +8,7 @@ import com.theshine.android.lites.BuildConfig.BASE_URL
 import com.theshine.android.lites.data.common.interceptor.ErrorInterceptor
 import com.theshine.android.lites.data.common.interceptor.HeaderInterceptor
 import com.theshine.android.lites.data.remote.api.AuthApi
+import com.theshine.android.lites.data.remote.api.MyPageApi
 import com.theshine.android.lites.data.remote.api.PetApi
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -18,6 +19,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 val networkModule = module {
 
@@ -66,6 +68,7 @@ val networkModule = module {
     //Api추가시에 한줄씩 추가
     single<AuthApi> { get<Retrofit>().create(AuthApi::class.java) }
     single<PetApi> { get<Retrofit>().create(PetApi::class.java) }
+    single<MyPageApi> { get<Retrofit>().create(MyPageApi::class.java) }
 
 }
 

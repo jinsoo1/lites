@@ -7,9 +7,9 @@ import com.theshine.android.lites.databinding.ActivityEventBinding
 
 class EventActivity : BaseVmFragment<ActivityEventBinding>(
     R.layout.activity_event,
-    EventViewModels::class.java
+    EventViewModel::class.java
 ) {
-    override val viewModel by lazy { vm as EventViewModels }
+    override val viewModel by lazy { vm as EventViewModel }
 
     override fun initFragment() {
 
