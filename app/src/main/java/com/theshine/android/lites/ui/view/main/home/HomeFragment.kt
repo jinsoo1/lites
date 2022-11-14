@@ -1,6 +1,7 @@
 package com.theshine.android.lites.ui.view.main.home
 
 import android.util.Log
+import androidx.lifecycle.Observer
 import com.google.android.material.tabs.TabLayout
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
@@ -27,6 +28,8 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
 
     override fun initFragment() {
         Log.d("onCreate()", "fragment")
+
+
         fragments = FragmentUtils(
             R.id.frameLayout_home,
             childFragmentManager,
@@ -56,6 +59,14 @@ class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
 
         })
 
+        viewModel.setObserves()
+
+    }
+
+    private fun HomeViewModel.setObserves(){
+        myPet.observe(this@HomeFragment, Observer {
+            Log.d("HomeFragment!! s", it.toString())
+        })
     }
 
     fun switchPage(position: Int) {

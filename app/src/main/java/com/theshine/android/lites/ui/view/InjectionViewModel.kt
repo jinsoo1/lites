@@ -22,6 +22,7 @@ import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.ui.view.main.home.graph.GraphViewModel
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainViewModel
 import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoViewModel
+import com.theshine.android.lites.ui.view.main.home.weightinfo.ingredient.IngredientActViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageNavViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageViewModel
 import com.theshine.android.lites.ui.view.main.myPage.activity.ActivityChatViewModel
@@ -36,6 +37,7 @@ import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeViewModel
 import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewModel
 import com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel
 import com.theshine.android.lites.ui.view.main.search.SearchViewModel
+import com.theshine.android.lites.ui.view.main.search.detail.SearchDetailViewModel
 import com.theshine.android.lites.ui.view.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -80,8 +82,10 @@ val viewModelModule = module {
     viewModel { GraphViewModel(get()) }
     viewModel { HomeMainViewModel(get(), get()) }
     viewModel { WeightInfoViewModel(get()) }
+    viewModel { IngredientActViewModel(get()) }
 
     viewModel { SearchViewModel() }
+    viewModel { SearchDetailViewModel() }
 
     //마이페이지
     viewModel { EventViewModel(get()) }

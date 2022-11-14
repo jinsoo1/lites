@@ -1,13 +1,16 @@
 package com.theshine.android.lites.ui.view.main.search
 
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.GsonBuilder
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.App
+import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.data.common.model.SearchData
 import com.theshine.android.lites.data.remote.api.KakaoApi
@@ -30,6 +33,9 @@ class SearchViewModel: BaseViewModel() {
     private val _action : MutableLiveData<Event<SearchAction>> = MutableLiveData()
     val action : LiveData<Event<SearchAction>> get() = _action
 
+    private val _actionItem : MutableLiveData<Event<SearchData>> = MutableLiveData()
+    val actionItem : LiveData<Event<SearchData>> get() = _actionItem
+
     private val _km : MutableLiveData<Int> = MutableLiveData(1000)
     val km : LiveData<Int> get() = _km
 
@@ -43,21 +49,40 @@ class SearchViewModel: BaseViewModel() {
     private val _page : MutableLiveData<Int> = MutableLiveData(1)
     val page : LiveData<Int> get() = _page
 
+    private val _myPosition : MutableLiveData<LatLng> = MutableLiveData()
+    val myPosition : LiveData<LatLng> get() = _myPosition
+
     private var retrofit : Retrofit? = null
+
+    val isLoading : MutableLiveData<Boolean> = MutableLiveData(false)
+
+    fun setPosition(position : LatLng){
+        _myPosition.value = position
+    }
 
     fun searchAnimalHospital(){
         getSearchItem.keywordSearch(
             API_KEY,
             "동물병원",
-            "37.597302541999625",
-            "127.05584834904478",
+            myPosition.value?.latitude.toString() ?: "",
+            myPosition.value?.longitude.toString(),
             _km.value!!,
-            _page.value!!
+            _page.value!!,
+            "distance"
         )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map {
-                it.documents.map {
+                it.documents.map { it->
+                    val metre : String
+                    if(it.distance.toFloat() >= 1000f){
+
+                        metre = "%.3f".format(it.distance.toFloat().times(0.001))+"km"
+                        Log.d("distance Trans", it.distance.toFloat().times(0.001).toString()+"km")
+                    }else{
+                        metre = it.distance+"m"
+                        Log.d("distance Trans", it.distance+"m")
+                    }
                     SearchData(
                         it.id,
                         it.place_name,
@@ -70,15 +95,18 @@ class SearchViewModel: BaseViewModel() {
                         it.x,
                         it.y,
                         it.place_url,
-                        it.distance+"m"
+                        metre
                     )
                 }
             }
             .subscribe({
                 arraySearch.value!!.addAll(it)
                 _searchData.value = arraySearch.value
+                isLoading.value = false
                 Log.d("keywordSearch", it.toString())
             }, {
+                isLoading.value = false
+                toast("동물병원 불러오기를 실패하였습니다.")
                 Log.d("keywordSearch E", it.toString())
             })
             .addTo(compositeDisposable)
@@ -110,6 +138,9 @@ class SearchViewModel: BaseViewModel() {
     fun pageInitialization(){
         _page.value = 1
     }
+    fun plusPage(){
+        _page.value = page.value!!.plus(1)
+    }
 
     fun getClient() : Retrofit? {
 
@@ -127,6 +158,12 @@ class SearchViewModel: BaseViewModel() {
         return retrofit
 
     }
+
+    fun moveDetail(item : SearchData){
+        _actionItem.value = Event(item)
+    }
+
+
 
 
     enum class SearchAction{

@@ -113,6 +113,15 @@ class PetDataSource(
     }
 
     fun getMyPetList(
+        petToken: String
+    ) : Single<List<PetResponse>> {
+        return petApi.getMyPetList(petToken)
+            .subscribeOn(Schedulers.io())
+            .map { it.data }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun getMyPetList(
     ) : Single<List<ProfileListResponse>> {
         return petApi.getMyPetList()
             .subscribeOn(Schedulers.io())
@@ -131,6 +140,20 @@ class PetDataSource(
         bcs: Int
     ) : Single<VoidResponse>{
         return petApi.updatePetProfile(petToken, name, birth, variety, profileImage, gender, neutralization, bcs)
+            .subscribeOn(Schedulers.io())
+            .map { it }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun updateIngredient(
+        petToken : String,
+        moisture: String,
+        protein: String,
+        fat: String,
+        fiber: String,
+        ash: String
+    ) : Single<VoidResponse>{
+        return petApi.updateIngredient(petToken, moisture, protein, fat, fiber, ash)
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())

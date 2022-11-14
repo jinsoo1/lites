@@ -73,9 +73,15 @@ interface PetApi {
     fun getYearPetData() : Single<DataResponse<List<PetYearDataResponse>>>
 
 
+    @GET("/pet/{petToken}")
+    fun getMyPetList(
+        @Path("petToken") petToken : String
+    ): Single<DataResponse<List<PetResponse>>>
+
     @GET("/pet/petlist")
     fun getMyPetList(
     ): Single<DataResponse<List<ProfileListResponse>>>
+
 
     @POST("/pet/updatePet")
     @FormUrlEncoded
@@ -89,4 +95,15 @@ interface PetApi {
         @Field("neutralization") neutralization: Int,
         @Field("bcs") bcs: Int
     ) : Single<VoidResponse>
+
+    @POST("/pet/ingredient")
+    @FormUrlEncoded
+    fun updateIngredient(
+        @Field("petToken") petToken : String,
+        @Field("moisture") moisture: String,
+        @Field("protein") protein: String,
+        @Field("fat") fat: String,
+        @Field("fiber") fiber: String,
+        @Field("ash") ash: String
+    ): Single<VoidResponse>
 }

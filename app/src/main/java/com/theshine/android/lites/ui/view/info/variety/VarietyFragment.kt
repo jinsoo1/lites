@@ -24,6 +24,8 @@ R.layout.fragment_info_variety,
 
         viewModel.setObserves()
 
+        viewModel.type.value = activityViewModel.type.value
+
         binding.rvVariety.adapter = VarietyListAdapter(viewModel)
 
         BottomSheetBehavior.from(binding.sheetVariety).state = BottomSheetBehavior.STATE_HIDDEN
@@ -95,7 +97,11 @@ R.layout.fragment_info_variety,
             binding.layoutNext.isEnabled = it
         })
 
-        }
+        type.observe(this@VarietyFragment, Observer {
+            settingType()
+        })
+
+    }
 
     fun bottomSheetState(){
         if (BottomSheetBehavior.from(binding.sheetVariety).state == BottomSheetBehavior.STATE_HALF_EXPANDED ||

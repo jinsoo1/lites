@@ -431,6 +431,8 @@ class BleRepository {
             Log.d(TAG, "PERMISSION_GRANTED")
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
+            Log.e(TAG, "Failed to write test")
+            Log.d(TAG, cmdByteArray.toString())
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)
@@ -460,6 +462,11 @@ class BleRepository {
                 nameList.add(device.name + "(" + device.address + ")")
                 Log.d(TAG, "" + device.name)
                 scanResults?.add(device)
+                if(device.name == "LITES"){
+                    //connectDevice(result.device)
+                    scanDevice = device
+                    isDevice = true
+                }
 //                statusTxt = "add scanned device: ${device.address}"
 //                isStatusChange = true
                 listUpdate.postValue(Event(scanResults))

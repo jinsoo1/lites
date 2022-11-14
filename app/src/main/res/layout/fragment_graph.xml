@@ -40,6 +40,7 @@
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:text="@{@string/graph_date(vm.myPetName)}"
+                    android:visibility="@{vm.myPetData.size() == 0 ? View.GONE : View.VISIBLE}"
                     />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -50,8 +51,35 @@
                     android:textSize="18dp"
                     android:textColor="@color/black"
                     android:text="그래프로 한 눈에 확인 하세요!"
+                    android:visibility="@{vm.myPetData.size() == 0 ? View.GONE : View.VISIBLE}"
                     />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:textSize="18dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:visibility="@{vm.myPetData.size() == 0 ? View.VISIBLE : View.GONE}"
+                    android:text="@{@string/graph_dataEmpty(vm.myPetName)}"
+                    />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_back_graph_gradient"
+                    android:visibility="@{vm.myPetData.size() == 0 ? View.VISIBLE : View.GONE}"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:text="스토어로 이동"
+                    />
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +92,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/green_B5E9"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ic_back_graph_gradient"
                     >
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -104,6 +136,7 @@
                             />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_year"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="년"
@@ -161,6 +194,21 @@
                         app:layout_constraintEnd_toEndOf="@+id/layout_chart"
                         app:layout_constraintTop_toTopOf="@+id/layout_chart"
                         />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_empty_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="저장된 체중 정보가 없습니다."
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:background="@drawable/bg_rounded_d9d9_radius_100dp"
+                        android:padding="15dp"
+                        android:visibility="@{vm.myPetData.size() == 0 ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/layout_chart"
+                        app:layout_constraintEnd_toEndOf="@+id/layout_chart"
+                        app:layout_constraintStart_toStartOf="@+id/layout_chart"
+                        app:layout_constraintTop_toTopOf="@+id/layout_chart" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -97,6 +97,13 @@
             android:name=".ui.view.main.myPage.profile.ProfileEditActivity">
         </activity>
 
+        <activity android:name=".ui.view.main.search.detail.SearchDetailActivity"/>
+        <activity android:name=".ui.view.main.home.weightinfo.ingredient.IngredientActivity"/>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="25fe676103f31afc621f1ba5ec1d0b12"
+            />
     </application>
 
 </manifest>

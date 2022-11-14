@@ -1,5 +1,7 @@
 package com.theshine.android.lites.data.common.model
 
+import java.io.Serializable
+
 data class SearchData(
     val id : String, //장소 ID
     val place_name : String, //장소명, 업체명
@@ -13,4 +15,4 @@ data class SearchData(
     val y : String, // Y 좌표값, 경위도인 경우 latitude(위도)
     val place_url :	String, //장소 상세페이지 URL
     val distance : String // 중심좌표까지의 거리 (단, x,y 파라미터를 준 경우에만 존재)
-)
+) : Serializable

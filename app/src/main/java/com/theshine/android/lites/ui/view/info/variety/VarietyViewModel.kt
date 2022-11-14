@@ -14,6 +14,9 @@ class VarietyViewModel : BaseViewModel() {
     private val _dogVariety : MutableLiveData<List<VarietyData>> = MutableLiveData(listOf())
     val dogVariety : MutableLiveData<List<VarietyData>> get() = _dogVariety
 
+    private val _type : MutableLiveData<String> = MutableLiveData()
+    val type : MutableLiveData<String> get() = _type
+
     private val _varietySelect : MutableLiveData<Event<VarietyData>> = MutableLiveData()
     val varietySelect : MutableLiveData<Event<VarietyData>> get() = _varietySelect
 
@@ -25,11 +28,21 @@ class VarietyViewModel : BaseViewModel() {
 
     val nextState : MutableLiveData<Boolean> = MutableLiveData(false)
 
-    init {
+
+    fun settingType(){
         var varietyData : MutableList<VarietyData> = mutableListOf()
-        dog_variety.forEach {
-            varietyData.add(VarietyData(it))
+        if(type.value == "강아지"){
+
+            dog_variety.forEach {
+                varietyData.add(VarietyData(it))
+            }
+
+        }else{
+            cat_variety.forEach {
+                varietyData.add(VarietyData(it))
+            }
         }
+
         _dogVariety.value = varietyData
     }
 

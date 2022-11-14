@@ -7,6 +7,10 @@
             name="item"
             type="com.theshine.android.lites.data.common.model.SearchData" />
 
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.search.SearchViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +18,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:onClick="@{() -> vm.moveDetail(item)}"
         android:background="@drawable/underline_gray_eaeaea"
         >
 
