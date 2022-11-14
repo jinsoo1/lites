@@ -90,7 +90,7 @@
     <string name="bcs_num">%d단계</string>
     <string name="bcs_num2">BCS %d단계</string>
     <string name="bcs_long">BCS(Body Condition Score)는 반려동물의 비만도를 구분하는 지표로 눈으로 살펴본 몸의 형태와 손으로 만져지는 지방의 정보를 기준으로 측정해요.</string>
-    <string name="bcs_skinny">적정 체중을 목표로 증량 해주시고 컨디션 변화에 신경 써주세요.</string>
+    <string name="bcs_skinny">적정 체중을 목표로 증량 해주시고\n 컨디션 변화에 신경 써주세요.</string>
     <string name="bcs_data">%s 기준</string>
     <string name="bcs_food">%s의 기초대사량과 권장 사료량 이에요!</string>
     <string name="bcs_food_explanation">제공된 사료량은 미국 사료협회의 국제적으로 통용되고 있는 산식이며 사료의 부피나 무게에 따라 오차가 있을수 있습니다. 건강상태, 활동량 환경에 따라 실제 아이가 필요로 하는 식사량은 달라질수 있으니 참고용으로만 활용 해주세요.</string>
@@ -100,8 +100,10 @@
     <string name="graph_date">%s의 주간별 변화를</string>
     <string name="graph_month">%s의 월간별 변화를</string>
     <string name="graph_year">%s의 월간별 변화를</string>
+    <string name="graph_dataEmpty">체중계를 연결하고 \n%s의 건강관리를 시작해보세요!</string>
     <string name="scale_on">체중계 연결</string>
     <string name="scale_off">체중계연결 끊기</string>
+
 
     <!--메인 탭 -->
     <string name="search_hospital">병원찾기</string>

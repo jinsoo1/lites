@@ -5,5 +5,7 @@ data class PetWeightResponse(
     val weight : Double,
     val createdAt : String,
     val name : String,
-    val bcs : Int
+    val bcs : Int,
+    val type : String,
+    val moisture : String?
 )

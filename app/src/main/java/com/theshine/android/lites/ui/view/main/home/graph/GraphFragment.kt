@@ -31,6 +31,9 @@ class GraphFragment: BaseVmFragment<FragmentGraphBinding>(
 
         activityViewModel.myPet.value?.name?.let { viewModel.setPetName(it) }
 
+        binding.tvYear.setOnClickListener {
+            binding.tvEmptyData.visibility = View.GONE
+        }
         viewModel.setObserves()
         viewModel.getWeekPetData()
 

@@ -20,6 +20,8 @@ import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeMainBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.main.MainViewModel
+import com.theshine.android.lites.ui.view.main.home.HomeFragment
+import com.theshine.android.lites.ui.view.main.home.HomeViewModel
 import com.theshine.android.lites.ui.view.main.home.bluetooth.PERMISSIONS
 import com.theshine.android.lites.ui.view.main.home.bluetooth.REQUEST_ALL_PERMISSION
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -31,9 +33,9 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
     override val viewModel by lazy { vm as HomeMainViewModel }
 
     val activityViewModel by sharedViewModel<MainViewModel>()
+    val fragmentViewModel by sharedViewModel<HomeViewModel>()
 
     override fun initFragment() {
-
         Log.d("Fragment1", "Fragment")
         startLocationPermissionRequest()
 
@@ -81,6 +83,7 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
 
         myPet.observe(this@HomeMainFragment, Observer {
             activityViewModel.myPetSetting(it)
+            fragmentViewModel.myPetSetting(it)
         })
 
 

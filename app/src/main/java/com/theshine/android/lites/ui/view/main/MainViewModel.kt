@@ -9,7 +9,7 @@ import com.theshine.android.lites.data.common.model.PetData
 
 class MainViewModel : BaseViewModel() {
 
-    val _myPet : MutableLiveData<PetData> = MutableLiveData()
+    private val _myPet : MutableLiveData<PetData> = MutableLiveData()
     val myPet : LiveData<PetData> get() = _myPet
 
 

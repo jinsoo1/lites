@@ -8,12 +8,16 @@ import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.data.common.model.PetData
 import com.theshine.android.lites.data.common.model.PetWeight
 import com.theshine.android.lites.data.remote.source.PetDataSource
+import com.theshine.android.lites.util.Event
 import io.reactivex.rxkotlin.addTo
 import kotlin.math.roundToInt
 
 class WeightInfoViewModel(
     private val petDataSource: PetDataSource
 ): BaseViewModel() {
+
+    private val _action : MutableLiveData<Event<WeightInfoAction>> = MutableLiveData()
+    val action : LiveData<Event<WeightInfoAction>> get() = _action
 
     private val _petToken : MutableLiveData<String?> = MutableLiveData()
     val petToken : LiveData<String?> get() = _petToken
@@ -27,6 +31,9 @@ class WeightInfoViewModel(
     private val _myPetWeight : MutableLiveData<PetWeight> = MutableLiveData()
     val myPetWeight : LiveData<PetWeight> get() = _myPetWeight
 
+    private val _RER : MutableLiveData<String> = MutableLiveData()
+    val RER : LiveData<String> get() = _RER
+
     fun getMyPetWeight(petToken : String?){
         if(petToken == null ){
             toast("대표 반려동물 정보가 없습니다.")
@@ -34,19 +41,35 @@ class WeightInfoViewModel(
         }
         petDataSource.getMyPetWeight(petToken)
             .subscribe({
-
+                Log.d("getMyPetWeight", it.toString())
                 _myPetWeight.value = PetWeight(
                     it.petToken,
                     it.weight,
                     it.createdAt,
                     it.name,
-                    it.bcs
+                    it.bcs,
+                    it.type,
+                    it.moisture
                 )
+                settingRER(it.weight)
             },{
                 Log.d("getMyPetWeight E", it.toString())
                 toast("반려동물의 저장된 정보가 없습니다.")
             })
             .addTo(compositeDisposable)
+
+    }
+
+    fun settingRER(weight : Double){
+
+        if(weight >= 2.0 && weight < 45.0){
+            _RER.value = (weight.times(30) + 70).toInt().toString()
+            Log.d("settingRER", _RER.value!!)
+        }else if(weight < 2.0 && weight > 45.0){
+            _RER.value = (weight.times(0.75) * 70).toInt().toString()
+            Log.d("settingRER", _RER.value!!)
+        }
+
 
     }
 
@@ -65,5 +88,13 @@ class WeightInfoViewModel(
 
         _propreWeight.value = "%.2f".format(fifth).toDouble()
         Log.d("getBCSData", fifth.toString())
+    }
+
+    fun onClickAction(){
+        _action.value = Event(WeightInfoAction.INGREDIENT)
+    }
+
+    enum class WeightInfoAction{
+        INGREDIENT
     }
 }

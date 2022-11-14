@@ -75,4 +75,16 @@ interface PetApi {
     fun getMyPetList(
         @Path("petToken") petToken : String
     ): Single<DataResponse<List<PetResponse>>>
+
+    @POST("/pet/ingredient")
+    @FormUrlEncoded
+    fun updateIngredient(
+        @Field("petToken") petToken : String,
+        @Field("moisture") moisture: String,
+        @Field("protein") protein: String,
+        @Field("fat") fat: String,
+        @Field("fiber") fiber: String,
+        @Field("ash") ash: String
+    ): Single<VoidResponse>
+
 }

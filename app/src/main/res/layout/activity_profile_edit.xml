@@ -3,9 +3,8 @@
 
     <data>
 
+
     </data>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -186,7 +185,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickFemale()}">
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -216,7 +215,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickMale()}">
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -266,7 +265,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickO()}">
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -292,7 +291,6 @@
             android:gravity="center"
             android:layout_weight="1"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
-            android:onClick="@{() -> vm.clickX()}"
             android:layout_marginLeft="12dp">
 
             <ImageView

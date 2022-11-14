@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="item"
-            type="com.theshine.android.lites.data.common.model.User" />
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.home.HomeViewModel" />
 
     </data>
 
@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{item.name}"
+                android:text="@{vm.myPet.name}"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_gravity="center"

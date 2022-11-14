@@ -45,6 +45,7 @@
     <color name="green_61C9">#61C9B3</color>
     <color name="green_50C3">#50C3BF</color>
     <color name="green_3699">#369990</color>
+    <color name="green_D0FA">#D0FAE3</color>
 
     <!-- yellow-->
     <color name="yellow_F9F8">#F9F8F4</color>
@@ -56,5 +57,7 @@
     <color name="pink_FFED">#FFEDF0</color>
     <color name="yellow_FFFB">#FFFBD7</color>
     <color name="background_home">#FFFDF3</color>
+
+    <color name="blue_4372">#4372FF</color>
 
 </resources>

@@ -15,6 +15,7 @@ interface KakaoApi {
         @Query("y") y : String,
         @Query("x") x : String,
         @Query("radius") radius : Int,
-        @Query("page") page : Int
+        @Query("page") page : Int,
+        @Query("sort") sort : String
     ) : Single<KakaoLocalResponse>
 }

@@ -6,10 +6,6 @@
             name="vm"
             type="com.theshine.android.lites.ui.view.info.ingredient.IngredientViewModel" />
 
-        <variable
-            name="item"
-            type="com.theshine.android.lites.ui.view.info.ingredient.IngredientViewModel" />
-
         <import type="android.view.View" />
 
     </data>
@@ -187,7 +183,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bg_square_f9f8_radius_6dp"
-                android:hint="조지방"
+                android:hint="작성해주세요"
                 android:text="@={vm.fat}"
                 android:textSize="15dp"
                 android:inputType="number"

@@ -55,6 +55,21 @@
                     android:layout_height="wrap_content"
                 >
 
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintGuide_percent="0.3333333333"
+                        android:orientation="vertical"
+                        />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintGuide_percent="0.6666666666"
+                        android:orientation="vertical"
+                        />
+
                     <TextView
                         android:id="@+id/tv_bcs"
                         android:layout_width="wrap_content"
@@ -84,19 +99,48 @@
                         />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
+                        android:id="@+id/iv_bcs1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/bg_circle_green"
+                        android:layout_margin="20dp"
+                        app:layout_constraintStart_toEndOf="@+id/guideline"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/iv_bcs2"
+                        app:layout_constraintEnd_toStartOf="@id/guideline2"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_bcs_s1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="15dp"
+
+                        app:layout_constraintStart_toEndOf="@+id/guideline"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/guideline2"
                         />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_bcs2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="20dp"
+                        android:src="@drawable/bg_circle_green"
+                        app:layout_constraintStart_toEndOf="@+id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_bcs_s2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="13dp"
+
+                        app:layout_constraintStart_toEndOf="@+id/guideline2"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -136,8 +180,19 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
                         android:text="@{@string/bcs_num2(vm.myPetWeight.bcs)}"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:visibility="@{vm.myPetWeight == null ? View.GONE : View.VISIBLE}"
+                        android:text=""
                         />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -335,7 +390,7 @@
                         android:id="@+id/tv_basal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="적정 몸무게"
+                        android:text="기초 대사량"
                         android:textColor="@color/black"
                         android:textSize="22dp"
                         android:layout_marginStart="10dp"
@@ -363,7 +418,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="00"
+                        android:text="@{vm.RER}"
                         android:textSize="40dp"
                         android:textStyle="bold"
                         android:layout_marginBottom="20dp"
@@ -391,6 +446,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
+                    android:visibility="@{vm.myPetWeight.moisture == null ? View.GONE : View.VISIBLE}"
                     android:background="@drawable/bg_rounded_fdf5_radius_10dp"
                     >
 
@@ -445,6 +501,58 @@
                         android:layout_marginEnd="10dp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_g_my"
                         app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/bg_rounded_fdf5_radius_10dp"
+                    android:visibility="@{vm.myPetWeight.moisture == null ? View.VISIBLE : View.GONE}"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_amount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="권장 사료량"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:text="하루 사료량을 쉽게!"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_amount2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_amount2"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:text="계산 하기"
+                        android:padding="10dp"
+                        android:elevation="5dp"
+                        android:onClick="@{() -> vm.onClickAction()}"
+                        android:background="@drawable/bg_rounded_white_radius_10dp"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -522,25 +630,26 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:text="00"
-                        android:textSize="40dp"
+                        android:textSize="35dp"
                         android:textStyle="bold"
                         android:layout_marginBottom="20dp"
-                        app:layout_constraintEnd_toStartOf="@id/tv_minute"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_minute"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text="분"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_minute_my"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        />
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/tv_minute"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="분"-->
+<!--                        android:textSize="25dp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/tv_minute_my"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

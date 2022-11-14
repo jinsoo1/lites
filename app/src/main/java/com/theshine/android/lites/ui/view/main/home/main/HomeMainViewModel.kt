@@ -61,6 +61,7 @@ class HomeMainViewModel(
     init {
         petDataSource.getMyPet()
             .subscribe({
+                Log.d("getMyPet ", it.toString())
                 _myPet.value = PetData(
                     it.petToken,
                     it.type,

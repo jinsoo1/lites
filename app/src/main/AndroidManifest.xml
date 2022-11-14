@@ -4,6 +4,7 @@
     package="com.theshine.android.lites">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.BLUETOOTH"  android:maxSdkVersion="30"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
 
@@ -92,6 +93,13 @@
 
 
         </activity>
+        <activity android:name=".ui.view.main.search.detail.SearchDetailActivity"/>
+        <activity android:name=".ui.view.main.home.weightinfo.ingredient.IngredientActivity"/>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="25fe676103f31afc621f1ba5ec1d0b12"
+            />
     </application>
 
 </manifest>

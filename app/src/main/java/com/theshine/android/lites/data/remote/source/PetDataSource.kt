@@ -114,4 +114,18 @@ class PetDataSource(
             .observeOn(AndroidSchedulers.mainThread())
     }
 
+    fun updateIngredient(
+        petToken : String,
+        moisture: String,
+        protein: String,
+        fat: String,
+        fiber: String,
+        ash: String
+    ) : Single<VoidResponse>{
+        return petApi.updateIngredient(petToken, moisture, protein, fat, fiber, ash)
+            .subscribeOn(Schedulers.io())
+            .map { it }
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
 }
