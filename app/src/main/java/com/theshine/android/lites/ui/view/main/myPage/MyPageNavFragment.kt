@@ -18,6 +18,8 @@ import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.info.select.SelectFragmentDirections
 import com.theshine.android.lites.ui.view.main.MainActivity
+import com.theshine.android.lites.ui.view.main.community.ReadyDialog
+import com.theshine.android.lites.ui.view.main.community.ReadyListener
 import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditActivity
 import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewModel
 import com.theshine.android.lites.util.EventObserver
@@ -62,13 +64,25 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
 
                 }
                 MyPageNavViewModel.MyPageActions.EVENT -> {
-                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToEventFragment()
-                    findNavController().navigate(action)
+                    val dialog = ReadyDialog(object : ReadyListener {
+                        override fun moveClick() {
+
+                        }
+                    })
+                    dialog.show(requireActivity().supportFragmentManager, "")
+//                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToEventFragment()
+//                    findNavController().navigate(action)
 
                 }
                 MyPageNavViewModel.MyPageActions.INQUIRY -> {
-                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToInquiryFragment()
-                    findNavController().navigate(action)
+                    val dialog = ReadyDialog(object : ReadyListener {
+                        override fun moveClick() {
+
+                        }
+                    })
+                    dialog.show(requireActivity().supportFragmentManager, "")
+//                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToInquiryFragment()
+//                    findNavController().navigate(action)
 
                 }
                 MyPageNavViewModel.MyPageActions.SETTING -> {
@@ -89,15 +103,27 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
                 MyPageNavViewModel.MyPageActions.SHAREDINFO -> {
                     //내활동페이지의 정보공유탭으로 이동
                     activityViewModel.tabState.value = false
-                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToActivityFragment()
-                    findNavController().navigate(action)
+                    val dialog = ReadyDialog(object : ReadyListener {
+                        override fun moveClick() {
+
+                        }
+                    })
+                    dialog.show(requireActivity().supportFragmentManager, "")
+//                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToActivityFragment()
+//                    findNavController().navigate(action)
 
                 }
                 MyPageNavViewModel.MyPageActions.CHATROOM -> {
                     //내활동페이지의 수다방으로 이동
                     activityViewModel.tabState.value = true
-                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToActivityFragment()
-                    findNavController().navigate(action)
+                    val dialog = ReadyDialog(object : ReadyListener {
+                        override fun moveClick() {
+
+                        }
+                    })
+                    dialog.show(requireActivity().supportFragmentManager, "")
+//                    val action = MyPageNavFragmentDirections.actionMyPageNavFragmentToActivityFragment()
+//                    findNavController().navigate(action)
 
                 }
                 MyPageNavViewModel.MyPageActions.ADDPET -> {
