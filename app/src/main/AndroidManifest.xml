@@ -99,6 +99,7 @@
         <activity android:name=".ui.view.main.search.detail.SearchDetailActivity"/>
         <activity android:name=".ui.view.main.home.weightinfo.ingredient.IngredientActivity"/>
         <activity android:name=".ui.view.main.myPage.notice.NoticeDetailActivity"/>
+        <activity android:name=".ui.view.login.terms.TermsActivity"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"

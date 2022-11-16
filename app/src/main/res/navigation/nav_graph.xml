@@ -14,14 +14,12 @@
 
     </keep_state_fragment>
 
-    <keep_state_fragment
+    <fragment
         android:id="@+id/menuCommunity"
         android:name="com.theshine.android.lites.ui.view.main.community.CommunityFragment"
         android:label="CommunityFragment"
         tools:layout="@layout/fragment_community"
-        >
-
-    </keep_state_fragment>
+        />
 
     <keep_state_fragment
         android:id="@+id/menuSearch"

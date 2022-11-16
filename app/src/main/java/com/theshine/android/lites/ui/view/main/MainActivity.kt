@@ -1,10 +1,14 @@
 package com.theshine.android.lites.ui.view.main
 
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.kakao.sdk.common.util.Utility
@@ -31,10 +35,13 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
 
     val bleRepository : BleRepository by inject()
 
+    lateinit var navHostFragment : NavHostFragment
+    lateinit var navController : NavController
+
     override fun initActivity() {
 
-        val navHostFragment = supportFragmentManager.findFragmentById(binding.navHost.id) as NavHostFragment
-        val navController = navHostFragment.navController
+        navHostFragment = supportFragmentManager.findFragmentById(binding.navHost.id) as NavHostFragment
+        navController = navHostFragment.navController
 
         val navigator = KeepStateNavigator(this, navHostFragment.childFragmentManager, binding.navHost.id)
         navController.navigatorProvider.addNavigator(navigator)
@@ -48,6 +55,15 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
     }
 
     private fun MainViewModel.setObserves(){
+
+        action.observe(this@MainActivity, EventObserver{
+            when(it){
+                MainViewModel.MainAction.FIRST_POSITION ->{
+                    binding.navBottom.menu.getItem(0).isChecked = true
+                    navController.navigate(R.id.action_global_home_fragment)
+                }
+            }
+        })
 
     }
 
