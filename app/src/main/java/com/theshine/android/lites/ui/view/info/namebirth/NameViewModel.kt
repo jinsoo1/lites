@@ -1,5 +1,6 @@
 package com.theshine.android.lites.ui.view.info.namebirth
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.theshine.android.lites.base.BaseViewModel
@@ -19,9 +20,16 @@ class NameViewModel : BaseViewModel() {
     private val _selected : MutableLiveData<Boolean> = MutableLiveData(false)
     val selected : LiveData<Boolean> get() = _selected
 
+    private val _uri : MutableLiveData<String?> = MutableLiveData()
+    val uri : LiveData<String?> get() = _uri
+
 
     fun next(){
         action.value = Event(NameActions.NEXT)
+    }
+
+    fun settingUri(uri : Uri?){
+        _uri.value = uri.toString()
     }
 
     fun falseSelected(){
@@ -36,7 +44,11 @@ class NameViewModel : BaseViewModel() {
         action.value = Event(NameActions.BIRTH)
     }
 
+    fun moveGallery(){
+        action.value = Event(NameActions.GALLERY)
+    }
+
     enum class NameActions {
-        NEXT, BIRTH
+        NEXT, BIRTH, GALLERY
     }
 }

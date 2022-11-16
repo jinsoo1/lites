@@ -83,7 +83,7 @@ class MyPageNavViewModel(
                         it.birth, //생년월일 데이터 yy-MM-dd
                         getAmericanAge(it.birth).toString(), //birth2 만 나이
                         it.variety,
-                        it.profileImage,
+                        it.profileImg,
                         it.weight,
                         it.bcs,
                         it.neutralization

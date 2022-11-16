@@ -6,6 +6,8 @@ import com.theshine.android.lites.data.remote.model.response.*
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class PetDataSource(
     private val petApi: PetApi
@@ -19,36 +21,38 @@ class PetDataSource(
     }
 
     fun insertPet(
-        type : String,
-        name : String,
-        birth : String,
-        variety : String,
-        gender : Boolean,
-        neutralization : Boolean,
-        bcs : Int,
-        moisture : String,
-        protein : String,
-        fat : String,
-        fiber : String,
-        ash : String
+        type : RequestBody,
+        name : RequestBody,
+        birth : RequestBody,
+        variety : RequestBody,
+        gender : RequestBody,
+        neutralization : RequestBody,
+        bcs : RequestBody,
+        moisture : RequestBody,
+        protein : RequestBody,
+        fat : RequestBody,
+        fiber : RequestBody,
+        ash : RequestBody,
+        profileImg: MultipartBody.Part?
 
-    ) : Single<VoidResponse>{
-        return petApi.insertPet(type, name, birth, variety, gender, neutralization, bcs, moisture, protein, fat, fiber, ash)
+        ) : Single<VoidResponse>{
+        return petApi.insertPet(type, name, birth, variety, gender, neutralization, bcs, moisture, protein, fat, fiber, ash, profileImg)
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun insertMiniPet(
-        type : String,
-        name : String,
-        birth : String,
-        variety : String,
-        gender : Boolean,
-        neutralization : Boolean,
-        bcs : Int
+        type : RequestBody,
+        name : RequestBody,
+        birth : RequestBody,
+        variety : RequestBody,
+        gender : RequestBody,
+        neutralization : RequestBody,
+        bcs : RequestBody,
+        profileImg: MultipartBody.Part?
     ) : Single<VoidResponse>{
-        return petApi.insertMiniPet(type, name, birth, variety, gender, neutralization, bcs)
+        return petApi.insertMiniPet(type, name, birth, variety, gender, neutralization, bcs, profileImg)
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())
@@ -130,14 +134,14 @@ class PetDataSource(
     }
 
     fun updatePetProfile(
-        petToken: String,
-        name: String,
-        birth: String,
-        variety: String,
-        profileImage: String?,
-        gender: Int,
-        neutralization: Int,
-        bcs: Int
+        petToken: RequestBody,
+        name: RequestBody,
+        birth: RequestBody,
+        variety: RequestBody,
+        profileImage: MultipartBody.Part?,
+        gender: RequestBody,
+        neutralization: RequestBody,
+        bcs: RequestBody
     ) : Single<VoidResponse>{
         return petApi.updatePetProfile(petToken, name, birth, variety, profileImage, gender, neutralization, bcs)
             .subscribeOn(Schedulers.io())
@@ -157,6 +161,14 @@ class PetDataSource(
             .subscribeOn(Schedulers.io())
             .map { it }
             .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun getBLE_state() :Single<BLEStateResponse>{
+        return petApi.getBLE_state()
+            .subscribeOn(Schedulers.io())
+            .map { it.data }
+            .observeOn(AndroidSchedulers.mainThread())
+
     }
 
 }

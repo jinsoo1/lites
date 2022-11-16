@@ -3,6 +3,7 @@
     <string name="HOME">HOME</string>
     <string name="COMMUNITY">COMMUNITY</string>
     <string name="SEARCH">SEARCH</string>
+    <string name="STORE">STORE</string>
     <string name="MY_PAGE">MY PAGE</string>
 
     <string name="native_app_key">25fe676103f31afc621f1ba5ec1d0b12</string>

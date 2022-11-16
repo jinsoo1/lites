@@ -13,10 +13,12 @@ import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityMainBinding
 import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.ui.view.main.home.HomeFragment
+import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.KeepStateNavigator
 import org.jetbrains.anko.intentFor
+import org.koin.android.ext.android.inject
 import java.security.MessageDigest
 
 class MainActivity : BaseVmActivity<ActivityMainBinding>(
@@ -26,6 +28,8 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
 
     override val viewModel by lazy { vm as MainViewModel }
     override val toolbarId = 0
+
+    val bleRepository : BleRepository by inject()
 
     override fun initActivity() {
 
@@ -46,6 +50,13 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
     private fun MainViewModel.setObserves(){
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        bleRepository.disconnectGattServer()
+    }
+
     private fun getAppKeyHash() {
         try {
             val info =

@@ -18,7 +18,12 @@ import com.theshine.android.lites.ui.view.info.variety.dog_variety
 import com.theshine.android.lites.util.Event
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.jetbrains.anko.db.INTEGER
+import java.io.File
 
 class ProfileEditViewModel(
     private var petDataSource: PetDataSource
@@ -50,6 +55,8 @@ class ProfileEditViewModel(
     val bcs : MutableLiveData<Int> = MutableLiveData()
     val bcsString: MutableLiveData<String> = MutableLiveData()
 
+    var isProfileImageEdited = false
+
 
     init {
         var bcsData : MutableList<BcsData> = mutableListOf()
@@ -68,35 +75,7 @@ class ProfileEditViewModel(
         bcsString
     }
 
-    fun initProfileData(petToken: String?){
-        if(petToken == null ){
-            App.toast("정보 없음")
-            return
-        }
-        petDataSource.getMyPetProfile(//petToken
-        )
-            .map {
-                Profile(
-                    it.petToken,
-                    it.name,
-                    it.gender,
-                    it.birth, //yy-MM-dd
-                    it.birth2, //만나이
-                    it.variety,
-                    it.profileImage,
-                    it.weight,
-                    it.bcs,
-                    it.neutralization
-                )
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                       Log.d("initProfileData", "프로필 수정페이지 데이터 세팅 : "+it.toString())
 
-            },{
-
-            })
-    }
 
     fun selectedItem(item : BcsData){
         _bcsSelect.value = Event(item)
@@ -139,21 +118,36 @@ class ProfileEditViewModel(
         action.value = Event(ProfileEditActions.X)
     }
 
+    fun moveGallery(){
+        action.value = Event(ProfileEditActions.GALLERY)
+    }
+
     fun editComplete(){
        action.value = Event(ProfileEditActions.UPDATE)
 
     }
 
     fun updateProfile(){
+
+        val file = if (isProfileImageEdited) {
+
+            val file = File(profileImage.value ?: "")
+            MultipartBody.Part.createFormData(
+                "profileImg", file.name, file.asRequestBody("image/*".toMediaTypeOrNull())
+            )
+        } else null
+
+
+
         petDataSource.updatePetProfile(
-            petToken = petToken.value!!,
-            name = name.value!!,
-            birth = birth.value!!,
-            variety = variety.value!!,
-            profileImage = profileImage.value,
-            gender = gender.value!!,
-            neutralization = neutralization.value!!,
-            bcs = bcs.value!!
+            petToken = (petToken.value ?: "").toRequestBody(),
+            name = (name.value ?: "").toRequestBody(),
+            birth = (birth.value ?: "").toRequestBody(),
+            variety = (variety.value ?: "").toRequestBody(),
+            profileImage = file,
+            gender = (gender.value.toString()).toRequestBody(),
+            neutralization = (neutralization.value.toString()).toRequestBody(),
+            bcs = (bcs.value.toString()).toRequestBody()
         ).subscribe({
             Log.d("updateProfile", it.toString())
             Log.d("updateProfile", birth.value!!.toString())
@@ -167,7 +161,7 @@ class ProfileEditViewModel(
     }
 
     enum class ProfileEditActions {
-       UPDATE, FEMALE, MALE, O, X, BIRTH
+       UPDATE, FEMALE, MALE, O, X, BIRTH, GALLERY
     }
 
     companion object{

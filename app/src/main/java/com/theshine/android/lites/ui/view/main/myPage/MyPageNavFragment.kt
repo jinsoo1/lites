@@ -103,7 +103,8 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
                 MyPageNavViewModel.MyPageActions.ADDPET -> {
                     //정보입력 페이지로 이동 infoActivity
                     val intent = Intent(requireContext(), InfoActivity::class.java)
-                    startActivity(intent)
+                    intent.putExtra("myPage", true)
+                    resultLauncher.launch(intent)
                 }
             }
         })

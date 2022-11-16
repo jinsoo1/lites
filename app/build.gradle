@@ -179,4 +179,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libDaumMapAndroid.jar')
 
+    implementation 'gun0912.ted:tedbottompicker:2.0.1'
+
 }

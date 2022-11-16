@@ -2,28 +2,24 @@ package com.theshine.android.lites.ui.view.main.home.main
 
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
+import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeMainBinding
-import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.main.MainViewModel
-import com.theshine.android.lites.ui.view.main.home.HomeFragment
 import com.theshine.android.lites.ui.view.main.home.HomeViewModel
 import com.theshine.android.lites.ui.view.main.home.bluetooth.PERMISSIONS
-import com.theshine.android.lites.ui.view.main.home.bluetooth.REQUEST_ALL_PERMISSION
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
@@ -35,10 +31,52 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
     val activityViewModel by sharedViewModel<MainViewModel>()
     val fragmentViewModel by sharedViewModel<HomeViewModel>()
 
+    private lateinit var callback: OnBackPressedCallback
+    var waitTime = 0L
     override fun initFragment() {
         Log.d("Fragment1", "Fragment")
         startLocationPermissionRequest()
 
+        callback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+
+                if(BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_EXPANDED ||
+                    BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_HALF_EXPANDED ){
+
+                    BottomSheetBehavior.from(binding.sheetHomeMain).state =
+                        BottomSheetBehavior.STATE_HIDDEN
+
+                }else{
+                    if(System.currentTimeMillis() - waitTime >= 1500){
+                        waitTime = System.currentTimeMillis()
+                        toast("뒤로가기 버튼을 한번 더 누르면 종료됩니다.")
+                    } else{
+                        requireActivity().finish()
+                    }
+                }
+
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+
+        BottomSheetBehavior.from(binding.sheetHomeMain).state =
+            BottomSheetBehavior.STATE_HIDDEN
+
+        binding.tvBottomsheet.setOnClickListener {
+            if (BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_HALF_EXPANDED ||
+                BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_COLLAPSED
+            ) {
+                BottomSheetBehavior.from(binding.sheetHomeMain).state =
+                    BottomSheetBehavior.STATE_HIDDEN
+
+            } else if (BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_HIDDEN ||
+                BottomSheetBehavior.from(binding.sheetHomeMain).state == BottomSheetBehavior.STATE_COLLAPSED
+            ) {
+                BottomSheetBehavior.from(binding.sheetHomeMain).state =
+                    BottomSheetBehavior.STATE_HALF_EXPANDED
+            }
+        }
     }
 
 
@@ -86,11 +124,19 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
             fragmentViewModel.myPetSetting(it)
         })
 
+        isAndroid10.observe(this@HomeMainFragment, Observer {
+            if(it){
+                val intent = Intent(Settings.ACTION_BLUETOOTH_SETTINGS)
+                requestEnableBleResult.launch(intent)
+            }
+        })
+
 
     }
 
 
     private val requestEnableBleResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        Log.d("Central", result.resultCode.toString())
         if (result.resultCode == Activity.RESULT_OK) {
             val intent = result.data
             // do somthing after enableBleRequest
