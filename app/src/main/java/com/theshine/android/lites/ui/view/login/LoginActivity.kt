@@ -23,6 +23,7 @@ import com.theshine.android.lites.data.remote.model.response.UserResponse
 import com.theshine.android.lites.data.remote.source.AuthDataSource
 import com.theshine.android.lites.databinding.ActivityLoginBinding
 import com.theshine.android.lites.ui.view.info.InfoActivity
+import com.theshine.android.lites.ui.view.login.terms.TermsActivity
 import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.ext.onUI
@@ -65,6 +66,20 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
         resultGoogleLogin()
 
         viewModel.setObserves()
+
+        binding.geinsone.setOnClickListener {
+            val intent = Intent(this@LoginActivity, TermsActivity::class.java)
+            intent.putExtra("이용약관", "서비스이용약관")
+            startActivity(intent)
+
+        }
+
+        binding.geinstwo.setOnClickListener {
+            val intent = Intent(this@LoginActivity, TermsActivity::class.java)
+            intent.putExtra("이용약관", "개인정보약관")
+            startActivity(intent)
+
+        }
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("로그인","해시 키 값 : ${keyHash}")

@@ -37,11 +37,11 @@ fun loadImage(
         .with(context)
         .load(url)
         .placeholder(
-            if (isProfileImage) R.drawable.ic_stamp_gray
+            if (isProfileImage) R.drawable.illust_dog
             else R.drawable.ic_gallery_post
         )
         .error(
-            if (isProfileImage) R.drawable.ic_stamp_gray
+            if (isProfileImage) R.drawable.illust_dog
             else R.drawable.ic_gallery_post
         )
         .addListener(object : RequestListener<Drawable> {

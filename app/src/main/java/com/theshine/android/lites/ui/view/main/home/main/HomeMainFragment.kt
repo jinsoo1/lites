@@ -29,7 +29,6 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
     override val viewModel by lazy { vm as HomeMainViewModel }
 
     val activityViewModel by sharedViewModel<MainViewModel>()
-    val fragmentViewModel by sharedViewModel<HomeViewModel>()
 
     private lateinit var callback: OnBackPressedCallback
     var waitTime = 0L
@@ -121,7 +120,6 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
 
         myPet.observe(this@HomeMainFragment, Observer {
             activityViewModel.myPetSetting(it)
-            fragmentViewModel.myPetSetting(it)
         })
 
         isAndroid10.observe(this@HomeMainFragment, Observer {

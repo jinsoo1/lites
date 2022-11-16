@@ -100,6 +100,7 @@
                     bindProfileImage="@{vm.uri}"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
+                    android:padding="20dp"
                     android:background="@drawable/bg_oval_d9d9" />
 
 

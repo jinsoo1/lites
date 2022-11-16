@@ -165,6 +165,64 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#222222"
+                android:paddingBottom="3dp"
+                android:textSize="13dp"
+                android:text="로그인하면 "/>
+
+            <TextView
+                android:id="@+id/geinsone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="3dp"
+                android:background="@drawable/underline_tv"
+                android:textColor="#222222"
+                android:textSize="13dp"
+                android:text="서비스 이용약관,"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/geinstwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="3dp"
+                android:textColor="#222222"
+                android:background="@drawable/underline_tv"
+                android:textSize="13dp"
+                android:text="개인정보 보호약관"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#222222"
+                android:paddingBottom="3dp"
+                android:textSize="13dp"
+                android:text="에 동의하게 됩니다."/>
+        </LinearLayout>
     </LinearLayout>
 
 </layout>

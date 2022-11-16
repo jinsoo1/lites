@@ -64,16 +64,15 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="160dp"
-                android:layout_marginLeft="10dp"
+                app:tabGravity="start"
+                android:layout_marginStart="20dp"
                 app:tabIndicatorColor="@color/green_00B6"
                 app:tabTextColor="@color/black"
                 app:tabSelectedTextColor="@color/green_00B6"
                 android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -99,52 +98,52 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
-            android:id="@+id/frameLayout_community"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+<!--        <FrameLayout-->
+<!--            android:id="@+id/frameLayout_community"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabShredInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_mark_chat_read_24"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"
-            app:layout_constraintEnd_toEndOf="@+id/fabPosting"
-            app:layout_constraintStart_toStartOf="@+id/fabPosting"
-            app:layout_constraintTop_toTopOf="@+id/fabPosting"
-            app:rippleColor="@color/yellow_F9F8" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fabShredInfo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
+<!--            app:fabSize="mini"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/fabPosting"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/fabPosting"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/fabPosting"-->
+<!--            app:rippleColor="@color/yellow_F9F8" />-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabChatter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_mark_chat_read_24"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"
-            app:layout_constraintEnd_toEndOf="@+id/fabPosting"
-            app:layout_constraintStart_toStartOf="@+id/fabPosting"
-            app:layout_constraintTop_toTopOf="@+id/fabPosting"
-            app:rippleColor="@color/yellow_F9F8" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fabChatter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
+<!--            app:fabSize="mini"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/fabPosting"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/fabPosting"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/fabPosting"-->
+<!--            app:rippleColor="@color/yellow_F9F8" />-->
 
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabPosting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            app:rippleColor="@color/yellow_F9F8"
-            app:fabSize="normal"
-            android:src="@drawable/ic_baseline_mark_chat_read_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/frameLayout_community" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fabPosting"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            app:rippleColor="@color/yellow_F9F8"-->
+<!--            app:fabSize="normal"-->
+<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/frameLayout_community" />-->
 
 
 
