@@ -40,6 +40,7 @@ import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewMod
 import com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel
 import com.theshine.android.lites.ui.view.main.search.SearchViewModel
 import com.theshine.android.lites.ui.view.main.search.detail.SearchDetailViewModel
+import com.theshine.android.lites.ui.view.main.store.StoreViewModel
 import com.theshine.android.lites.ui.view.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -84,6 +85,8 @@ val viewModelModule = module {
 
     viewModel { SearchViewModel() }
     viewModel { SearchDetailViewModel() }
+
+    viewModel { StoreViewModel() }
 
     //마이페이지
     viewModel { EventViewModel(get()) }

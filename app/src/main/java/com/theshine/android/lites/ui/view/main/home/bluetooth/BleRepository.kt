@@ -23,6 +23,12 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.util.*
 import kotlin.concurrent.schedule
+import androidx.core.app.ActivityCompat.startActivityForResult
+
+import android.content.Intent
+import android.provider.Settings.ACTION_BLUETOOTH_SETTINGS
+import android.provider.Settings.ACTION_SETTINGS
+
 
 class BleRepository {
 
@@ -45,10 +51,12 @@ class BleRepository {
 
 //    var statusTxt: String = ""
     var txtRead: String = ""
+    var isAndroid10s : Boolean = false
 
 //    var isStatusChange: Boolean = false
     var isTxtRead: Boolean = false
     var isDevice : Boolean = false
+    var android10 : Boolean = false
     fun fetchReadText() = flow {
         while (true) {
             coroutineScope {
@@ -81,6 +89,18 @@ class BleRepository {
             }
         }
     }.flowOn(Dispatchers.Default)
+
+    fun fetchAndroid10() = flow{
+        while (true){
+            coroutineScope {
+                kotlinx.coroutines.delay(300)
+            }
+            if (android10) {
+                emit(isAndroid10s)
+                android10 = false
+            }
+        }
+    }
 
 
     val requestEnableBLE = MutableLiveData<Event<Boolean>>()
@@ -276,6 +296,14 @@ class BleRepository {
                     //                                          int[] grantResults)
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
+
+                    /********************
+                     이부분부터 재시작(Android version 10)
+
+                     데이터불러오는거 해야함
+                     */
+                    isConnect.postValue(Event(true))
+
                     return
                 }
                 gatt.discoverServices()
@@ -461,18 +489,23 @@ class BleRepository {
                 deviceList.add(device)
                 nameList.add(device.name + "(" + device.address + ")")
                 Log.d(TAG, "" + device.name)
-                scanResults?.add(device)
+                //scanResults?.add(device)
                 if(device.name == "LITES"){
+                    Log.d("Central t", "" + device.name)
                     //connectDevice(result.device)
                     scanDevice = device
                     isDevice = true
+                    break
                 }
+
 //                statusTxt = "add scanned device: ${device.address}"
 //                isStatusChange = true
                 listUpdate.postValue(Event(scanResults))
             }
         } else {
-            toast("페어링된 장치를 찾을 수 없습니다.")
+            toast("'LITES' 기기를 선택해 연동해주세요.")
+            isAndroid10s = true
+            android10 = true
         }
 
 

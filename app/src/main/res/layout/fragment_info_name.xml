@@ -92,20 +92,16 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_profile"
+                    bindProfileImage="@{vm.uri}"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:background="@drawable/bg_oval_d9d9"/>
+                    android:background="@drawable/bg_oval_d9d9" />
 
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:text="@string/img_select"
-                    android:textColor="@color/black"
-                    android:textSize="24dp" />
 
             </RelativeLayout>
 
@@ -117,6 +113,7 @@
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="14dp"
+                android:onClick="@{() -> vm.moveGallery()}"
                 android:fontFamily="@font/inter_regular"
                 android:layout_marginTop="10dp"/>
 

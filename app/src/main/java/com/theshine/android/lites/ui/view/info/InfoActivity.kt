@@ -1,5 +1,6 @@
 package com.theshine.android.lites.ui.view.info
 
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,8 @@ class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
 
     override val viewModel by lazy { vm as InfoViewModel }
     override val toolbarId = 0
+    private val myPage by lazy { intent.getBooleanExtra("myPage", false)}
+
 
     override fun initActivity() {
 
@@ -31,13 +34,20 @@ class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
         navController.navigatorProvider.addNavigator(navigator)
 
         navController.setGraph(R.navigation.nav_graph_info)
+        viewModel.myPage.value = myPage
+        Log.d("initProfileList", viewModel.myPage.value.toString())
 
+        viewModel.setObserves()
     }
 
     fun InfoViewModel.setObserves(){
-        finishAction.observe(lifecycleOwner, EventObserver{
-
-
+        finishAction.observe(this@InfoActivity, EventObserver{
+            if(viewModel.myPage.value == true){
+                Log.d("initProfileList", "intent")
+                val intent = Intent()
+                setResult(RESULT_OK, intent)
+                finish()
+            }
         })
     }
 

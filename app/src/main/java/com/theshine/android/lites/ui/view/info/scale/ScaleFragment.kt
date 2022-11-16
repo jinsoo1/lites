@@ -1,6 +1,8 @@
 package com.theshine.android.lites.ui.view.info.scale
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.data.remote.source.PetDataSource
@@ -29,9 +31,12 @@ class ScaleFragment : BaseVmFragment<FragmentInfoScaleBinding>(
             when(it){
                 ScaleViewModel.scaleActions.NEXT -> {
                     activityViewModel.insertPetData()
-                    val intent = Intent(requireContext(), MainActivity::class.java)
-                    startActivity(intent)
-                    requireActivity().finish()
+                    if(activityViewModel.myPage.value != true){
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+
                 }
                 ScaleViewModel.scaleActions.STORE -> {
                     activityViewModel.insertPetData()

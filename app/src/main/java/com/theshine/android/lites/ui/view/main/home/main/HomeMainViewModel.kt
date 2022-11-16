@@ -29,6 +29,8 @@ class HomeMainViewModel(
         get() = bleRepository.fetchReadText().asLiveData(viewModelScope.coroutineContext)
     val scanDevice : LiveData<BluetoothDevice?>
         get() = bleRepository.fetchDevice().asLiveData(viewModelScope.coroutineContext)
+    val isAndroid10 : LiveData<Boolean>
+        get() = bleRepository.fetchAndroid10().asLiveData(viewModelScope.coroutineContext)
 
     //ble adapter
     private val bleAdapter: BluetoothAdapter?
@@ -127,8 +129,9 @@ class HomeMainViewModel(
         val cmdBytes = ByteArray(1)
         cmdBytes[0] = 'g'.code.toByte()
 //        cmdBytes[1] = 2
-
-        bleRepository.writeData(cmdBytes)
+        if(isConnect.get()) {
+            bleRepository.writeData(cmdBytes)
+        }
 
     }
 
@@ -136,8 +139,9 @@ class HomeMainViewModel(
         val cmdBytes = ByteArray(1)
         cmdBytes[0] = 's'.code.toByte()
 //        cmdBytes[1] = 2
-
-        bleRepository.writeData(cmdBytes)
+        if(isConnect.get()) {
+            bleRepository.writeData(cmdBytes)
+        }
     }
 
 

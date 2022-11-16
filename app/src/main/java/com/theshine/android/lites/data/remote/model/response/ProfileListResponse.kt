@@ -7,7 +7,7 @@ data class ProfileListResponse(
     val birth: String,
     val birth2: String, //만나이
     val variety: String,
-    val profileImage: String?,
+    val profileImg: String?,
     val weight: String?,
     val bcs: Int,
     val neutralization: Int

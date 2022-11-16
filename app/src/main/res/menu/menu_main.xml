@@ -14,6 +14,10 @@
         android:id="@+id/menuSearch"
         android:title="@string/SEARCH" />
 
+    <item
+        android:id="@+id/menuStore"
+        android:title="@string/STORE" />
+
 
     <item
         android:id="@+id/menuMypage"

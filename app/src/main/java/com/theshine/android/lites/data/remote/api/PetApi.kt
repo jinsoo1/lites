@@ -4,6 +4,8 @@ import com.theshine.android.lites.data.remote.model.DataResponse
 import com.theshine.android.lites.data.remote.model.VoidResponse
 import com.theshine.android.lites.data.remote.model.response.*
 import io.reactivex.Single
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface PetApi {
@@ -12,34 +14,36 @@ interface PetApi {
     @GET("/pet/Existence")
     fun petExistence(): Single<VoidResponse>
 
-    @POST("/pet/insertPet")
-    @FormUrlEncoded
+    @Multipart
+    @PATCH("/pet/insertPet")
     fun insertPet(
-        @Field("type") type : String,
-        @Field("name") name : String,
-        @Field("birth") birth : String,
-        @Field("variety") variety : String,
-        @Field("gender") gender : Boolean,
-        @Field("neutralization") neutralization : Boolean,
-        @Field("bcs") bcs : Int,
-        @Field("moisture") moisture : String,
-        @Field("protein") protein : String,
-        @Field("fat") fat : String,
-        @Field("fiber") fiber : String,
-        @Field("ash") ash : String
+        @Part("type") type : RequestBody,
+        @Part("name") name : RequestBody,
+        @Part("birth") birth : RequestBody,
+        @Part("variety") variety : RequestBody,
+        @Part("gender") gender : RequestBody,
+        @Part("neutralization") neutralization : RequestBody,
+        @Part("bcs") bcs : RequestBody,
+        @Part("moisture") moisture : RequestBody,
+        @Part("protein") protein : RequestBody,
+        @Part("fat") fat : RequestBody,
+        @Part("fiber") fiber : RequestBody,
+        @Part("ash") ash : RequestBody,
+        @Part profileImg: MultipartBody.Part?
 
-    ): Single<VoidResponse>
+        ): Single<VoidResponse>
 
-    @POST("/pet/insertMiniPet")
-    @FormUrlEncoded
+    @Multipart
+    @PATCH("/pet/insertMiniPet")
     fun insertMiniPet(
-        @Field("type") type : String,
-        @Field("name") name : String,
-        @Field("birth") birth : String,
-        @Field("variety") variety : String,
-        @Field("gender") gender : Boolean,
-        @Field("neutralization") neutralization : Boolean,
-        @Field("bcs") bcs : Int
+        @Part("type") type : RequestBody,
+        @Part("name") name : RequestBody,
+        @Part("birth") birth : RequestBody,
+        @Part("variety") variety : RequestBody,
+        @Part("gender") gender : RequestBody,
+        @Part("neutralization") neutralization : RequestBody,
+        @Part("bcs") bcs : RequestBody,
+        @Part profileImg: MultipartBody.Part?,
     ): Single<VoidResponse>
 
     @GET("/pet/myPet")
@@ -82,18 +86,17 @@ interface PetApi {
     fun getMyPetList(
     ): Single<DataResponse<List<ProfileListResponse>>>
 
-
-    @POST("/pet/updatePet")
-    @FormUrlEncoded
+    @Multipart
+    @PATCH("/pet/updatePet")
     fun updatePetProfile(
-        @Field("petToken") petToken: String,
-        @Field("name") name: String,
-        @Field("birth") birth: String,
-        @Field("variety") variety: String,
-        @Field("profileImage") profileImage: String?,
-        @Field("gender") gender: Int,
-        @Field("neutralization") neutralization: Int,
-        @Field("bcs") bcs: Int
+        @Part("petToken") petToken: RequestBody,
+        @Part("name") name: RequestBody,
+        @Part("birth") birth: RequestBody,
+        @Part("variety") variety: RequestBody,
+        @Part profileImg: MultipartBody.Part?,
+        @Part("gender") gender: RequestBody,
+        @Part("neutralization") neutralization: RequestBody,
+        @Part("bcs") bcs: RequestBody
     ) : Single<VoidResponse>
 
     @POST("/pet/ingredient")
@@ -106,4 +109,8 @@ interface PetApi {
         @Field("fiber") fiber: String,
         @Field("ash") ash: String
     ): Single<VoidResponse>
+
+    @GET("/pet/BLEstate")
+    fun getBLE_state(
+    ): Single<DataResponse<BLEStateResponse>>
 }

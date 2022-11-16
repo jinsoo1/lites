@@ -32,6 +32,13 @@
 
     </keep_state_fragment>
 
+    <fragment
+        android:id="@+id/menuStore"
+        android:name="com.theshine.android.lites.ui.view.main.store.StoreFragment"
+        android:label="StoreFragment"
+        tools:layout="@layout/fragment_store"
+        />
+
     <keep_state_fragment
         android:id="@+id/menuMypage"
         android:name="com.theshine.android.lites.ui.view.main.myPage.MyPageFragment"

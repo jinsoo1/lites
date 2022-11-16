@@ -26,7 +26,24 @@ class GraphViewModel(
     private val _myPetYearData : MutableLiveData<List<PetYearData>> = MutableLiveData()
     val myPetYearData : LiveData<List<PetYearData>> = _myPetYearData
 
+    private val _dataEmpty : MutableLiveData<Boolean> = MutableLiveData(true)
+    val dataEmpty : LiveData<Boolean> get() = _dataEmpty
 
+    private val _BLE_State : MutableLiveData<Boolean> = MutableLiveData()
+    val BLE_State : LiveData<Boolean> get() = _BLE_State
+
+    init {
+        petDataSource.getBLE_state()
+            .subscribe({
+                _BLE_State.value = it.BLE_state == 1
+                Log.d("getBLE_state", it.toString())
+            },{
+                _BLE_State.value = false
+                Log.d("getBLE_state E", it.toString())
+            }
+            )
+            .addTo(compositeDisposable)
+    }
 
     fun getWeekPetData(){
         petDataSource.getWeekPetData()
@@ -42,9 +59,11 @@ class GraphViewModel(
             }
             .subscribe({
                 _myPetData.value = it
+                _dataEmpty.value = it.isEmpty()
                 Log.d("getWeekPetData", it.toString())
                 weekAction()
             },{
+                _dataEmpty.value = true
                 Log.d("getWeekPetData E", it.toString())
             })
             .addTo(compositeDisposable)
@@ -64,9 +83,11 @@ class GraphViewModel(
             }
             .subscribe({
                 _myPetData.value = it
+                _dataEmpty.value = it.isEmpty()
                 Log.d("getMonthPetData", it.toString())
                 monthAction()
             },{
+                _dataEmpty.value = true
                 Log.d("getMonthPetData E", it.toString())
             })
             .addTo(compositeDisposable)
@@ -87,9 +108,11 @@ class GraphViewModel(
             }
             .subscribe({
                 _myPetYearData.value = it
+                _dataEmpty.value = it.isEmpty()
                 Log.d("getYearPetData", it.toString())
                 yearAction()
             },{
+                _dataEmpty.value = true
                 Log.d("getYearPetData E ", it.toString())
             })
             .addTo(compositeDisposable)

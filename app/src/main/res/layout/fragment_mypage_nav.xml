@@ -83,7 +83,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"
+                    android:layout_weight="1"
                     android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     bindProfileList="@{vm.profileList}"
                     />
@@ -91,10 +93,10 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/adPet"
                     android:layout_width="120dp"
-                    android:layout_height="116dp"
+                    android:layout_height="match_parent"
                     app:cardCornerRadius="6dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="15dp"
                     app:cardUseCompatPadding="true"
                     android:layout_gravity="center"
                     android:onClick="@{() -> vm.adPet()}">
