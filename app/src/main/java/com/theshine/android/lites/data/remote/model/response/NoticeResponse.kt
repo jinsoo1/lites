@@ -1,8 +1,10 @@
-package com.theshine.android.lites.data.common.model
+package com.theshine.android.lites.data.remote.model.response
 
-data class NoticeList(
+data class NoticeResponse(
     val idx: Int,
     val title: String,
     val content: String,
     val createdAt: String
+
+
 )

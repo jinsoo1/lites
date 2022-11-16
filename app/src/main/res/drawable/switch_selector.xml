@@ -2,7 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_checked="true"
-        android:drawable="@drawable/shape_switch_button_on"/>
+        android:drawable="@drawable/shape_switch_button_on"
+        />
     <item
         android:state_checked="false"
         android:drawable="@drawable/shape_switch_button_off"/>

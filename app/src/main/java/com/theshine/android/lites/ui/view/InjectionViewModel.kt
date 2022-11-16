@@ -31,8 +31,10 @@ import com.theshine.android.lites.ui.view.main.myPage.activity.ActivityViewModel
 import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModel
 import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModels
 import com.theshine.android.lites.ui.view.main.myPage.info.MyPageInfoViewModel
+import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryDetailViewModel
 import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryViewModel
 import com.theshine.android.lites.ui.view.main.myPage.management.ManagementViewModel
+import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeDetailViewModel
 import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeViewModel
 import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditViewModel
 import com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel
@@ -44,13 +46,9 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-
-
-
     //로그인 페이지 및 초기화면페이지
     viewModel { SplashViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
-
 
     //펫 정보 페이지
     viewModel { NameViewModel() }
@@ -91,8 +89,10 @@ val viewModelModule = module {
     viewModel { EventViewModel(get()) }
     viewModel { MyPageInfoViewModel() }
     viewModel { InquiryViewModel() }
+    viewModel { InquiryDetailViewModel() }
     viewModel { ManagementViewModel() }
-    viewModel { NoticeViewModel() }
+    viewModel { NoticeViewModel(get()) }
+    viewModel { NoticeDetailViewModel() }
     viewModel { SettingViewModel() }
     viewModel { MyPageViewModel() }
     viewModel { MyPageNavViewModel(get()) }
@@ -100,9 +100,6 @@ val viewModelModule = module {
     viewModel { ActivityChatViewModel() }
     viewModel { ActivitySharedInfoViewModel() }
     viewModel { ProfileEditViewModel(get()) }
-
-
-
 
     viewModel { EventViewModels() }
 

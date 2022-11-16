@@ -128,6 +128,4 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
 
 class ProfileListAdapter(vm: MyPageNavViewModel) : BaseRecyclerAdapter<Profile, ItemProfileListBinding>(
     R.layout.item_profile_list, vm
-){
-
-}
+)

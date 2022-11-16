@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="item"
             type="com.theshine.android.lites.data.common.model.Notice" />
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.notice.NoticeDetailViewModel" />
 
     </data>
 
@@ -48,17 +52,19 @@
         android:layout_marginLeft="15dp">
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.title}"
+            android:text="공지사항 제목"
             android:fontFamily="@font/font_bold"
             android:textColor="@color/black"
             android:textSize="16dp"/>
 
         <TextView
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.createdAt}"
+            android:text="2002-02-02"
             android:fontFamily="@font/font_regular"
             android:textColor="@color/grey_8082"
             android:textSize="12dp"
@@ -73,13 +79,14 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
+            android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_regular"
             android:textSize="14dp"
             android:textColor="@color/black"
             android:padding="15dp"
-            android:text="@{item.description}"/>
+            android:text="@string/test_long"/>
 
     </LinearLayout>
 

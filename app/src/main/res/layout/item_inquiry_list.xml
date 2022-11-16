@@ -3,59 +3,100 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryViewModel" />
+
+        <variable
+            name="item"
+            type="com.theshine.android.lites.data.common.model.InquiryList" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{() -> vm.inquiryDetail(item)}">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/grey_eaea"/>
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문의사항"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:textSize="11dp"
+            android:fontFamily="@font/font_regular"
+            android:textColor="@color/grey_8082"
+                />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="7dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_inquiry_two"
+                android:text="@{item.title}"
                 android:layout_weight="1"
-                android:layout_marginLeft="15dp"/>
+                android:fontFamily="@font/font_bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginRight="5dp"
+               />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0000-00-00"
-                android:layout_marginRight="15dp"/>
-
+                android:fontFamily="@font/font_regular"
+                android:textSize="12dp"
+                android:textColor="@color/grey_8082"
+                />
 
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="테스트 문의사항 제목"
+            android:orientation="horizontal"
+            android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="7dp"
-            android:textSize="14dp"
-            />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey_eaea"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_icon_l"
+                android:layout_gravity="center"
+                />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/font_medium"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:text="@{item.description}"/>
 
+        </LinearLayout>
 
-    </LinearLayout>
+        </LinearLayout>
 
 </layout>

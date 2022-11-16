@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.notice.NoticeViewModel" />
+
+        <import type="android.view.View" />
 
     </data>
 
@@ -37,8 +45,13 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:visibility="@{vm.isLoading ? View.GONE : View.VISIBLE}"
+            bind:bindNoticeList="@{vm.noticeList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:paddingTop="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>

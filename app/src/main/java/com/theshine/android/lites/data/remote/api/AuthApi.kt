@@ -11,6 +11,7 @@ interface AuthApi {
     @GET("/auth/validate-access-token")
     fun validateAccessToken(): Single<VoidResponse>
 
+
     @POST("/auth/login/google")
     @FormUrlEncoded
     fun loginByGoogle(

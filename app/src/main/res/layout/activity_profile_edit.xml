@@ -60,9 +60,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,11 +110,12 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="12dp"
+            android:paddingLeft="12dp"
             android:hint="이름을 입력해주세요"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:text="@={vm.name}"
+            android:fontFamily="@font/font_medium"
             android:background="@drawable/bg_square_f9f8_radius_6dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -139,9 +137,11 @@
             android:id="@+id/etBirth"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="12dp"
+            android:paddingLeft="12dp"
             android:hint="생년월일"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
+            android:fontFamily="@font/font_medium"
             android:textSize="15dp"
             android:text="@={vm.birth}"
             android:onClick="@{() -> vm.setBirthDay()}"
@@ -176,9 +176,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:gravity="center_vertical"
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/font_medium"
                         android:text="@={vm.variety}"/>
 
                     <ImageView
@@ -209,7 +213,8 @@
         android:layout_height="wrap_content"
         android:text="@string/gender"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="15dp"
+        android:fontFamily="@font/font_medium"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"/>
 
@@ -247,6 +252,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="15dp"
+                android:fontFamily="@font/font_medium"
                 android:layout_marginRight="5dp" />
 
         </LinearLayout>
@@ -276,6 +282,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="15dp"
+                android:fontFamily="@font/font_medium"
                 android:layout_marginRight="5dp"
                 />
 
@@ -289,7 +296,8 @@
         android:layout_height="wrap_content"
         android:text="@string/neutralization"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="15dp"
+        android:fontFamily="@font/font_medium"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="35dp"/>
 
@@ -324,6 +332,7 @@
                 android:layout_height="60dp"
                 android:text="했어요"
                 android:gravity="center"
+                android:fontFamily="@font/font_medium"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
@@ -352,6 +361,7 @@
                 android:text="안했어요"
                 android:textColor="@color/black"
                 android:textSize="15dp"
+                android:fontFamily="@font/font_medium"
                 android:gravity="center" />
 
         </LinearLayout>
@@ -363,7 +373,8 @@
                     android:layout_height="wrap_content"
                     android:text="Bcs단계 선택"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/font_medium"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"/>
 
@@ -447,8 +458,9 @@
                     android:layout_height="wrap_content"
                     android:text="품종"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="15dp"
                     android:gravity="center"
+                    android:fontFamily="@font/font_medium"
                     android:layout_marginTop="20dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
