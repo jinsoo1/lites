@@ -1,6 +1,7 @@
 package com.theshine.android.lites.ui.view.main.myPage.management
 
 import android.media.metrics.Event
+import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.data.local.UserLoginLocalDataSource
@@ -8,6 +9,7 @@ import com.theshine.android.lites.data.local.pref.PreferencesController
 import com.theshine.android.lites.databinding.FragmentMypageManagementBinding
 import com.theshine.android.lites.databinding.FragmentMypageNoticeBinding
 import com.theshine.android.lites.ui.view.login.LoginActivity
+import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryFragmentDirections
 import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeViewModel
 import com.theshine.android.lites.ui.view.splash.SplashActivity
 import com.theshine.android.lites.util.EventObserver
@@ -25,6 +27,12 @@ class ManagementFragment : BaseVmFragment<FragmentMypageManagementBinding>(
     val localDataSource: UserLoginLocalDataSource by inject()
 
     override fun initFragment() {
+
+        binding.btnBack.setOnClickListener {
+            val action = InquiryFragmentDirections.actionInquiryFragmentToMyPageFragment()
+            findNavController().navigate(action)
+        }
+
 
         binding.tvEmail.text = PreferencesController.userInfoPref.email
 

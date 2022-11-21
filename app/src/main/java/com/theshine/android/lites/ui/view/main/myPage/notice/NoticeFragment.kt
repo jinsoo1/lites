@@ -2,6 +2,7 @@ package com.theshine.android.lites.ui.view.main.myPage.notice
 
 import android.content.Intent
 import android.util.Log
+import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseRecyclerAdapter
 import com.theshine.android.lites.base.BaseVmFragment
@@ -9,6 +10,7 @@ import com.theshine.android.lites.data.common.model.NoticeList
 import com.theshine.android.lites.databinding.FragmentMypageNoticeBinding
 import com.theshine.android.lites.databinding.FragmentMypageSettingBinding
 import com.theshine.android.lites.databinding.ItemNoticeListBinding
+import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryFragmentDirections
 import com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel
 import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.EventObserver
@@ -20,6 +22,12 @@ class NoticeFragment : BaseVmFragment<FragmentMypageNoticeBinding>(
     override val viewModel by lazy { vm as NoticeViewModel }
 
     override fun initFragment() {
+
+        binding.btnBack.setOnClickListener {
+            val action = InquiryFragmentDirections.actionInquiryFragmentToMyPageFragment()
+            findNavController().navigate(action)
+        }
+
 
         binding.rvNotice.adapter = NoticeAdapter(viewModel)
 

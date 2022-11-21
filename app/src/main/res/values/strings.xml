@@ -40,11 +40,10 @@
     <string name="title5">BCS단계를 선택해주세요</string>
     <string name="title6">체중계를 연동하고\n우리아이 건강관리 시작해볼까요?</string>
 
-    <string name="page1">1/5</string>
-    <string name="page2">2/5</string>
-    <string name="page3">3/5</string>
-    <string name="page4">4/5</string>
-    <string name="page5">5/5</string>
+    <string name="page1">1/4</string>
+    <string name="page2">2/4</string>
+    <string name="page3">3/4</string>
+    <string name="page4">4/4</string>
 
     <string name="dog">강아지</string>
     <string name="cat">고양이</string>

@@ -11,6 +11,7 @@ import com.theshine.android.lites.data.remote.source.PetDataSource
 import com.theshine.android.lites.databinding.FragmentInfoIngredientBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.info.bcs.BcsFragmentDirections
+import com.theshine.android.lites.ui.view.info.namebirth.NameFragmentDirections
 import com.theshine.android.lites.util.EventObserver
 import io.reactivex.rxkotlin.addTo
 import org.jetbrains.anko.support.v4.toast
@@ -25,6 +26,11 @@ class IngredientFragment : BaseVmFragment<FragmentInfoIngredientBinding>(
     val activityViewModel by sharedViewModel<InfoViewModel>()
 
     override fun initFragment() {
+
+        binding.btnBack.setOnClickListener{
+            val action = IngredientFragmentDirections.actionIngredientFragmentToBcsFragment()
+            findNavController().navigate(action)
+        }
 
         binding.tvName.text = activityViewModel.name.value.toString()
         if (binding.etMoisture.text.isNotEmpty() && binding.etProtein.text.isNotEmpty() && binding.etFat.text.isNotEmpty() && binding.etFiber.text.isNotEmpty()){

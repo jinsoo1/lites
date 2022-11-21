@@ -40,47 +40,68 @@
 
     </fragment>
 
+
     <fragment
         android:id="@+id/noticeFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.notice.NoticeFragment"
         android:label="NoticeFragment" >
+        <action
+            android:id="@+id/action_noticeFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/activityFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.activity.ActivityFragment"
         android:label="ActivityFragment" >
+        <action
+            android:id="@+id/action_activityFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.event.EventFragment"
         android:label="EventFragment" >
+        <action
+            android:id="@+id/action_eventFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/inquiryFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryFragment"
         android:label="InquiryFragment" >
+        <action
+            android:id="@+id/action_inquiryFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.setting.SettingFragment"
         android:label="SettingFragment" >
+        <action
+            android:id="@+id/action_settingFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/managementFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.management.ManagementFragment"
         android:label="ManagementFragment" >
+        <action
+            android:id="@+id/action_managementFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.theshine.android.lites.ui.view.main.myPage.info.InfoFragment"
         android:label="InfoFragment" >
+        <action
+            android:id="@+id/action_infoFragment_to_myPageFragment"
+            app:destination="@+id/myPageNavFragment"/>
     </fragment>
-
 
 </navigation>

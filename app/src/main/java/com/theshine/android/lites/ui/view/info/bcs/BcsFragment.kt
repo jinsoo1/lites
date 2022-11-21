@@ -10,6 +10,7 @@ import com.theshine.android.lites.data.remote.source.PetDataSource
 import com.theshine.android.lites.databinding.FragmentInfoBcsBinding
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
+import com.theshine.android.lites.ui.view.info.namebirth.NameFragmentDirections
 import com.theshine.android.lites.ui.view.info.namebirth.NameViewModel
 import com.theshine.android.lites.ui.view.info.variety.VarietyFragmentDirections
 import com.theshine.android.lites.ui.view.info.variety.VarietyViewModel
@@ -30,6 +31,11 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
     override fun initFragment() {
 
         binding.tvName.text = activityViewModel.name.value.toString()
+
+        binding.btnBack.setOnClickListener{
+            val action = BcsFragmentDirections.actionBcsFragmentToVarietyFragment()
+            findNavController().navigate(action)
+        }
 
 
         if(activityViewModel.type.value == "강아지"){

@@ -30,7 +30,6 @@ import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageNavViewModel
 import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.EventObserver
-import gun0912.tedbottompicker.util.RealPathUtil
 import org.checkerframework.common.returnsreceiver.qual.This
 import org.koin.android.viewmodel.compat.SharedViewModelCompat.sharedViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel

@@ -2,12 +2,14 @@ package com.theshine.android.lites.ui.view.main.myPage.activity
 
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoVarietyBinding
 import com.theshine.android.lites.databinding.FragmentMypageActivityBinding
+import com.theshine.android.lites.ui.view.info.bcs.BcsFragmentDirections
 import com.theshine.android.lites.ui.view.info.variety.VarietyViewModel
 import com.theshine.android.lites.ui.view.main.community.chatter.ChatterListFragment
 import com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoListFragment
@@ -25,6 +27,11 @@ class ActivityFragment : BaseVmFragment<FragmentMypageActivityBinding>(
 
         tab1 = ActivitySharedInfoFragment()
         tab2 = ActivityChatFragment()
+
+        binding.btnBack.setOnClickListener{
+            val action = ActivityFragmentDirections.actionActivityFragmentToMyPageFragment()
+            findNavController().navigate(action)
+        }
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {

@@ -11,7 +11,6 @@ class MyPageInfoViewModel: BaseViewModel() {
     val action : LiveData<Event<MyPageInfoAction>> get() = _action
 
     val currentVersion = MutableLiveData<String>()
-    val latestVersion = MutableLiveData<String>()
 
 
     fun moveOne(){

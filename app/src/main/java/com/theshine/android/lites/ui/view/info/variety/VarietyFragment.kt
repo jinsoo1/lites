@@ -9,6 +9,7 @@ import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoVarietyBinding
 import com.theshine.android.lites.databinding.ItemVarietyBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
+import com.theshine.android.lites.ui.view.info.namebirth.NameFragmentDirections
 import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.EventObserver
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -21,6 +22,11 @@ R.layout.fragment_info_variety,
     val activityViewModel by sharedViewModel<InfoViewModel>()
 
     override fun initFragment() {
+
+        binding.btnBack.setOnClickListener{
+            val action = VarietyFragmentDirections.actionVarietyFragmentToNameFragment()
+            findNavController().navigate(action)
+        }
 
         viewModel.setObserves()
 

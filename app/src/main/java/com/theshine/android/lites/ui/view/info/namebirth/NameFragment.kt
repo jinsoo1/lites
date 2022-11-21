@@ -22,6 +22,7 @@ import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
+import com.theshine.android.lites.ui.view.main.myPage.event.EventFragmentDirections
 import com.theshine.android.lites.util.EventObserver
 import kotlinx.android.synthetic.main.activity_profile_edit.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -38,8 +39,12 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
 
     override fun initFragment() {
 
-        viewModel.setObserves()
+        binding.btnBack.setOnClickListener{
+            val action = NameFragmentDirections.actionNameFragmentToSelectFragment()
+            findNavController().navigate(action)
+        }
 
+        viewModel.setObserves()
 
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result : ActivityResult ->
 
@@ -51,11 +56,8 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
                 viewModel.settingUri(uri)
                 activityViewModel.profileImg.value = getPath(requireContext(), uri)!!
             }
-
         }
-
     }
-
 
 
     fun NameViewModel.setObserves(){
@@ -88,9 +90,6 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
                                 dayOfMonth.toString()
                             }
                             binding.etBirth.text = "$year-$monthDay-$days"
-
-
-
 
                         }
 
@@ -133,10 +132,6 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
         })
 
     }
-
-
-
-
 
 
     private fun getPath(context: Context?, uri: Uri): String? {

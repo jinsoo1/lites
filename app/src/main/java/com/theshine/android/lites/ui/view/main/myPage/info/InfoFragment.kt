@@ -3,10 +3,12 @@ package com.theshine.android.lites.ui.view.main.myPage.info
 import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import androidx.navigation.fragment.findNavController
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentMypageInfoBinding
 import com.theshine.android.lites.ui.view.login.terms.TermsActivity
+import com.theshine.android.lites.ui.view.main.myPage.activity.ActivityFragmentDirections
 import com.theshine.android.lites.util.EventObserver
 import java.time.LocalDate
 
@@ -17,6 +19,11 @@ class InfoFragment : BaseVmFragment<FragmentMypageInfoBinding>(
     override val viewModel by lazy { vm as MyPageInfoViewModel }
 
     override fun initFragment() {
+
+        binding.btnBack.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToMyPageFragment()
+        findNavController().navigate(action)
+        }
 
         binding.tvCreatedAt.text = LocalDate.now().toString()
 
