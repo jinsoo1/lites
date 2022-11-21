@@ -4,23 +4,32 @@
 
     <item
         android:id="@+id/menuHome"
-        android:title="@string/HOME" />
+        android:title="@string/HOME"
+        android:icon="@drawable/ic_health_selector"/>
 
     <item
         android:id="@+id/menuCommunity"
-        android:title="@string/COMMUNITY" />
+        android:title="@string/COMMUNITY"
+        android:icon="@drawable/ic_community_selector"
+        />
 
     <item
         android:id="@+id/menuSearch"
-        android:title="@string/SEARCH" />
+        android:title="@string/SEARCH"
+        android:icon="@drawable/ic_hospital_selector"
+        />
 
     <item
         android:id="@+id/menuStore"
-        android:title="@string/STORE" />
+        android:title="@string/STORE"
+        android:icon="@drawable/ic_shop_selector"
+        />
 
 
     <item
         android:id="@+id/menuMypage"
-        android:title="@string/MY_PAGE" />
+        android:title="@string/MY_PAGE"
+        android:icon="@drawable/ic_myprofile_selector"
+        />
 
 </menu>

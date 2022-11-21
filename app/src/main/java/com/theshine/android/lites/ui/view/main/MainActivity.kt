@@ -49,7 +49,7 @@ class MainActivity : BaseVmActivity<ActivityMainBinding>(
         navController.setGraph(R.navigation.nav_graph)
 
         binding.navBottom.setupWithNavController(navController)
-
+        binding.navBottom.itemIconTintList = null
         Log.d("onCreate()", "activity")
         viewModel.setObserves()
     }

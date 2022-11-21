@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
@@ -15,8 +15,8 @@ android {
         applicationId "com.theshine.android.lites"
         minSdk 26
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.2"
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -74,18 +74,6 @@ android {
             buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
         }
     }
-
-//    productFlavors {
-//        dev {
-//            dimension = "server"
-//            applicationIdSuffix ".dev"
-//            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
-//        }
-//        prod {
-//            dimension = "server"
-//            buildConfigField 'String', 'BASE_URL', '"http://43.200.215.225:5500"'
-//        }
-//    }
 
 }
 
@@ -179,6 +167,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libDaumMapAndroid.jar')
 
+    implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
     implementation 'gun0912.ted:tedbottompicker:2.0.1'
 
 }

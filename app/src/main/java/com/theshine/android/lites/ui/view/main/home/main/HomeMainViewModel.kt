@@ -15,6 +15,7 @@ import com.theshine.android.lites.data.common.model.PetData
 import com.theshine.android.lites.data.remote.source.PetDataSource
 import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.util.Event
+import com.theshine.android.lites.util.MediaUtil
 import io.reactivex.rxkotlin.addTo
 import java.util.ArrayList
 
@@ -56,11 +57,18 @@ class HomeMainViewModel(
     private val _humidity : MutableLiveData<String> = MutableLiveData()
     val humidity : LiveData<String> get() = _humidity
 
+//    private val _refresh : MutableLiveData<Event<Boolean>> = MutableLiveData(Event(false))
+//    val refresh : LiveData<Event<Boolean>> get() = _refresh
+
 
     private val _myPet : MutableLiveData<PetData> = MutableLiveData()
     val myPet : LiveData<PetData> get() = _myPet
 
     init {
+        getMyPetData()
+    }
+
+    fun getMyPetData(){
         petDataSource.getMyPet()
             .subscribe({
                 Log.d("getMyPet ", it.toString())
@@ -80,6 +88,7 @@ class HomeMainViewModel(
                     it.fiber,
                     it.ash
                 )
+
             },{
                 Log.d("getMyPet E ", it.toString())
                 it.printStackTrace()
@@ -108,7 +117,11 @@ class HomeMainViewModel(
         _temperature.value = data[1]
         _humidity.value = data[2]
 
-        savePetWeight(weight.value!!.toDouble())
+        if(data[0].replace("W:", "").toDouble() > 0.0) {
+            //_refresh.value = Event(true)
+            savePetWeight(weight.value!!.toDouble())
+        }
+
 
     }
 
@@ -143,6 +156,5 @@ class HomeMainViewModel(
             bleRepository.writeData(cmdBytes)
         }
     }
-
 
 }

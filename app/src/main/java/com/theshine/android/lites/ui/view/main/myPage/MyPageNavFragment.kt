@@ -18,6 +18,7 @@ import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.ui.view.info.InfoViewModel
 import com.theshine.android.lites.ui.view.info.select.SelectFragmentDirections
 import com.theshine.android.lites.ui.view.main.MainActivity
+import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.community.ReadyDialog
 import com.theshine.android.lites.ui.view.main.community.ReadyListener
 import com.theshine.android.lites.ui.view.main.myPage.profile.ProfileEditActivity
@@ -32,7 +33,7 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
     override val viewModel by lazy { vm as MyPageNavViewModel }
 
     val activityViewModel by sharedViewModel<MyPageViewModel>()
-
+    val mainViewModel by sharedViewModel<MainViewModel>()
     private lateinit var resultLauncher : ActivityResultLauncher<Intent>
 
     override fun initFragment() {
@@ -47,7 +48,7 @@ class MyPageNavFragment : BaseVmFragment<FragmentMypageNavBinding>(
             if(result.resultCode == RESULT_OK){
                 //프로필 수정 페이지에서 수정된 데이터 받아서 고대로 프로필리스트 페이지로 돌아가서 보여줌
                 viewModel.initProfileList()
-
+                mainViewModel.petDataTrue(true)
             }
 
         }

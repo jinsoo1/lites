@@ -38,11 +38,6 @@ class ScaleFragment : BaseVmFragment<FragmentInfoScaleBinding>(
             when(it){
                 ScaleViewModel.scaleActions.NEXT -> {
                     activityViewModel.insertPetData()
-                    if(activityViewModel.myPage.value != true){
-                        val intent = Intent(requireContext(), MainActivity::class.java)
-                        startActivity(intent)
-                        requireActivity().finish()
-                    }
 
                 }
                 ScaleViewModel.scaleActions.STORE -> {

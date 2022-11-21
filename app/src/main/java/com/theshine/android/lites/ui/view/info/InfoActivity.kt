@@ -12,6 +12,7 @@ import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityInfoBinding
 import com.theshine.android.lites.databinding.ActivityLoginBinding
 import com.theshine.android.lites.ui.view.login.LoginViewModel
+import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.KeepStateNavigator
 
@@ -46,6 +47,10 @@ class InfoActivity: BaseVmActivity<ActivityInfoBinding>(
                 Log.d("initProfileList", "intent")
                 val intent = Intent()
                 setResult(RESULT_OK, intent)
+                finish()
+            }else{
+                val intent = Intent(this@InfoActivity, MainActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         })
