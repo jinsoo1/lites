@@ -20,6 +20,8 @@ import com.theshine.android.lites.databinding.FragmentHomeMainBinding
 import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.home.HomeViewModel
 import com.theshine.android.lites.ui.view.main.home.bluetooth.PERMISSIONS
+import com.theshine.android.lites.util.Event
+import com.theshine.android.lites.util.EventObserver
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
@@ -128,6 +130,19 @@ class HomeMainFragment: BaseVmFragment<FragmentHomeMainBinding>(
                 requestEnableBleResult.launch(intent)
             }
         })
+
+        activityViewModel.petData.observe(this@HomeMainFragment, EventObserver {
+            if(it){
+                getMyPetData()
+            }
+        })
+
+//        refresh.observe(this@HomeMainFragment, EventObserver {
+//            Log.d("activityViewModel1", "myPetWeightData")
+//            if(it) {
+//                activityViewModel.myPetWeightTrue(it)
+//            }
+//        })
 
 
     }

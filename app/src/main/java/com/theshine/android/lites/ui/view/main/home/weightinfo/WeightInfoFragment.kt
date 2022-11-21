@@ -27,7 +27,7 @@ class WeightInfoFragment : BaseVmFragment<FragmentWeightInfoBinding>(
         viewModel.setObserves()
 
         viewModel.setMyPetToken(activityViewModel.myPet.value)
-        binding.textView2.text = activityViewModel.myPet.value!!.name + "(이)의 체중정보가 없습니다.\n체중계를 연동해 체중정보를 저장해주세요."
+        binding.textView2.text = activityViewModel.myPet.value!!.name + "(이)의 체중정보가 없습니다.\n체중계를 연동해 체중정보를 저장해주세요.\n\n체중을 측정하지않을시 BCS가 0단계로 표기됩니다."
 
         resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result : ActivityResult ->
 
@@ -70,6 +70,13 @@ class WeightInfoFragment : BaseVmFragment<FragmentWeightInfoBinding>(
                 }
             }
         })
+//
+//        activityViewModel.myPetWeightData.observe(viewLifecycleOwner, EventObserver{
+//            if(it){
+//                Log.d("activityViewModel2", "myPetWeightData")
+//                getMyPetWeight(petToken.value)
+//            }
+//        })
 
 
     }

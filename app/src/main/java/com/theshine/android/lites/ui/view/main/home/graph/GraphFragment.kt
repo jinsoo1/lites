@@ -1,6 +1,7 @@
 package com.theshine.android.lites.ui.view.main.home.graph
 
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -50,6 +51,13 @@ class GraphFragment: BaseVmFragment<FragmentGraphBinding>(
                 }
             }
         })
+//
+//        activityViewModel.myPetWeightData.observe(viewLifecycleOwner, EventObserver{
+//            if(it){
+//                Log.d("activityViewModel3", "myPetWeightData")
+//                getWeekPetData()
+//            }
+//        })
 
     }
 

@@ -18,6 +18,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.theshine.android.lites.R
+import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseRecyclerAdapter
 import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.*
@@ -30,8 +31,12 @@ import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.myPage.MyPageNavViewModel
 import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.EventObserver
+import com.theshine.android.lites.util.MediaUtil
+import gun0912.tedbottompicker.TedRxBottomPicker
 import gun0912.tedbottompicker.util.RealPathUtil
+import io.reactivex.disposables.Disposable
 import org.checkerframework.common.returnsreceiver.qual.This
+import org.jetbrains.anko.support.v4.toast
 import org.koin.android.viewmodel.compat.SharedViewModelCompat.sharedViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 import kotlin.math.absoluteValue
@@ -53,8 +58,6 @@ class ProfileEditActivity: BaseVmActivity<ActivityProfileEditBinding>(
     private val neutralization: Int by lazy { intent.getIntExtra("neutralization", 0)}
     private val bcs: Int by lazy { intent.getIntExtra("bcs", 0)}
 
-    private lateinit var resultLauncher : ActivityResultLauncher<Intent>
-
     override fun initActivity() {
 
         binding.rvBcs.adapter = BcsListAdapter(viewModel)
@@ -74,21 +77,6 @@ class ProfileEditActivity: BaseVmActivity<ActivityProfileEditBinding>(
         viewModel.bcsString.value = bcs.toString()+"단계"
 
         viewModel.bcs.value = bcs
-
-        resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result : ActivityResult ->
-
-            if(result.resultCode == RESULT_OK){
-                Log.d("resultLauncher", result.data.toString())
-                val intent = result.data
-                val uri = intent?.data
-                Log.d("resultLauncher URI", getPath(this, uri!!)!!)
-                viewModel.isProfileImageEdited = true
-                viewModel.profileImage.value = getPath(this, uri)!!
-//                viewModel.settingUri(uri)
-//                activityViewModel.profileImg.value = getPath(this, uri)!!
-            }
-
-        }
 
 
         if (gender == 0){
@@ -187,10 +175,7 @@ class ProfileEditActivity: BaseVmActivity<ActivityProfileEditBinding>(
                 }
 
                 ProfileEditViewModel.ProfileEditActions.GALLERY ->{
-                    val intent = Intent()
-                    intent.type = "image/*"
-                    intent.action = Intent.ACTION_GET_CONTENT
-                    resultLauncher.launch(intent)
+                    startLocationPermissionRequest()
                 }
             }
             petToken.observe(this@ProfileEditActivity, Observer {
@@ -255,69 +240,42 @@ class ProfileEditActivity: BaseVmActivity<ActivityProfileEditBinding>(
         }
     }
 
+    private var singleImageDisposable: Disposable? = null
+    private var selectedUri : Uri? = null
+    val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if(isGranted){
+
+            singleImageDisposable = TedRxBottomPicker.with(this)
+                .setSelectedUri(selectedUri)
+                .setPeekHeight(1200)
+                .show()
+                .subscribe({ it ->
+                    viewModel.isProfileImageEdited = true
+                    viewModel.profileImage.value = MediaUtil.getPath(
+                    this,
+                             MediaUtil.resizeBitmapImage(it, 1280, 1280, this)!!)
+                    Log.d("testsssss", it.toString())
+                }, Throwable::printStackTrace)
 
 
-
-
-    private fun getPath(context: Context?, uri: Uri): String? {
-        // DocumentProvider
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(
-                context,
-                uri
-            )
-        ) {
-            // ExternalStorageProvider
-            if (RealPathUtil.isExternalStorageDocument(uri)) {
-                Log.d("asdasdqwe1", uri.toString())
-                val docId = DocumentsContract.getDocumentId(uri)
-                val split = docId.split(":".toRegex()).toTypedArray()
-                val type = split[0]
-                if ("primary".equals(type, ignoreCase = true)) {
-                    return Environment.getDataDirectory().toString() + "/" + split[1]
-                } else {
-                    Toast.makeText(
-                        context,
-                        "Could not get file path. Please try again",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            } else if (RealPathUtil.isDownloadsDocument(uri)) {
-                Log.d("asdasdqwe2", uri.toString())
-                val id = DocumentsContract.getDocumentId(uri)
-                val contentUri = ContentUris.withAppendedId(
-                    Uri.parse("content://downloads/public_downloads"), java.lang.Long.valueOf(id)
-                )
-                return RealPathUtil.getDataColumn(context, contentUri, null, null)
-            } else if (RealPathUtil.isMediaDocument(uri)) {
-                Log.d("asdasdqwe3", uri.toString())
-                val docId = DocumentsContract.getDocumentId(uri)
-                val split = docId.split(":".toRegex()).toTypedArray()
-                val type = split[0]
-                var contentUri: Uri? = null
-                contentUri = if ("image" == type) {
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                } else if ("video" == type) {
-                    MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-                } else if ("audio" == type) {
-                    MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-                } else {
-                    MediaStore.Files.getContentUri("external")
-                }
-                val selection = "_id=?"
-                val selectionArgs = arrayOf(
-                    split[1]
-                )
-                return RealPathUtil.getDataColumn(context, contentUri, selection, selectionArgs)
-            }
-        } else if ("content".equals(uri.scheme, ignoreCase = true)) {
-            Log.d("asdasdqwe4-1", uri.toString())
-            Log.d("asdasdqwe4", RealPathUtil.getDataColumn(context, uri, null, null))
-            return RealPathUtil.getDataColumn(context, uri, null, null)
-        } else if ("file".equals(uri.scheme, ignoreCase = true)) {
-            Log.d("asdasdqwe5", uri.path!!)
-            return uri.path
+        }else{
+            //권한 획득 거부시
+            toast("프로필 설정을 할 수 없습니다.")
         }
-        return null
+    }
+
+    // Ex. Launching ACCESS_FINE_LOCATION permission.
+    private fun startLocationPermissionRequest() {
+        requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    }
+
+    override fun onDestroy() {
+        if (singleImageDisposable != null && !singleImageDisposable?.isDisposed!!) {
+            singleImageDisposable!!.dispose();
+        }
+        super.onDestroy()
     }
 
     override fun onResume() {
