@@ -25,8 +25,7 @@ class ScaleFragment : BaseVmFragment<FragmentInfoScaleBinding>(
     override fun initFragment() {
 
         binding.btnBack.setOnClickListener{
-            val action = ScaleFragmentDirections.actionScaleFragmentToIngredientFragment()
-            findNavController().navigate(action)
+            requireActivity().onBackPressed()
         }
 
         viewModel.setObserves()

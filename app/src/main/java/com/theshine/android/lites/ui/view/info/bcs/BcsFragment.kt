@@ -33,8 +33,7 @@ class BcsFragment : BaseVmFragment<FragmentInfoBcsBinding>(
         binding.tvName.text = activityViewModel.name.value.toString()
 
         binding.btnBack.setOnClickListener{
-            val action = BcsFragmentDirections.actionBcsFragmentToVarietyFragment()
-            findNavController().navigate(action)
+            requireActivity().onBackPressed()
         }
 
 

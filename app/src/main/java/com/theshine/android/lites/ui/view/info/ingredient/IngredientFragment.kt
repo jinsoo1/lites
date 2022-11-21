@@ -28,8 +28,7 @@ class IngredientFragment : BaseVmFragment<FragmentInfoIngredientBinding>(
     override fun initFragment() {
 
         binding.btnBack.setOnClickListener{
-            val action = IngredientFragmentDirections.actionIngredientFragmentToBcsFragment()
-            findNavController().navigate(action)
+            requireActivity().onBackPressed()
         }
 
         binding.tvName.text = activityViewModel.name.value.toString()

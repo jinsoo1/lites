@@ -160,6 +160,10 @@ class ProfileEditViewModel(
 
     }
 
+    fun setOnClickXbtn(){
+        finishAction.value = Event("clickX")
+    }
+
     enum class ProfileEditActions {
        UPDATE, FEMALE, MALE, O, X, BIRTH, GALLERY
     }

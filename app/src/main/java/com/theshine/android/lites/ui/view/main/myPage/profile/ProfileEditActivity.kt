@@ -184,9 +184,14 @@ class ProfileEditActivity: BaseVmActivity<ActivityProfileEditBinding>(
         })
 
         finishAction.observe(lifecycleOwner, EventObserver{
-            val intent = Intent()
-            setResult(RESULT_OK, intent)
-            finish()
+            if(it == "finish"){
+                val intent = Intent()
+                setResult(RESULT_OK, intent)
+                finish()
+            } else{
+                finish()
+            }
+
 
         })
 

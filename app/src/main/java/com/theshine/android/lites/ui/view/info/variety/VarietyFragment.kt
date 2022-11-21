@@ -24,8 +24,7 @@ R.layout.fragment_info_variety,
     override fun initFragment() {
 
         binding.btnBack.setOnClickListener{
-            val action = VarietyFragmentDirections.actionVarietyFragmentToNameFragment()
-            findNavController().navigate(action)
+            requireActivity().onBackPressed()
         }
 
         viewModel.setObserves()

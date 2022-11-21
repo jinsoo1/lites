@@ -34,8 +34,7 @@ class NameFragment : BaseVmFragment<FragmentInfoNameBinding>(
     override fun initFragment() {
 
         binding.btnBack.setOnClickListener{
-            val action = NameFragmentDirections.actionNameFragmentToSelectFragment()
-            findNavController().navigate(action)
+            requireActivity().onBackPressed()
         }
 
         viewModel.setObserves()
