@@ -8,6 +8,7 @@ import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.data.common.model.Profile
 import com.theshine.android.lites.data.remote.source.PetDataSource
 import com.theshine.android.lites.util.Event
+import com.theshine.android.lites.util.ext.StringExt.getAmericanAge
 import io.reactivex.rxkotlin.addTo
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -51,25 +52,7 @@ class MyPageNavViewModel(
         initProfileList()
     }
 
-    /**
-     * 생년월일을 기준으로 현재 나이 계산
-     * @param unix unixtimestamp
-     */
 
-    open fun getAmericanAge(birthDate: String?): Int {
-        val now: LocalDate = LocalDate.now()
-        val parsedBirthDate: LocalDate =
-            LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        var americanAge: Int = now.minusYears(parsedBirthDate.getYear().toLong()).getYear() // (1)
-
-        // (2)
-        // 생일이 지났는지 여부를 판단하기 위해 (1)을 입력받은 생년월일의 연도에 더한다.
-        // 연도가 같아짐으로 생년월일만 판단할 수 있다!
-        if (parsedBirthDate.plusYears(americanAge.toLong()).isAfter(now)) {
-            americanAge = americanAge - 1
-        }
-        return americanAge
-    }
 
     fun initProfileList(){
         petDataSource
@@ -81,7 +64,7 @@ class MyPageNavViewModel(
                         it.name,
                         it.gender,
                         it.birth, //생년월일 데이터 yy-MM-dd
-                        getAmericanAge(it.birth).toString(), //birth2 만 나이
+                        getAmericanAge(it.birth), //birth2 만 나이
                         it.variety,
                         it.profileImg,
                         it.weight,

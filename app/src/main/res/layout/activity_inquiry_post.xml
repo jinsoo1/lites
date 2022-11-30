@@ -62,7 +62,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/font_bold"
             android:hint="제목을 입력해주세요"
-            android:text="@{vm.title}"
+            android:text="@={vm.title}"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -84,7 +84,7 @@
             android:hint="내용을 적어주세요"
             android:layout_gravity="start"
             android:gravity="start"
-            android:text="@{vm.content}"
+            android:text="@={vm.content}"
             android:textColor="@color/black"
             android:textSize="14dp" />
 

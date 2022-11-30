@@ -10,27 +10,29 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tab1"
-        android:textSize="50dp"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSharedInfoList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        bind:bindSharedInfoList="@{vm.sharedInfoList}">
+        bindSharedInfoList="@{vm.sharedInfoList}"
+        bind:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_margin="10dp"
+        bind:layout_constraintStart_toStartOf="parent"
+        bind:layout_constraintEnd_toEndOf="parent"
+        bind:layout_constraintTop_toTopOf="parent"
+        bind:layout_constraintBottom_toBottomOf="parent"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>

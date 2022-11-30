@@ -14,7 +14,7 @@
 
     </keep_state_fragment>
 
-    <fragment
+    <keep_state_fragment
         android:id="@+id/menuCommunity"
         android:name="com.theshine.android.lites.ui.view.main.community.CommunityFragment"
         android:label="CommunityFragment"

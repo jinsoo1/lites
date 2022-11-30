@@ -12,7 +12,6 @@ import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentInfoNameBinding
 import com.theshine.android.lites.ui.view.info.InfoViewModel
-import com.theshine.android.lites.ui.view.main.community.post.uritype
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.MediaUtil.Companion.getPath
 import com.theshine.android.lites.util.MediaUtil.Companion.resizeBitmapImage

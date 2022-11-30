@@ -15,8 +15,8 @@ android {
         applicationId "com.theshine.android.lites"
         minSdk 26
         targetSdk 32
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -118,6 +118,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.1' // 파이어베이스 코어
     implementation 'com.google.firebase:firebase-auth:19.1.0' // 파이어베이스 인증
     implementation 'com.firebaseui:firebase-ui-auth:4.2.1' // 파이어베이스 인증2
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
@@ -169,5 +170,6 @@ dependencies {
 
     implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
     implementation 'gun0912.ted:tedbottompicker:2.0.1'
+
 
 }

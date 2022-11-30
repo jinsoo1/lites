@@ -13,7 +13,6 @@ import com.theshine.android.lites.databinding.FragmentWeightInfoBinding
 import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.home.weightinfo.ingredient.IngredientActivity
 import com.theshine.android.lites.util.EventObserver
-import org.jetbrains.anko.support.v4.intentFor
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class WeightInfoFragment : BaseVmFragment<FragmentWeightInfoBinding>(

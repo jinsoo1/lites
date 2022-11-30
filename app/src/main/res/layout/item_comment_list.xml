@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -11,80 +12,124 @@
             name="vm"
             type="com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoViewModel" />
 
+        <import type="com.theshine.android.lites.util.ext.StringExt"/>
+        <import type="android.view.View"/>
+
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
 
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:id="@+id/ivProfile"
-                android:src="@drawable/ic_like_pressed"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> vm.getItemProfileData(item.petToken)}"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:id="@+id/ivProfile"
+                    bindProfileImage="@{item.profileImg}"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvName"
+                    android:text="@{item.userName}"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ivWriterState"
+                    android:layout_gravity="center"
+                    android:text="작성자"
+                    android:textSize="11dp"
+                    android:background="@drawable/bg_green_dcf5_radius_100dp"
+                    android:textColor="@color/green_009C"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:visibility="@{item.isWriter() ? View.VISIBLE : View.GONE}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvDate"
+                    android:text="@{StringExt.INSTANCE.showDateAsShort(item.createdAt)}"
+                    android:textSize="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"/>
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_menu_24"-->
+<!--                    android:layout_gravity="center"/>-->
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvName"
-                android:text="닉네임"
-                android:textSize="15dp"
+                android:text="@{item.comment}"
+                android:id="@+id/tvComment"
+                android:textSize="14dp"
+                android:visibility="@{item.isBlocked() ? View.GONE : View.VISIBLE}"
                 android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:layout_marginLeft="4dp"/>
-
-            <ImageView
-                android:id="@+id/ivWriterState"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                />
+                android:layout_marginTop="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvDate"
-                android:text="0000-05-05"
-                android:textSize="12dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"/>
+                android:id="@+id/btnComment"
+                android:text="@string/comment_input"
+                android:visibility="@{item.isBlocked() ? View.GONE : View.VISIBLE}"
+                android:layout_marginTop="8dp"/>
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_block"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_menu_24"
-                android:layout_gravity="center"/>
+                android:textSize="16dp"
+                android:text="차단한 유저의 댓글입니다."
+                android:layout_gravity="center_horizontal"
+                android:visibility="@{item.isBlocked() ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/grey_7d7d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/test_long"
-            android:id="@+id/tvComment"
-            android:textSize="14dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnComment"
-            android:text="@string/comment_input"
-            android:layout_marginTop="8dp"/>
-
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

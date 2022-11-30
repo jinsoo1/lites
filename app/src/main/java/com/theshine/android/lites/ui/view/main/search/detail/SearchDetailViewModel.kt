@@ -27,8 +27,12 @@ class SearchDetailViewModel : BaseViewModel(){
         _action.value = Event(SearchDetailAction.CALL)
     }
 
+    fun backPressed(){
+        _action.value = Event(SearchDetailAction.FINISH)
+    }
+
 
     enum class SearchDetailAction{
-        URL, CALL
+        URL, CALL, FINISH
     }
 }

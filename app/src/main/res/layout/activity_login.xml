@@ -141,6 +141,19 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/btn_email_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#222222"
+                    android:background="@drawable/underline_tv"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="3dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:textSize="13dp"
+                    android:text="테스트계정으로 로그인"/>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

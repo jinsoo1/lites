@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.community.region.RegionSelectViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="지역설정"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_x"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:onClick="@{() -> vm.finishAction()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layout_all"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(0)}"
+                android:background="@{vm.selectedButton == 0 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 0 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 0 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="전체지역"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(1)}"
+                android:background="@{vm.selectedButton == 1 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 1 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_seoul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 1 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="서울특별시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(2)}"
+                android:background="@{vm.selectedButton == 2 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 2 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gyeonggi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 2 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="경기도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(3)}"
+                android:background="@{vm.selectedButton == 3 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 3 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_busan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 3 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="부산광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(4)}"
+                android:background="@{vm.selectedButton == 4 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 4 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_daegu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 4 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="대구광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(5)}"
+                android:background="@{vm.selectedButton == 5 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 5 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_incheon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 5 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="인청광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(6)}"
+                android:background="@{vm.selectedButton == 6 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 6 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gwangju"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 6 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="광주광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(7)}"
+                android:background="@{vm.selectedButton == 7 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 7 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_daejeon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 7 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="대전광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(8)}"
+                android:background="@{vm.selectedButton == 8 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 8 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_ulsan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 8 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="울산광역시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(9)}"
+                android:background="@{vm.selectedButton == 9 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 9 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_sejong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 9 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="세종특별자치시"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(10)}"
+                android:background="@{vm.selectedButton == 10 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 10 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gangwon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 10 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="강원도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(11)}"
+                android:background="@{vm.selectedButton == 11 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 11 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_chungcheong1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 11 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="충청북도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(12)}"
+                android:background="@{vm.selectedButton == 12 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 12 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_chungcheong2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 12 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="충청남도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(13)}"
+                android:background="@{vm.selectedButton == 13 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 13 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jeolla1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 13 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="전라북도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(14)}"
+                android:background="@{vm.selectedButton == 14 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 14 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jeolla2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 14 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="전라남도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(15)}"
+                android:background="@{vm.selectedButton == 15 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 15 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gyeongsang1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 15 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="경상북도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(16)}"
+                android:background="@{vm.selectedButton == 16 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 16 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gyeongsang2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 16 ? @color/green_009C : @color/black}"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textSize="15dp"
+                    android:text="경상남도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_margin="5dp"
+                android:onClick="@{() -> vm.selectBtn(17)}"
+                android:background="@{vm.selectedButton == 17 ? @drawable/bg_green_stroke_1dp_radius_10dp_green : @drawable/bg_green_stroke_1dp_radius_10dp_white}"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@{vm.selectedButton == 17 ? @drawable/ic_check_cat_shape_green_selected : @drawable/ic_check_cat_shape_green_line}"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jeju"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{vm.selectedButton == 17 ? @color/green_009C : @color/black}"
+                    android:textSize="15dp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:gravity="center"
+                    android:text="제주특별자치도"
+                    android:layout_marginStart="5dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:id="@+id/layout_next"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:onClick="@{() -> vm.moveNext()}"
+            android:background="@drawable/btn_next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/complete"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font_medium"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

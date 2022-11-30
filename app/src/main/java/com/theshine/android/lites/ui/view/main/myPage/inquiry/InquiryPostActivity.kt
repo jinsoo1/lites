@@ -32,8 +32,9 @@ class InquiryPostActivity : BaseVmActivity<ActivityInquiryPostBinding>(
                         App.toast("제목 또는 내용을 입력해주세요")
 
                     }
-
                 }
+
+                InquiryPostViewModel.InquiryPostActions.FINISH -> finish()
             }
         })
     }

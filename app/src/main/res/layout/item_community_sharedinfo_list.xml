@@ -5,15 +5,24 @@
     <data>
 
         <variable
+            name="item"
+            type="com.theshine.android.lites.data.common.model.SharedInfoData" />
+
+        <variable
             name="vm"
             type="com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoListViewModel" />
+
+        <import type="android.view.View"/>
+        <import type="com.theshine.android.lites.util.ext.StringExt"/>
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:onClick="@{() -> vm.onItemClick(item)}"
+        >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,22 +40,26 @@
                 android:id="@+id/ivProfile"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/btn_google_signin_light_focus"/>
+                bindProfileImage="@{item.profileImg}"
+                />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="테스트 닉네임"
+                android:text="@{item.name}"
+                android:textColor="@color/black"
+                android:textSize="15dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="4dp" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="4dp" />
 
             <TextView
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2022-05-05"
-                android:layout_marginLeft="4dp" />
+                android:text="@{StringExt.INSTANCE.showDateAsShort(item.createdAt)}"
+                android:layout_marginEnd="4dp" />
 
         </LinearLayout>
 
@@ -67,7 +80,10 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:visibility="@{item.photo == null ? View.GONE : View.VISIBLE}"
+                    bindImage="@{item.photo}"
+                    />
 
             </androidx.cardview.widget.CardView>
 
@@ -75,9 +91,10 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="테스트 제목입니다."
+                android:text="@{item.title}"
                 android:textColor="@color/black"
                 android:textSize="15dp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:text="테스트 본문 내용입니다. 두 줄 까지 보여줍니다. 아아 하하 호호 하하 호호 테스트"
+                android:text="@{item.content}"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -106,42 +123,70 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/ic_count_like_icon_svg"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋아요"
+                android:textColor="@color/grey_8082"
                 android:textSize="11dp" />
+
+
             <TextView
                 android:id="@+id/tvLikeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="30"
+                android:text="@{Integer.toString(item.likeCount)}"
                 android:textSize="11dp"
+                android:textColor="@color/grey_8082"
                 android:layout_marginRight="10dp"/>
 
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/ic_count_comment_icon_svg"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="댓글"
+                android:textColor="@color/grey_8082"
                 android:textSize="11dp"/>
             <TextView
                 android:id="@+id/tvCommentCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="30"
+                android:textColor="@color/grey_8082"
+                android:text="@{Integer.toString(item.commentCount)}"
                 android:textSize="11dp"
                 android:layout_marginRight="10dp"/>
 
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/ic_count_view_icon_svg"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="조회수"
+                android:textColor="@color/grey_8082"
                 android:textSize="11dp"/>
             <TextView
                 android:id="@+id/tvViewCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15"
+                android:textColor="@color/grey_8082"
+                android:text="@{Integer.toString(item.visitCount)}"
                 android:textSize="11dp"/>
 
         </LinearLayout>

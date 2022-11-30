@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.theshine.android.lites.ui.view.main.myPage.setting.SettingViewModel" />
+
     </data>
 
     <LinearLayout
@@ -58,7 +62,7 @@
                 android:layout_height="1dp"
                 android:background="@color/grey_eaea"/>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -66,22 +70,32 @@
                 android:paddingRight="15dp">
 
                 <TextView
+                    android:id="@+id/lbNormalNoti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="일반 PUSH"
                     android:fontFamily="@font/font_medium"
                     android:textSize="14dp"
                     android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@={vm.isCommonAlertEnabled()}"
+                    app:switchMinWidth="30dp"
                     android:thumb="@drawable/switch_selector"
-                    app:track="@drawable/shape_switch_track_on"/>
+                    app:track="@drawable/shape_switch_track_off"
+                    app:layout_constraintTop_toTopOf="@+id/lbNormalNoti"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/lbNormalNoti"
+                    />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -89,7 +103,7 @@
                 android:background="@color/grey_eaea"/>
 
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -97,22 +111,33 @@
                 android:paddingRight="15dp">
 
                 <TextView
+                    android:id="@+id/lbMarketingNoti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="마케팅 PUSH"
                     android:fontFamily="@font/font_medium"
                     android:textSize="14dp"
                     android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@={vm.isMarketingAlertEnabled()}"
                     android:thumb="@drawable/switch_selector"
-                    app:track="@drawable/shape_switch_track_off"/>
+                    app:switchMinWidth="30dp"
+                    app:track="@drawable/shape_switch_track_off"
+                    app:layout_constraintBottom_toBottomOf="@+id/lbMarketingNoti"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lbMarketingNoti"
+                    />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"

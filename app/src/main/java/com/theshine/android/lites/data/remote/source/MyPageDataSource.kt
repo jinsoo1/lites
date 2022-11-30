@@ -1,6 +1,7 @@
 package com.theshine.android.lites.data.remote.source
 
 import com.theshine.android.lites.data.remote.api.MyPageApi
+import com.theshine.android.lites.data.remote.model.VoidResponse
 import com.theshine.android.lites.data.remote.model.response.EventResponse
 import com.theshine.android.lites.data.remote.model.response.InquiryResponse
 import com.theshine.android.lites.data.remote.model.response.NoticeResponse
@@ -14,12 +15,12 @@ import io.reactivex.schedulers.Schedulers.io
 
 class MyPageDataSource(
     private val myPageApi: MyPageApi
-){
+) {
 
     fun eventList(
         rowPerPage: Int,
         page: Int
-    ) : Single<List<EventResponse>>{
+    ): Single<List<EventResponse>> {
         return myPageApi.eventList(rowPerPage, page)
             .subscribeOn(Schedulers.io())
             .map { it.data }
@@ -28,7 +29,7 @@ class MyPageDataSource(
 
     fun getEventDetail(
         eventToken: String
-    ): Single<EventResponse>{
+    ): Single<EventResponse> {
         return myPageApi.getEventDetail(eventToken)
             .subscribeOn(Schedulers.io())
             .map { it.data }
@@ -38,20 +39,8 @@ class MyPageDataSource(
     fun noticeList(
         rowPerPage: Int,
         page: Int
-    ): Single<List<NoticeResponse>>{
+    ): Single<List<NoticeResponse>> {
         return myPageApi.noticeList(rowPerPage, page)
-            .subscribeOn(Schedulers.io())
-            .map { it.data }
-            .observeOn(AndroidSchedulers.mainThread())
-    }
-
-    fun postInquiry(
-        inquiryToken: String,
-        title : String,
-        createdAt: String,
-        content: String
-    ) :Single<InquiryResponse>{
-        return myPageApi.postInquiry(inquiryToken, title, createdAt, content)
             .subscribeOn(Schedulers.io())
             .map { it.data }
             .observeOn(AndroidSchedulers.mainThread())

@@ -1,6 +1,7 @@
 package com.theshine.android.lites.data.remote.api
 
 import com.theshine.android.lites.data.remote.model.DataResponse
+import com.theshine.android.lites.data.remote.model.VoidResponse
 import com.theshine.android.lites.data.remote.model.response.EventResponse
 import com.theshine.android.lites.data.remote.model.response.InquiryResponse
 import com.theshine.android.lites.data.remote.model.response.NoticeResponse
@@ -27,14 +28,7 @@ interface MyPageApi {
         @Query("page") page: Int
     ) : Single<DataResponse<List<NoticeResponse>>>
 
-    @POST("/inquiry")
-    @FormUrlEncoded
-    fun postInquiry(
-        @Field("inquiryToken") inquiryToken: String,
-        @Field("title") title: String,
-        @Field("createdAt") createdAt: String,
-        @Field("content") content: String,
-    ): Single<DataResponse<InquiryResponse>>
+
 
 
 }

@@ -6,13 +6,10 @@ import com.google.android.material.tabs.TabLayout
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeBinding
-import com.theshine.android.lites.ui.view.info.InfoViewModel
-import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.home.graph.GraphFragment
 import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
 import com.theshine.android.lites.ui.view.main.home.weightinfo.WeightInfoFragment
 import com.theshine.android.lites.util.FragmentUtils
-import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : BaseVmFragment<FragmentHomeBinding>(
     R.layout.fragment_home,

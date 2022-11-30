@@ -7,10 +7,6 @@
             name="vm"
             type="com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryDetailViewModel" />
 
-        <variable
-            name="item"
-            type="com.theshine.android.lites.data.common.model.InquiryList" />
-
     </data>
 
     <LinearLayout
@@ -29,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
+                android:onClick="@{() -> vm.onClickBackPressed()}"
                 android:src="@drawable/ic_arrow_back" />
 
             <TextView
@@ -60,7 +57,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:textSize="16dp"
-            android:text="@{item.title}"
+            android:text="@{vm.inquiry.title}"
             android:fontFamily="@font/font_bold"
             android:textColor="@color/black"
             android:layout_marginLeft="15dp"
@@ -75,7 +72,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
             android:fontFamily="@font/font_regular"
-            android:text="@{item.createdAt}"
+            android:text="@{vm.inquiry.createdAt}"
             android:textColor="@color/grey_8082"
             android:textSize="12dp" />
 
@@ -83,7 +80,7 @@
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.description}"
+            android:text="@{vm.inquiry.content}"
             android:fontFamily="@font/font_regular"
             android:textColor="#99000000"
             android:textSize="14dp"
@@ -128,7 +125,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="@{item.answer}"/>
+                    android:text="@{vm.inquiry.answer}"/>
 
 
             </LinearLayout>

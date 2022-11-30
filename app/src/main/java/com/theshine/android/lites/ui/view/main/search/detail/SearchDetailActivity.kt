@@ -56,9 +56,9 @@ class SearchDetailActivity : BaseVmActivity<ActivitySearchDetailBinding>(
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(viewModel.hospitalDetail.value?.place_url))
                     startActivity(intent)
                 }
-                SearchDetailViewModel.SearchDetailAction.CALL ->{
-                    startLocationPermissionRequest()
-                }
+                SearchDetailViewModel.SearchDetailAction.CALL -> startLocationPermissionRequest()
+
+                SearchDetailViewModel.SearchDetailAction.FINISH -> finish()
             }
         })
     }

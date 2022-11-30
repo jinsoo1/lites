@@ -1,14 +1,19 @@
 package com.theshine.android.lites.ui.view.main.myPage.inquiry
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseViewModel
 import com.theshine.android.lites.data.remote.source.MyPageDataSource
+import com.theshine.android.lites.data.remote.source.SettingDataSource
 import com.theshine.android.lites.ui.view.main.myPage.MyPageNavViewModel
 import com.theshine.android.lites.util.Event
+import com.theshine.android.lites.util.ext.onUI
+import io.reactivex.rxkotlin.addTo
 import java.text.SimpleDateFormat
 
 class InquiryPostViewModel(
-    private var myPageDataSource: MyPageDataSource
+    private var settingDataSource: SettingDataSource
 ): BaseViewModel() {
 
     val action: MutableLiveData<Event<InquiryPostActions>> = MutableLiveData()
@@ -29,12 +34,17 @@ class InquiryPostViewModel(
     }
 
     fun postInquiryData(){
-        myPageDataSource.postInquiry(
-            inquiryToken = inquiryToken.value!!,
-            title = title.value!!,
-            createdAt = createdAt.value!!,
-            content = content.value!!
-        )
+        settingDataSource.postInquiry(
+            title.value!!,
+            content.value!!
+            )
+            .subscribe( {
+                toast("문의사항 등록 완료")
+                action.value = Event(InquiryPostActions.FINISH)
+            },{
+                Log.d("postInquiryData E", it.toString())
+                })
+            .addTo(compositeDisposable)
     }
 
     fun curcreatedAt(){
@@ -47,7 +57,7 @@ class InquiryPostViewModel(
     }
 
     enum class InquiryPostActions{
-        POST
+        POST, FINISH
     }
 
 }

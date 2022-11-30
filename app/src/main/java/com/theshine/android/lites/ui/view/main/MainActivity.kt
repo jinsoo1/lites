@@ -1,27 +1,17 @@
 package com.theshine.android.lites.ui.view.main
 
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.kakao.sdk.common.util.Utility
 import com.theshine.android.lites.R
 import com.theshine.android.lites.base.BaseVmActivity
 import com.theshine.android.lites.databinding.ActivityMainBinding
-import com.theshine.android.lites.ui.view.info.InfoActivity
-import com.theshine.android.lites.ui.view.main.home.HomeFragment
 import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
-import com.theshine.android.lites.ui.view.main.home.main.HomeMainFragment
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.KeepStateNavigator
-import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 import java.security.MessageDigest
 

@@ -7,9 +7,7 @@ import com.google.gson.JsonParser
 import com.theshine.android.lites.BuildConfig.BASE_URL
 import com.theshine.android.lites.data.common.interceptor.ErrorInterceptor
 import com.theshine.android.lites.data.common.interceptor.HeaderInterceptor
-import com.theshine.android.lites.data.remote.api.AuthApi
-import com.theshine.android.lites.data.remote.api.MyPageApi
-import com.theshine.android.lites.data.remote.api.PetApi
+import com.theshine.android.lites.data.remote.api.*
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -69,6 +67,9 @@ val networkModule = module {
     single<AuthApi> { get<Retrofit>().create(AuthApi::class.java) }
     single<PetApi> { get<Retrofit>().create(PetApi::class.java) }
     single<MyPageApi> { get<Retrofit>().create(MyPageApi::class.java) }
+    single<FeedApi> { get<Retrofit>().create(FeedApi::class.java) }
+    single<UserApi> { get<Retrofit>().create(UserApi::class.java) }
+    single<SettingApi> { get<Retrofit>().create(SettingApi::class.java) }
 
 }
 

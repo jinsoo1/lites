@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+       <variable
+           name="vm"
+           type="com.theshine.android.lites.ui.view.activity.shared.UserSharedViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rv_shared"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 게시물"
+                android:onClick="@{() -> vm.settingFeedState(false)}"
+                android:textColor="@color/black"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@{vm.feedState ? @drawable/bg_e6e6_stroke_white_radius_50dp : @drawable/bg_yellow_fdf5_radius_50dp }"
+                android:layout_marginEnd="10dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="댓글"
+                android:textColor="@color/black"
+                android:onClick="@{() -> vm.settingFeedState(true)}"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@{vm.feedState ? @drawable/bg_yellow_fdf5_radius_50dp : @drawable/bg_e6e6_stroke_white_radius_50dp }"
+                android:layout_marginStart="10dp"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_shared"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            bindUserFeedSharedList="@{vm.myFeedData}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

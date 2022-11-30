@@ -24,6 +24,7 @@ import com.theshine.android.lites.data.remote.source.AuthDataSource
 import com.theshine.android.lites.databinding.ActivityLoginBinding
 import com.theshine.android.lites.ui.view.info.InfoActivity
 import com.theshine.android.lites.ui.view.login.terms.TermsActivity
+import com.theshine.android.lites.ui.view.login.test.TestEmailActivity
 import com.theshine.android.lites.ui.view.main.MainActivity
 import com.theshine.android.lites.util.EventObserver
 import com.theshine.android.lites.util.ext.onUI
@@ -79,6 +80,13 @@ class LoginActivity: BaseVmActivity<ActivityLoginBinding>(
             intent.putExtra("이용약관", "개인정보약관")
             startActivity(intent)
 
+        }
+
+        binding.btnEmailLogin.setOnClickListener {
+            startActivity(
+                intentFor<TestEmailActivity>()
+            )
+            finish()
         }
 
         val keyHash = Utility.getKeyHash(this)

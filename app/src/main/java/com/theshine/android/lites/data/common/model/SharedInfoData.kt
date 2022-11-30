@@ -1,15 +1,15 @@
 package com.theshine.android.lites.data.common.model
 
 data class SharedInfoData(
-    val contentsToken : String,
-    val profile : String,
-    val name : String,
-    val createdAt : String,
-    val image : String,
+    val feedToken : String,
     val title : String,
-    val contents : String,
-    val likeCounts : Int,
-    val commentCounts : Int,
-    val viewCounts : Int
+    val content : String,
+    val createdAt : String,
+    val name : String,
+    val profileImg : String?,
+    val Photo : String?,
+    val likeCount : Int,
+    val commentCount : Int,
+    val visitCount : Int
 
     )

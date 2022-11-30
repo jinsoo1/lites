@@ -56,7 +56,7 @@ abstract class BaseVmActivity<T : ViewDataBinding>(
             toolbar.setBackgroundColor(Color.WHITE)
             toolbar.contentInsetStartWithNavigation = 0
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-            supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic__back__appbar)
+            supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
     }
 

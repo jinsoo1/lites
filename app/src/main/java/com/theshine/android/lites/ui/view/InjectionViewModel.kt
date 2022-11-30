@@ -8,6 +8,7 @@ import com.theshine.android.lites.ui.view.info.scale.ScaleViewModel
 import com.theshine.android.lites.ui.view.info.select.SelectViewModel
 import com.theshine.android.lites.ui.view.info.variety.VarietyViewModel
 import com.theshine.android.lites.ui.view.login.LoginViewModel
+import com.theshine.android.lites.ui.view.login.test.TestEmailViewModel
 import com.theshine.android.lites.ui.view.main.MainViewModel
 import com.theshine.android.lites.ui.view.main.community.CommunityViewModel
 import com.theshine.android.lites.ui.view.main.community.chatter.ChatterListViewModel
@@ -15,8 +16,12 @@ import com.theshine.android.lites.ui.view.main.community.chatter.ChatterViewMode
 import com.theshine.android.lites.ui.view.main.community.feed.FeedListViewModel
 import com.theshine.android.lites.ui.view.main.community.feed.FeedViewModel
 import com.theshine.android.lites.ui.view.main.community.post.PostWriteViewModel
+import com.theshine.android.lites.ui.view.main.community.region.RegionSelectViewModel
 import com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoListViewModel
 import com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoViewModel
+import com.theshine.android.lites.ui.view.activity.ActivityUserViewModel
+import com.theshine.android.lites.ui.view.activity.chatter.UserChatterViewModel
+import com.theshine.android.lites.ui.view.activity.shared.UserSharedViewModel
 import com.theshine.android.lites.ui.view.main.home.HomeViewModel
 import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.ui.view.main.home.graph.GraphViewModel
@@ -32,6 +37,7 @@ import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModel
 import com.theshine.android.lites.ui.view.main.myPage.event.EventViewModels
 import com.theshine.android.lites.ui.view.main.myPage.info.MyPageInfoViewModel
 import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryDetailViewModel
+import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryPostViewModel
 import com.theshine.android.lites.ui.view.main.myPage.inquiry.InquiryViewModel
 import com.theshine.android.lites.ui.view.main.myPage.management.ManagementViewModel
 import com.theshine.android.lites.ui.view.main.myPage.notice.NoticeDetailViewModel
@@ -50,6 +56,7 @@ val viewModelModule = module {
     //로그인 페이지 및 초기화면페이지
     viewModel { SplashViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { TestEmailViewModel(get(), get(), get()) }
 
     //펫 정보 페이지
     viewModel { NameViewModel() }
@@ -64,17 +71,18 @@ val viewModelModule = module {
      * 메인페이지
      */
 
-    viewModel { MainViewModel() }
+    viewModel { MainViewModel(get()) }
 
     //커뮤니티
     viewModel { CommunityViewModel() }
-    viewModel { ChatterListViewModel() }
+    viewModel { RegionSelectViewModel() }
+    viewModel { ChatterListViewModel(get()) }
     viewModel { ChatterViewModel() }
-    viewModel { FeedListViewModel() }
+    viewModel { FeedListViewModel(get()) }
     viewModel { FeedViewModel() }
     viewModel { PostWriteViewModel() }
-    viewModel { SharedInfoViewModel() }
-    viewModel { SharedInfoListViewModel() }
+    viewModel { SharedInfoViewModel(get(), get()) }
+    viewModel { SharedInfoListViewModel(get()) }
 
     //홈
     viewModel { HomeViewModel() }
@@ -91,20 +99,25 @@ val viewModelModule = module {
     //마이페이지
     viewModel { EventViewModel(get()) }
     viewModel { MyPageInfoViewModel() }
-    viewModel { InquiryViewModel() }
-    viewModel { InquiryDetailViewModel() }
+    viewModel { InquiryViewModel(get()) }
+    viewModel { InquiryDetailViewModel(get()) }
+    viewModel { InquiryPostViewModel(get()) }
     viewModel { ManagementViewModel() }
     viewModel { NoticeViewModel(get()) }
     viewModel { NoticeDetailViewModel() }
-    viewModel { SettingViewModel() }
+    viewModel { SettingViewModel(get()) }
     viewModel { MyPageViewModel() }
     viewModel { MyPageNavViewModel(get()) }
     viewModel { ActivityViewModel() }
     viewModel { ActivityChatViewModel() }
     viewModel { ActivitySharedInfoViewModel() }
     viewModel { ProfileEditViewModel(get()) }
-
     viewModel { EventViewModels() }
+
+    //유저활동 페이지
+    viewModel { ActivityUserViewModel() }
+    viewModel { UserSharedViewModel(get()) }
+    viewModel { UserChatterViewModel(get()) }
 
 }
 

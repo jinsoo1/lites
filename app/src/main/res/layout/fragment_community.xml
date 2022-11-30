@@ -13,9 +13,16 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
 
         <LinearLayout
             android:id="@+id/linearLayout6"
@@ -29,22 +36,25 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic__back__appbar"
+                android:src="@drawable/ic_arrow_back"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"/>
 
             <TextView
+                android:id="@+id/btn_region"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/everything_area"
+                android:layout_height="match_parent"
+                android:text="@{vm.region}"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="@{() -> vm.setRegionAction()}"
                 android:layout_gravity="center"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/black"
                 android:textSize="15dp"/>
 
         </LinearLayout>
+<!--            android:onClick="@{() -> vm.setRegionAction()}"-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -98,56 +108,67 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/frameLayout_community"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />-->
+        <FrameLayout
+            android:id="@+id/frameLayout_community"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fabShredInfo"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
-<!--            app:fabSize="mini"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/fabPosting"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/fabPosting"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/fabPosting"-->
-<!--            app:rippleColor="@color/yellow_F9F8" />-->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabShredInfo"
+                android:layout_width="@dimen/design_fab_size_normal"
+                android:layout_height="@dimen/design_fab_size_normal"
+                app:srcCompat="@drawable/ic_btn_share_info"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                app:fabSize="normal"
+                app:tint="@null"
+                android:layout_gravity="bottom|end"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/fabPosting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/yellow_F9F8" />
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fabChatter"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
-<!--            app:fabSize="mini"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/fabPosting"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/fabPosting"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/fabPosting"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/fabPosting"-->
-<!--            app:rippleColor="@color/yellow_F9F8" />-->
-
-
-
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fabPosting"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            android:layout_marginBottom="20dp"-->
-<!--            app:rippleColor="@color/yellow_F9F8"-->
-<!--            app:fabSize="normal"-->
-<!--            android:src="@drawable/ic_baseline_mark_chat_read_24"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/frameLayout_community" />-->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabChatter"
+                android:layout_width="@dimen/design_fab_size_normal"
+                android:layout_height="@dimen/design_fab_size_normal"
+                app:srcCompat="@drawable/ic_btn_chatter_room"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                app:fabSize="normal"
+                android:backgroundTint="@android:color/transparent"
+                app:tint="@null"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/fabShredInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/yellow_F9F8" />
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabPosting"
+                android:layout_width="@dimen/design_fab_size_normal"
+                android:layout_height="@dimen/design_fab_size_normal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                app:fabSize="normal"
+                android:layout_gravity="bottom|end"
+                app:tint="@null"
+                app:srcCompat="@drawable/ic_btn_post"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </layout>

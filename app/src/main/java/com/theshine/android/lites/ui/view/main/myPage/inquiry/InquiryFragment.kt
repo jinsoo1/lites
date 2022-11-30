@@ -22,9 +22,19 @@ class InquiryFragment : BaseVmFragment<FragmentMypageInquiryBinding>(
 
     override fun initFragment() {
 
-        binding.btnBack.setOnClickListener {
-            val action = InquiryFragmentDirections.actionInquiryFragmentToMyPageFragment()
-            findNavController().navigate(action)
+        viewModel.setObserves()
+
+        binding.apply {
+
+            rvInquiryList.apply {
+                adapter = InquiryListAdapter(viewModel)
+            }
+
+            btnBack.apply {
+                setOnClickListener {
+                    requireActivity().onBackPressed()
+                }
+            }
         }
 
     }
@@ -33,7 +43,7 @@ class InquiryFragment : BaseVmFragment<FragmentMypageInquiryBinding>(
         action.observe(viewLifecycleOwner, EventObserver{
             when(it){
                 InquiryViewModel.InquiryActions.POST -> {
-                    val intent = Intent(requireContext(), InquiryDetailActivity::class.java)
+                    val intent = Intent(requireContext(), InquiryPostActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -45,8 +55,13 @@ class InquiryFragment : BaseVmFragment<FragmentMypageInquiryBinding>(
             startActivity(intent)
         })
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.initInquiryList()
+    }
 }
 
 class InquiryListAdapter(vm: InquiryViewModel) : BaseRecyclerAdapter<InquiryList, ItemInquiryListBinding>(
-    R.layout.item_inquiry_list
+    R.layout.item_inquiry_list, vm
 )

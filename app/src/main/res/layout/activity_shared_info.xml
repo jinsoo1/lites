@@ -9,9 +9,8 @@
             name="vm"
             type="com.theshine.android.lites.ui.view.main.community.sharedInfo.SharedInfoViewModel" />
 
-        <variable
-            name="item"
-            type="com.theshine.android.lites.data.common.model.SharedInfoData" />
+        <import type="com.theshine.android.lites.util.ext.StringExt"/>
+        <import type="android.view.View"/>
 
 
     </data>
@@ -20,293 +19,305 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic__back__appbar"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab1"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_marginRight="20dp"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvTitle"
-            android:text="@{item.title}"
-            android:textSize="20dp"
-            android:maxLines="2"
-            android:textColor="@color/black"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/btn_google_signin_light_focus"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvName"
-                android:text="@{item.name}"
-                android:layout_gravity="center"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvDate"
-                android:text="@{item.createdAt}"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="310dp"
-            android:layout_height="310dp"
-            app:cardCornerRadius="6dp"
-            android:elevation="0dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/ivSharedInfoPager"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/viewPager">
-
-            <ImageView
-                android:id="@+id/indicator1"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/circle_indicator_primary" />
-
-            <ImageView
-                android:id="@+id/indicator2"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/circle_indicator_grey" />
-
-            <ImageView
-                android:id="@+id/indicator3"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/circle_indicator_grey" />
-
-            <ImageView
-                android:id="@+id/indicator4"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/circle_indicator_grey" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvContents"
-            android:text="@{item.contents}"
-            android:layout_marginTop="15dp"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:paddingTop="10dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="0dp"
+                app:elevation="0dp"
+                >
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_like_pressed"
-                    android:layout_gravity="center"/>
+                    android:background="@color/white"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{vm.postState}"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:layout_marginRight="20dp"/>
+
+                    </LinearLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+
+
+            </com.google.android.material.appbar.AppBarLayout>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:overScrollMode="never">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/like"
+                        android:id="@+id/tvTitle"
+                        android:text="@{vm.detailData.title}"
+                        android:textSize="20dp"
+                        android:maxLines="2"
                         android:textColor="@color/black"
-                        android:textSize="11dp"/>
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"/>
 
-                    <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:onClick="@{() -> vm.getProfileData()}"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            bindProfileImage="@{vm.detailData.profileImg}"
+                            android:src="@drawable/btn_google_signin_light_focus"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvName"
+                            android:text="@{vm.detailData.name}"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvDate"
+                            android:text="@{StringExt.INSTANCE.showDateAsShort(vm.detailData.createdAt)}"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="330dp"
+                        app:cardCornerRadius="6dp"
+                        android:elevation="0dp"
+                        android:visibility="@{vm.detailData.photo.size() == 0 ? View.GONE : View.VISIBLE}"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/ivSharedInfoPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            bindFeedImageListToPager="@{vm.detailData.photo}"
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                        android:id="@+id/indicator_vp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{item.likeCounts}"
-                        android:layout_marginLeft="3dp"
-                        android:textColor="@color/green_009C"
-                        android:textSize="11dp"/>
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        app:dampingRatio="0.5"
+                        app:dotsCornerRadius="20dp"
+                        app:dotsSize="10dp"
+                        app:dotsSpacing="6dp"
+                        app:dotsStrokeWidth="1dp"
+                        app:stiffness="300"
+                        app:selectedDotColor="@color/green_97DE"
+                        app:dotsColor="@color/grey_e6e6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/viewPager"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvContents"
+                        android:text="@{vm.detailData.content}"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_white_radius_50dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:elevation="1dp"
+                            android:gravity="center"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:src="@drawable/ic_post_like_line"
+                                    android:layout_gravity="center"/>
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{Integer.toString(vm.detailData.likeCount)}"
+                                    android:textColor="@color/green_009C"
+                                    android:textSize="11dp"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_white_radius_50dp"
+                            android:elevation="1dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_post_comment"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{Integer.toString(vm.detailData.commentCount)}"
+                                    android:layout_marginEnd="3dp"
+                                    android:textColor="@color/green_009C"
+                                    android:textSize="11dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_eaea"
+                        android:layout_marginTop="15dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvComments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:bindSharedInfo="@{vm.commentList}"/>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="15dp">
+                android:layout_gravity="bottom"
+                android:background="@color/white">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_like_pressed"
-                    android:layout_gravity="center"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_eaea"
+                    />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/containerCommentBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/etComment"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comment"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_square_f9f8_radius_6dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:paddingStart="10dp"
+                        android:hint="댓글을 입력해주세요"
+                        android:textSize="14dp"
+                        android:text="@={vm.comment}"
                         android:textColor="@color/black"
-                        android:textSize="11dp"/>
+                        android:layout_weight="1"/>
 
                     <TextView
+                        android:id="@+id/btnSend"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{item.commentCounts}"
-                        android:layout_marginLeft="3dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/comment_input"
                         android:textColor="@color/green_009C"
-                        android:textSize="11dp"/>
+                        android:textSize="12dp"
+                        android:gravity="center"
+                        android:onClick="@{() -> vm.postComment()}"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="10dp"/>
 
                 </LinearLayout>
 
             </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey_eaea"
-            android:layout_marginTop="15dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvComments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            bind:bindSharedInfo="@{vm.commentList}"/>
-
-    </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:background="@color/white">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey_eaea"
-                android:layout_marginTop="15dp"/>
-
-        <LinearLayout
-            android:id="@+id/containerCommentBox"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/etComment"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:background="@drawable/bg_square_f9f8_radius_6dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
-                android:hint="댓글을 입력해주세요"
-                android:textSize="14dp"
-                android:textColor="@color/black"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/btnSend"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/comment_input"
-                android:textColor="@color/green_009C"
-                android:textSize="12dp"
-                android:gravity="center"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-
-        </LinearLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

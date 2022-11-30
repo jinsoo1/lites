@@ -11,6 +11,8 @@
             name="item"
             type="com.theshine.android.lites.data.common.model.InquiryList" />
 
+        <import type="com.theshine.android.lites.util.ext.StringExt"/>
+
     </data>
 
     <LinearLayout
@@ -61,7 +63,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0000-00-00"
+                android:text="@{StringExt.INSTANCE.showDateAsShort(item.createdAt)}"
                 android:fontFamily="@font/font_regular"
                 android:textSize="12dp"
                 android:textColor="@color/grey_8082"
@@ -93,7 +95,7 @@
                 android:fontFamily="@font/font_medium"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:text="@{item.description}"/>
+                android:text="@{item.answer}"/>
 
         </LinearLayout>
 

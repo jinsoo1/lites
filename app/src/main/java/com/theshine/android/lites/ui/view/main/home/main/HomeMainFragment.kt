@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.Settings
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,9 +17,7 @@ import com.theshine.android.lites.base.App.Companion.toast
 import com.theshine.android.lites.base.BaseVmFragment
 import com.theshine.android.lites.databinding.FragmentHomeMainBinding
 import com.theshine.android.lites.ui.view.main.MainViewModel
-import com.theshine.android.lites.ui.view.main.home.HomeViewModel
 import com.theshine.android.lites.ui.view.main.home.bluetooth.PERMISSIONS
-import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.EventObserver
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
