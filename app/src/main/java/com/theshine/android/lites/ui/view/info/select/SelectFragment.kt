@@ -35,14 +35,14 @@ class SelectFragment : BaseVmFragment<FragmentInfoSelectBinding>(
                 }
                 SelectViewModel.SelectActions.DOG -> {
                     activityViewModel.type.value = "강아지"
-                    binding.ivDog.setImageResource(R.drawable.bg_green_40c5_radius_50dp)
-                    binding.ivCat.setImageResource(R.drawable.bg_oval_d9d9)
+                    binding.ivDog.setBackgroundResource(R.drawable.bg_oval_green)
+                    binding.ivCat.setBackgroundResource(R.drawable.bg_oval_d9d9)
                 }
 
                 SelectViewModel.SelectActions.CAT -> {
                     activityViewModel.type.value = "고양이"
-                    binding.ivCat.setImageResource(R.drawable.bg_green_40c5_radius_50dp)
-                    binding.ivDog.setImageResource(R.drawable.bg_oval_d9d9)
+                    binding.ivCat.setBackgroundResource(R.drawable.bg_oval_green)
+                    binding.ivDog.setBackgroundResource(R.drawable.bg_oval_d9d9)
                 }
             }
         })

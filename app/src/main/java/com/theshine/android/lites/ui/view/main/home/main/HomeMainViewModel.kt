@@ -17,6 +17,8 @@ import com.theshine.android.lites.ui.view.main.home.bluetooth.BleRepository
 import com.theshine.android.lites.util.Event
 import com.theshine.android.lites.util.MediaUtil
 import io.reactivex.rxkotlin.addTo
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.ArrayList
 
 class HomeMainViewModel(
@@ -64,8 +66,14 @@ class HomeMainViewModel(
     private val _myPet : MutableLiveData<PetData> = MutableLiveData()
     val myPet : LiveData<PetData> get() = _myPet
 
+    private val _getDate : MutableLiveData<String> = MutableLiveData()
+    val getDate : LiveData<String> get() = _getDate
+
     init {
         getMyPetData()
+
+        val nowDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+        _getDate.value = nowDate.format(nowDate)
     }
 
     fun getMyPetData(){

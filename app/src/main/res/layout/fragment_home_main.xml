@@ -191,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/green_61C9"
                     android:textSize="14dp"
-                    android:text="2022.9.5"
+                    android:text="@{vm.getDate}"
                     android:gravity="center"
                     android:layout_marginTop="15dp"
                     app:layout_constraintStart_toStartOf="parent"

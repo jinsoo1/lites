@@ -111,6 +111,8 @@ class ProfileBottomDialog(val vm : SharedInfoViewModel, val mContext : Context, 
             Glide.with(mContext)
                 .load(it)
                 .circleCrop()
+                .placeholder(R.drawable.illust_dog)
+                .error(R.drawable.illust_dog)
                 .into(binding.ivProfile)
         }
 
