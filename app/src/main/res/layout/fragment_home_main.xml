@@ -20,6 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/ic_back_scales"
             android:orientation="vertical">
 
 
@@ -28,13 +29,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/ic_back_scales"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/layout_middle"
                 >
 
                 <LinearLayout
+                    android:id="@+id/layout_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -141,12 +143,16 @@
 
                 <ImageView
                     android:id="@+id/ivProfile"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_vertical"
                     bindProfileImage="@{vm.myPet.profileImg}"
+                    android:background="@drawable/ic_mainprofile_image_circle"
+                    android:padding="5dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_profile"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -155,10 +161,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_middle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:layout_marginTop="-20dp"
                 android:background="@drawable/top_sheet_radius_30dp"
                 app:layout_constraintTop_toBottomOf="@+id/layout_head"
                 app:layout_constraintStart_toStartOf="parent"
@@ -190,7 +196,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/green_61C9"
-                    android:textSize="14dp"
+                    android:textSize="17dp"
                     android:text="@{vm.getDate}"
                     android:gravity="center"
                     android:layout_marginTop="15dp"
@@ -217,7 +223,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{vm.weight}"
-                        android:textSize="30dp"
+                        android:textSize="50dp"
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -229,6 +236,7 @@
                         android:layout_height="wrap_content"
                         android:text="kg"
                         android:textSize="20dp"
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:layout_marginRight="15dp"
                         />
@@ -254,11 +262,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                         >
                         <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:src="@drawable/ic_icon_circle_arrow"
                             android:layout_gravity="center_vertical"
                             />
@@ -267,8 +276,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="영점 조절"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="10dp"
                             android:textColor="@color/grey_8082"
                             android:gravity="center"
                             android:layout_gravity="center"
@@ -323,6 +332,7 @@
             android:orientation="vertical"
             android:layout_gravity="bottom"
             app:behavior_hideable="true"
+            android:visibility="gone"
             app:layout_behavior="@string/bottom_sheet_behavior"
             >
 

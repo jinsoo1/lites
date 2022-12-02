@@ -72,7 +72,7 @@ class HomeMainViewModel(
     init {
         getMyPetData()
 
-        val nowDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+        val nowDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd  a h:mm"));
         _getDate.value = nowDate.format(nowDate)
     }
 
